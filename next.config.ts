@@ -5,13 +5,8 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export",
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**', 
-      },
-    ],
-  },
+    unoptimized: true
+  }
 };
 
 module.exports = nextConfig;

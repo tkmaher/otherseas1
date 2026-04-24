@@ -2,7 +2,7 @@
 
 import { CardType, ItemType } from "@/types";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Key, useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, MotionValue, animate, motion, useMotionValue, useSpring } from "motion/react";
 import { colors } from "@/types"
 import { useLenis } from "lenis/react";
@@ -47,7 +47,7 @@ function Card({ card, zIndex, onX, handleClick, lagY, isTop }: {
         <motion.div
             className="card"
             initial={{ top: "-50dvh", rotate: -angle, translateX: offset.x, translateY: offset.y }}
-            animate={{ top: loaded ? "22dvh" : 0, rotate: loaded ? angle : 0, translateX: offset.x, translateY: offset.y }}
+            animate={{ top: loaded ? "22dvh" : "-50dvh", rotate: loaded ? angle : -angle, translateX: offset.x, translateY: offset.y }}
             exit={{ top: "140dvh", rotate: -angle }}
             style={{ zIndex, marginRight: x, y: lagY }}  
             transition={{ type: "spring", stiffness: 120, damping: 18 }}
@@ -111,7 +111,7 @@ function ItemStack({ cards, stackOrder, onShift }: {
 
         busy.current = false;
     };
-
+    
     return (
         <div className="content-right">
             <AnimatePresence>
@@ -234,6 +234,8 @@ export default function Main({ data }: { data: ItemType[] }) {
             return [dir, ...s.filter(x => x !== dir)];
         });
     }, []);
+
+
 
     const onToggle = useCallback((add: boolean, card: CardType | null) => {
         if (!card) return;
