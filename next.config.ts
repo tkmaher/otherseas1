@@ -3,10 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
-  output: "export"
-};
-
-module.exports = {
+  output: "export",
   images: {
     remotePatterns: [
       {
@@ -15,6 +12,8 @@ module.exports = {
       },
     ],
   },
-}
+};
+
+module.exports = nextConfig;
 
 export default nextConfig;
