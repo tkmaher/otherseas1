@@ -1,0 +1,325 @@
+[
+    {
+        "title": "arena flow",
+        "date": "202604",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45542423/original_fa3d4f20aa4df21a9e5554f0fd892f0c.png?1776966333?bc=0",
+            "color": ""
+        },
+        "link": "https://arena-flow.org/",
+        "tags": [ "Web", "Programming", "UI/UX"],
+        "category": "CV"
+    },
+    {
+        "title": "Health+Recreation",
+        "date": "202604",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45542452/original_d6ee3475abaff28d959a6e750225cd43.png?1776966430?bc=0",
+            "color": ""
+        },
+        "link": "https://health-and-recreation.com/",
+        "tags": [ "Studio" ],
+        "category": "CV"
+    },
+    {
+        "title": "Siris",
+        "date": "202509",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45542225/original_0dd132accacd9f79dff70be1d4ca1675.png?1776965769?bc=0",
+            "color": ""
+        },
+        "link": "https://vimeo.com/1117929744",
+        "tags": [ "Video" ],
+        "category": "CV"
+    },
+
+    {
+        "title": "Games",
+        "date": "",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/29416565/original_a397037211b53d4c9fe0d67e087895a4.gif?1721010499?bc=0",
+            "color": ""
+        },
+        "link": "https://the-natural-world.itch.io/",
+        "tags": [ ],
+        "category": "Appendix"
+    },
+
+    {
+        "title": "view-3.com",
+        "client": "for View 3",
+        "date": "202602",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45547554/original_322a2fbd2935a571e727ea71bdb774d1.png?1776979177?bc=0",
+            "color": ""
+        },
+        "link": "https://view-3.com",
+        "tags": [ "Web", "Sound" ],
+        "category": "CV"
+    },
+
+    {
+        "title": "reduxrad.io",
+        "client": "for Redux Radio",
+        "date": "202503",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45542079/original_f765abb7c5760deda39b8fa1bbb6e3c5.png?1776965362?bc=0",
+            "color": ""
+        },
+        "link": "https://reduxrad.io",
+        "tags": [ "Sound", "Programming", "Web" ],
+        "category": "CV"
+    },
+
+    {
+        "title": "blippp.org",
+        "client": "for blip",
+        "date": "202512",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45542545/original_c670017bf1f98480fb78766e9a377977.png?1776966782?bc=0",
+            "color": ""
+        },
+        "link": "https://blippp.org",
+        "tags": [ "Sound", "UI/UX", "Web" ],
+        "category": "CV"
+    },
+    {
+        "title": "Everything",
+        "client": "for Redux Radio",
+        "clientLink": "https://reduxrad.io",
+        "date": "202508",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45542080/original_f9f819c1e3f01818d1b76ddaaa82f1e0.png?1776965362?bc=0",
+            "color": ""
+        },
+        "link": "https://www.youtube.com/watch?v=jUIKmnem-7Y",
+        "tags": [ "Sound", "Video" ],
+        "category": "CV"
+    },
+    {
+        "title": "Tree-notation 1",
+        "date": "202212",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45546120/original_d8894a92ae4ad60fccb38f6e15e28eb4.png?1776975268?bc=0",
+            "color": ""
+        },
+        "link": "https://www.youtube.com/watch?v=jUIKmnem-7Y",
+        "tags": [ "Sound", "Video" ],
+        "category": "CV"
+    },
+    {
+        "title": "loisirs distribués",
+        "date": "202505",
+        "client": "for Redux Radio",
+        "clientLink": "https://reduxrad.io",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45546384/original_783445c454c87097dcd9a8a27d170c91.png?1776975886?bc=0",
+            "color": ""
+        },
+        "link": "https://reduxrad.io/shows/loisirs",
+        "tags": [ "Sound" ],
+        "category": "CV"
+    },
+    {
+        "title": "Folded Mirrors",
+        "date": "202409",
+        "client": "for MEMCO",
+        "card": {
+            "type": "iframe",
+            "src": "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/track=1291105860/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/track/folded-mirrors'>Folded Mirrors by otherseas</a></iframe>",
+            "color": ""
+        },
+        "link": "https://otherseas.bandcamp.com/track/folded-mirrors",
+        "tags": [ "Sound", "Performance" ],
+        "category": "Music"
+    },
+    {
+        "title": "Paper",
+        "date": "202602",
+        "client": "for View 3",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45549582/original_3141be5d68796c5670b55ac8148f4aa2.jpeg?1776986042?bc=0",
+            "color": ""
+        },
+        "link": "https://view3.bandcamp.com/album/paper",
+        "tags": [ "Sound" ],
+        "category": "Music"
+    },
+    {
+        "title": "Goodbye Seas",
+        "date": "202510",
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/45549581/original_877ddb4ca97b9f31f9f1530b59c45b39.jpeg?1776986042?bc=0",
+            "color": ""
+        },
+        "link": "https://otherseas.bandcamp.com/album/goodbye-seas",
+        "tags": [ "Sound" ],
+        "category": "Music"
+    },
+    {
+        "title": "Travel",
+        "date": "202408",
+        "card": {
+            "type": "iframe",
+            "src": "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/album=1057144630/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/album/travel'>Travel by otherseas</a></iframe>",
+            "color": ""
+        },
+        "link": "https://otherseas.bandcamp.com/album/travel",
+        "tags": [ "Sound" ],
+        "category": "Music"
+    },
+    {
+        "title": "Technical Design Intern",
+        "date": "202305",
+        "client": "Visteon LLC",
+        "clientLink": "https://www.visteon.com/overview/default.aspx",
+        "tags": [ "UI/UX" ],
+        "category": "CV"
+    },
+    {
+        "title": "B.S. Computer Science",
+        "client": "The University of Michigan",
+        "date": "202505",
+        "category": "Education"
+    },
+    {
+        "title": "Distributed search engine",
+        "client": "Thesis project",
+        "link": "https://github.com/SearchEngineDesign/SearchEngine",
+        "date": "202505",
+        "category": "CV",
+        "tags": [ "Programming" ]
+    },
+    {
+        "title": "Mud story",
+        "client": "for View 3",
+        "link": "https://www.are.na/block/45549422",
+        "date": "202603",
+        "category": "Writing",
+        "tags": [ "Text", "Publication" ],
+        "card": {
+            "type": "iframe",
+            "src": "<iframe src='https://www.are.na/block/45549422'/>",
+            "color": ""
+        }
+    },
+    {
+        "title": "The Men Who Carefully Weave Dreams",
+        "link": "https://www.are.na/block/45549475",
+        "date": "202510",
+        "category": "Writing",
+        "tags": [ "Text", "Publication" ],
+        "card": {
+            "type": "iframe",
+            "src": "<iframe src='https://www.are.na/block/45549475'/>",
+            "color": ""
+        }
+    },
+    {
+        "title": "Castle story",
+        "link": "https://www.are.na/block/45549484",
+        "date": "202409",
+        "category": "Writing",
+        "tags": [ "Text" ],
+        "card": {
+            "type": "iframe",
+            "src": "<iframe src='https://www.are.na/block/45549484'/>",
+            "color": ""
+        }
+    },
+    {
+        "title": "Insect poem",
+        "link": "https://www.are.na/block/45549502",
+        "date": "202506",
+        "category": "Writing",
+        "tags": [ "Text" ],
+        "card": {
+            "type": "iframe",
+            "src": "<iframe src='https://www.are.na/block/45549502'/>",
+            "color": ""
+        }
+    },
+    {
+        "title": "Law poem",
+        "link": "https://www.are.na/block/45549535",
+        "date": "202505",
+        "category": "Writing",
+        "tags": [ "Text" ],
+        "card": {
+            "type": "iframe",
+            "src": "<iframe src='https://www.are.na/block/45549535'/>",
+            "color": ""
+        }
+    },
+    {
+        "title": "Green poem",
+        "link": "https://www.are.na/block/45549539",
+        "date": "202504",
+        "category": "Writing",
+        "tags": [ "Text" ],
+        "card": {
+            "type": "iframe",
+            "src": "<iframe src='https://www.are.na/block/45549539'/>",
+            "color": ""
+        }
+    },
+    {
+        "title": "Drawings",
+        "link": "https://www.are.na/other-seas/core-df4lej06sx4",
+        "date": "",
+        "category": "Appendix",
+        "tags": [ ],
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/36255444/original_152a71f15f6ad2d0c3d041093442c8c7.png?1745609092?bc=0",
+            "color": ""
+        }
+    },
+    {
+        "title": "Other",
+        "link": "https://www.are.na/other-seas/nothigns",
+        "date": "",
+        "category": "Appendix",
+        "tags": [ ],
+        "card": {
+            "type": "image",
+            "src": "https://d2w9rnfcy7mm78.cloudfront.net/31691043/original_bc933d675d861e1c5293f20f4ce51c25.png?1729808475?bc=0",
+            "color": ""
+        }
+    },
+    {
+        "title": "os@otherseas1.com",
+        "link": "mailto:os@otherseas1.com",
+        "date": "",
+        "category": "Links",
+        "tags": [ ]
+    },
+    {
+        "title": "GitHub",
+        "link": "https://github.com/tkmaher?tab=repositories",
+        "date": "",
+        "category": "Links",
+        "tags": [ ]
+    },
+    {
+        "title": "Instagram",
+        "link": "https://www.instagram.com/otherseas1/",
+        "date": "",
+        "category": "Links",
+        "tags": [ ]
+    }
+
+    
+]
