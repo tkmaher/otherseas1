@@ -198,7 +198,7 @@ function Table({ data, title, onToggle }: {
                 <col style={{ width: "40%" }} />
             </colgroup>
             <tbody>
-                <tr className="row"><td>{title}</td></tr>
+                <tr className="row"><td>{title}</td><td/><td/></tr>
                 {data.map((item, i) =>
                     <ListItem 
                         item={item} 
