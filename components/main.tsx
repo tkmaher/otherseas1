@@ -221,8 +221,6 @@ export default function Main({ data }: { data: ItemType[] }) {
     
     Object.values(categorized).forEach(arr => arr.sort((a, b) => b.date.localeCompare(a.date)));
 
-    // cardList: the set of cards present (order here is irrelevant).
-    // stackOrder: card src values ordered top-to-bottom. index 0 = currently visible top.
     const [cardList, setCardList] = useState<CardType[]>([]);
     const [stackOrder, setStackOrder] = useState<string[]>([]);
 
@@ -234,8 +232,6 @@ export default function Main({ data }: { data: ItemType[] }) {
             return [dir, ...s.filter(x => x !== dir)];
         });
     }, []);
-
-
 
     const onToggle = useCallback((add: boolean, card: CardType | null) => {
         if (!card) return;

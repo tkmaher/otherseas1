@@ -204,16 +204,16 @@ img {
 
   .content-right .card {
     left: 50%;
-    width: 30dvh;
-    height: 30dvh;
+    width: 30vh;
+    height: 30vh;
     .container {
       left: auto;
       right: auto;
-      max-width: 30dvh;
-      max-height: 30dvh;
+      max-width: 30vh;
+      max-height: 30vh;
       &:has(iframe) {
-        width: 30dvh;
-        height: 30dvh;
+        width: 30vh;
+        height: 30vh;
       }
     }
   }
