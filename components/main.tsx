@@ -249,7 +249,7 @@ export default function Main({ data }: { data: ItemType[] }) {
     return (
         <>
             <div className="content-left" style={{backgroundColor: chosen}}>
-                <div className="header"><b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago, Illinois. His research concerns history, noise, and signification. His studio is located at <a href="https://health-and-recreation.com">health-and-recreation.com</a>.</div>
+                <div className="header"><b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago, Illinois. His research concerns history, noise, and signification. His studio is located at <a href="https://health-and-recreation.com" target="_blank">health-and-recreation.com</a>.</div>
                 <div className="table-scroll">
                     <ItemStack cards={cardList} stackOrder={stackOrder} onShift={onShift} />
                     {categorized["CV"] && <Table data={categorized["CV"]} title="CV" onToggle={onToggle} />}
