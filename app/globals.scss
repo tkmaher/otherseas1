@@ -157,8 +157,8 @@ a {
 input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
-  width: 0.8dvw;
-  height: 0.8dvw;
+  width: 0.8em;
+  height: 0.8em;
   border: 0.1em solid var(--foreground);
   background-color: var(--background);
   cursor: pointer;
@@ -190,4 +190,31 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+}
+
+@media (max-width: 768px) {
+  #list {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .content-right .selector {
+    right: 50% !important;
+  }
+
+  .content-right .card {
+    left: 50%;
+    width: 30dvh;
+    height: 30dvh;
+    .container {
+      left: auto;
+      right: auto;
+      max-width: 30dvh;
+      max-height: 30dvh;
+      &:has(iframe) {
+        width: 30dvh;
+        height: 30dvh;
+      }
+    }
+  }
 }
