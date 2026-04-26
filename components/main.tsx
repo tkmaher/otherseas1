@@ -246,23 +246,20 @@ export default function Main({ data }: { data: ItemType[] }) {
 
     const [chosen, setChosen] = useState("#ffffff");
 
+    const order = ["CV", "Education", "Music", "Writing", "Links", "Appendix"];
+
     return (
         <>
             <div className="content-left" style={{backgroundColor: chosen}}>
                 <div className="header"><b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago, Illinois. His research concerns history, noise, and signification. His studio is located at <a href="https://health-and-recreation.com" target="_blank">health-and-recreation.com</a>.</div>
                 <div className="table-scroll">
                     <ItemStack cards={cardList} stackOrder={stackOrder} onShift={onShift} />
-                    {categorized["CV"] && <Table data={categorized["CV"]} title="CV" onToggle={onToggle} />}
-                    <br/>
-                    {categorized["Education"] && <Table data={categorized["Education"]} title="Education" onToggle={onToggle} />}
-                    <br/>
-                    {categorized["Music"] && <Table data={categorized["Music"]} title="Music" onToggle={onToggle} />}
-                    <br/>
-                    {categorized["Writing"] && <Table data={categorized["Writing"]} title="Writing" onToggle={onToggle} />}
-                    <br/>
-                    {categorized["Links"] && <Table data={categorized["Links"]} title="Links" onToggle={onToggle} />}
-                    <br/>
-                    {categorized["Appendix"] && <Table data={categorized["Appendix"]} title="Appendix" onToggle={onToggle} />}
+                    {order.map((name) => 
+                        <div key={name}>
+                            {categorized[name] && <Table data={categorized[name]} title={name} onToggle={onToggle} />}
+                            <br/>
+                        </div>
+                    )}
                 </div>
                 
             </div>
