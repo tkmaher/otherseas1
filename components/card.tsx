@@ -4,13 +4,14 @@ import { MotionValue, motion, useMotionValue } from "motion/react";
 import { CardType } from "@/types";
 import Image from "next/image";
 
-export function Card({ card, zIndex, onX, handleClick, lagY, isTop, center }: {
+export function Card({ card, zIndex, onX, handleClick, lagY, isTop, isSelected, center }: {
     card: CardType;
     zIndex: number;
     onX: (x: MotionValue<number>) => void;
     handleClick: (src: string) => void;
     lagY: MotionValue<number>;  
     isTop: boolean; 
+    isSelected: boolean;
     center?: boolean;
 }) {
     const [angle, setAngle] = useState(() => Math.floor(Math.random() * 10 - 5));
