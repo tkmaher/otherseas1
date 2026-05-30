@@ -93,7 +93,7 @@ a {
       object-fit: contain;
       transform-origin: center;
       left: 15dvw;
-      top: 15dvw;
+      top: 25dvh;
       transform: translate(-50%, -50%);
       pointer-events: all;
       cursor: pointer;
@@ -115,6 +115,23 @@ a {
       iframe {
         pointer-events: all;
       }
+    }
+  }
+
+  .center {
+    translate: -50% -50% !important;
+    left: 50% !important;
+    width: 70dvh;
+    height: 70dvh;
+    .container {
+      max-width: 70dvh;
+      max-height: 70dvh;
+      left: 50%;
+      right: 0;
+      top: 50%;
+    }
+    @media (max-width: 768px) {
+      translate: 0% -50% !important;
     }
   }
 
@@ -167,6 +184,10 @@ input[type="checkbox"] {
   align-self: center;
   margin: 0;
   margin-right: 1em;
+}
+
+.highlight {
+  background-color: rgba(0, 0, 0, 0.265);
 }
 
 @media (hover: hover) {
