@@ -1,18 +1,15 @@
-export interface CardType {
-    type: string,
-    src: string,
-    color: string,
-}
-
 export interface ItemType {
     title: string,
     date: string,
-    card?: CardType,
+    description: string,
     link?: string,
     tags?: string[],
     category: string,
     client?: string,
     clientLink?: string,
+    color: string,
+    type: "iframe" | "image",
+    src: string[]
 }
 
 export const colors: string[] = [

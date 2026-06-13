@@ -1,13 +1,10 @@
-import { ItemType, CardType } from "@/types";
+import { ItemType } from "@/types";
 import { ListItem } from "./listItem";
-import { useSelectedCards } from "@/contexts/selectedCardsContext";
 
-export function Table({ data, title, onToggle }: {
+export function Table({ data, title }: {
     data: ItemType[];
     title: string;
-    onToggle: (add: boolean, card: CardType | null) => void;
 }) {
-    const { selectedSrcs } = useSelectedCards();
     return (
         <table id="list">
             <colgroup>
@@ -21,8 +18,6 @@ export function Table({ data, title, onToggle }: {
                     <ListItem 
                         item={item} 
                         key={i} 
-                        onToggle={add => onToggle(add, item.card ?? null)} 
-                        highlight={item.card?.src ? selectedSrcs.has(item.card.src) : false}
                     />
                 )}
             </tbody>
