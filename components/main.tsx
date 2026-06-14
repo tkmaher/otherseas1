@@ -5,9 +5,9 @@ import { useState } from "react";
 import { colors } from "@/types"
 import { Table } from "./table";
 import { AnimatePresence, motion } from "motion/react";
-import { ReactLenis } from 'lenis/react'
 
-function MainInner({ data }: { data: ItemType[] }) {
+
+export default function Main({ data }: { data: ItemType[] }) {
 
     const categorized = data.reduce<Record<string, ItemType[]>>((acc, item, i) => {
         item.color = colors[i % colors.length];
@@ -24,17 +24,15 @@ function MainInner({ data }: { data: ItemType[] }) {
 
     return (
         <AnimatePresence mode="wait">
-        
-            <ReactLenis root>
-                <motion.div
-                    key="table"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    style={{ width: "100%", height: "100%" }}
-                >
-                    <div className="content-left" style={{ backgroundColor: chosen }}>
+            <motion.div
+                key="table"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                style={{ width: "100%", height: "100%" }}
+            >
+                <div className="content-left" style={{ backgroundColor: chosen }}>
                         <div className="header">
                             <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
                             Illinois. His research concerns history, noise, and signification. His studio is
@@ -67,14 +65,7 @@ function MainInner({ data }: { data: ItemType[] }) {
                             />
                         )}
                     </div>
-                </motion.div>
-            </ReactLenis>
+            </motion.div>
         </AnimatePresence>
-    );
-}
-
-export default function Main({ data }: { data: ItemType[] }) {
-    return (
-        <MainInner data={data} />
     );
 }

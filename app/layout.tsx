@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Host_Grotesk } from 'next/font/google';
+import { ReactLenis } from 'lenis/react';
+
 import "./globals.scss";
 
 export const metadata: Metadata = {
@@ -20,7 +22,9 @@ export default function RootLayout({
   return (
     <html className={host_grotesk.className}>
       <body>
-        {children}
+        <ReactLenis root>
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );
