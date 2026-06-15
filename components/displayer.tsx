@@ -50,7 +50,7 @@ function MosaicImage({
 
     return (
         (currImage == '' || currImage == src) ?
-            <div style={{ ...style, position: "relative" }} className="mosiac-image">
+            <div style={{ ...style, position: "relative" }} className={type == "iframe" ? undefined : "mosiac-image"}>
                 {type == "image" ? 
                     <Image
                         src={src}
@@ -112,22 +112,15 @@ export default function Displayer({
 
     useEffect(() => {
         const keyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                setImage('');
-            }
-            if (e.key === 'ArrowLeft') {
-                nav('prev');
-            }
-            if (e.key === 'ArrowRight') {
-                nav('next');
-            }
+            if (!srcs.includes(currImage)) return; 
+    
+            if (e.key === 'Escape') setImage('');
+            if (e.key === 'ArrowLeft') nav('prev');
+            if (e.key === 'ArrowRight') nav('next');
         };
-
+    
         window.addEventListener('keydown', keyDown);
-
-        return () => {
-            window.removeEventListener('keydown', keyDown);
-        };
+        return () => window.removeEventListener('keydown', keyDown);
     }, [currImage, srcs]);
 
     return (

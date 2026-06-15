@@ -37,10 +37,9 @@ export default function Main({ data }: { data: ItemType[] }) {
                     <div className="content-left" style={{ backgroundColor: chosen }}>
                             <div className="header">
                                 <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
-                                Illinois. His research concerns history, noise, and signification. His studio is
-                                located at{" "}
+                                Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
                                 <a href="https://health-and-recreation.com" target="_blank">
-                                    health-and-recreation.com
+                                    Health+Recreation
                                 </a>.
                             </div>
                             <div className="table-scroll">

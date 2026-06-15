@@ -148,6 +148,9 @@ a {
   opacity: 1;
   transition: opacity 0.15s ease;
   padding: 5em;
+  a {
+    text-decoration: underline;
+  }
 }
 
 .body-collapsed .body-description {
@@ -330,6 +333,7 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--foreground);
+  //box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 

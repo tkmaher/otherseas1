@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html className={host_grotesk.className}>
       <body>
-        <ReactLenis root>
+        <ReactLenis root options={{lerp: 0.2}}>
           {children}
         </ReactLenis>
       </body>

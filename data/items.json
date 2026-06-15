@@ -4,14 +4,14 @@
         "date": "202606",
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/47024536/original_dc6a566c0c47d900e6a17c9a3068ad0c.png?1781460000?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/47052906/original_47af7246ec3bb3cfcdbf763eaddf7ed0.png?1781548707?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47024517/original_f4a5fc56e490a8c38afc18713812fcf9.png?1781459941?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47024494/original_35196f045cfbc1c101df4eaeaab9f7a9.png?1781459839?bc=0"
         ],
         "link": "https://ubutube.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "UbuTube is an extension of UbuWeb, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube."
+        "description": "UbuTube is an extension of <a href=`https://ubu.com` target=`_blank`>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube."
     },
     {
         "title": "arena flow",
@@ -25,29 +25,19 @@
         "link": "https://arena-flow.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "arena flow is an infinite canvas visualizer for the content aggregation website <a href=`https://are.na` target=`_blank`>are.na</a>. "
-    },
-    {
-        "title": "Health+Recreation",
-        "date": "202604",
-        "type": "image",
-        "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45542452/original_d6ee3475abaff28d959a6e750225cd43.png?1776966430?bc=0"
-        ],
-        "link": "https://health-and-recreation.com/",
-        "tags": [ "Studio" ],
-        "category": "CV"
+        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href=`https://are.na` target=`_blank`>are.na</a>. "
     },
     {
         "title": "Siris",
         "date": "202509",
-        "type": "image",
+        "type": "iframe",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45542225/original_0dd132accacd9f79dff70be1d4ca1675.png?1776965769?bc=0"
+            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/1117929744?h=f0762262cf' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
         ],
         "link": "https://vimeo.com/1117929744",
         "tags": [ "Video" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "''Siris'' is a short film based on the 1744 treatise of the same name by Irish philosopher and theologian George Berkeley. It begins with a series of reflections on the medicinal properties of tar water and gradually reveals Berkeley's unique immaterialist theory of being."
     },
 
     {
@@ -55,7 +45,9 @@
         "date": "",
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/29416565/original_a397037211b53d4c9fe0d67e087895a4.gif?1721010499?bc=0"
+            "https://img.itch.zone/aW1nLzM5MjIwNjYuZ2lm/original/QHKXOy.gif",
+            "https://d2w9rnfcy7mm78.cloudfront.net/29416565/original_a397037211b53d4c9fe0d67e087895a4.gif?1721010499?bc=0",
+            "https://img.itch.zone/aW1nLzM1NzIzNTMuZ2lm/original/7iEDUZ.gif"
         ],   
         "link": "https://the-natural-world.itch.io/",
         "tags": [ ],
@@ -69,11 +61,13 @@
         "type": "image",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/45547554/original_322a2fbd2935a571e727ea71bdb774d1.png?1776979177?bc=0",
-            "https://d2w9rnfcy7mm78.cloudfront.net/47024617/original_16919f9c7a9634b1537cf4e51ab94803.png?1781460348?bc=0"
+            "https://d2w9rnfcy7mm78.cloudfront.net/47024617/original_16919f9c7a9634b1537cf4e51ab94803.png?1781460348?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/47052961/original_8c9746600629c05a77d8ce9aec6ff7ad.png?1781548771?bc=0"
         ],
         "link": "https://view-3.com",
         "tags": [ "Web", "Sound" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "view-3.com is the website of the band View 3, which consists of <a href=`https://otherseas1.bandcamp.com` target=`_blank`>otherseas1</a> and <a href=`https://soundcloud.com/zagczagczagc` target=`_blank`>zagc</a>."
     },
 
     {
@@ -82,11 +76,14 @@
         "date": "202503",
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45542079/original_f765abb7c5760deda39b8fa1bbb6e3c5.png?1776965362?bc=0"
+            "https://d2w9rnfcy7mm78.cloudfront.net/47041699/original_827c37d39d228990bc96190f8890f757.png?1781531729?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/45542079/original_f765abb7c5760deda39b8fa1bbb6e3c5.png?1776965362?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/47041698/original_ee16e03d5135feccc171bcefc7a218ef.png?1781531728?bc=0"
         ],
         "link": "https://reduxrad.io",
         "tags": [ "Sound", "Programming", "Web" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "reduxrad.io is the online platform of the Midwestern radio station Redux Radio. Developed in collaboration with Angela Salacata and Nat Brotherton."
     },
 
     {
@@ -95,35 +92,39 @@
         "date": "202512",
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45542545/original_c670017bf1f98480fb78766e9a377977.png?1776966782?bc=0"
+            "https://d2w9rnfcy7mm78.cloudfront.net/45542545/original_c670017bf1f98480fb78766e9a377977.png?1776966782?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/47052991/original_e4be947fd6473e8e18cefade34830231.png?1781548862?bc=0"
         ],
         "link": "https://blippp.org",
         "tags": [ "Sound", "UI/UX", "Web" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "blippp.org is the website of Chicago-based event series <em>blip</em>."
     },
     {
         "title": "Everything",
         "client": "for Redux Radio",
         "clientLink": "https://reduxrad.io",
         "date": "202508",
-        "type": "image",
+        "type": "iframe",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45542080/original_f9f819c1e3f01818d1b76ddaaa82f1e0.png?1776965362?bc=0"
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/jUIKmnem-7Y?si=eD1RR3Qzm4X5d4K2'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
         ],
         "link": "https://www.youtube.com/watch?v=jUIKmnem-7Y",
         "tags": [ "Sound", "Video" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "''Everything'' is an audiovisual tool for Redux. Made with Processing."
     },
     {
-        "title": "Tree-notation 1",
+        "title": "Tree-notation I",
         "date": "202212",
-        "type": "image",
+        "type": "iframe",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45546120/original_d8894a92ae4ad60fccb38f6e15e28eb4.png?1776975268?bc=0"
+            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/983323044?h=0eb7227c66' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
         ],   
-        "link": "https://www.youtube.com/watch?v=jUIKmnem-7Y",
+        "link": "https://vimeo.com/983323044",
         "tags": [ "Sound", "Video" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "Tree-notation I is an audiovisual instrument developed in C++."
     },
     {
         "title": "loisirs distribués",
@@ -136,7 +137,8 @@
         ],
         "link": "https://reduxrad.io/shows/loisirs",
         "tags": [ "Sound" ],
-        "category": "CV"
+        "category": "CV",
+        "description": "loisirs distribués is a collaborative radio program that showcases ambient and avant-garde music. It's hosted by otherseas1 and <a href=`https://faulkner.blue/` target=`_blank`>blu</a>."
     },
     {
         "title": "Folded Mirrors",
@@ -148,7 +150,8 @@
         ],
         "link": "https://otherseas.bandcamp.com/track/folded-mirrors",
         "tags": [ "Sound", "Performance" ],
-        "category": "Music"
+        "category": "Music",
+        "description": "A recording of an otherseas1 live performance at Folded Mirrors, 2024."
     },
     {
         "title": "Paper",
@@ -156,23 +159,30 @@
         "client": "for View 3",
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/45549582/original_3141be5d68796c5670b55ac8148f4aa2.jpeg?1776986042?bc=0"
+            "https://d2w9rnfcy7mm78.cloudfront.net/47053288/original_ad1ca6d1bf8ef29429eaab6bae167832.jpeg?1781549393?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/45549582/original_3141be5d68796c5670b55ac8148f4aa2.jpeg?1776986042?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/47053262/original_0f389b36b6c805d89ee1065357bac983.jpeg?1781549356?bc=0"
+
         ],
         "link": "https://view3.bandcamp.com/album/paper",
         "tags": [ "Sound" ],
-        "category": "Music"
+        "category": "Music",
+        "description": "<em>Paper</em> is an EP by View 3. Issued with custom wooden CD case and booklet."
     },
     {
         "title": "Goodbye Seas",
         "date": "202510",
         "type": "image",
         "src": [
+            "https://f4.bcbits.com/img/a4080945538_10.jpg",
+            "https://f4.bcbits.com/img/0041485542_10.jpg",
             "https://d2w9rnfcy7mm78.cloudfront.net/45549581/original_877ddb4ca97b9f31f9f1530b59c45b39.jpeg?1776986042?bc=0"
         ],
             
         "link": "https://otherseas.bandcamp.com/album/goodbye-seas",
         "tags": [ "Sound" ],
-        "category": "Music"
+        "category": "Music",
+        "description": "<em>Goodbye Seas</em> is an otherseas1 compilation album from 2025. Issued with original risograph booklet."
     },
     {
         "title": "Travel",
@@ -183,7 +193,8 @@
         ],
         "link": "https://otherseas.bandcamp.com/album/travel",
         "tags": [ "Sound" ],
-        "category": "Music"
+        "category": "Music",
+        "description": "<em>Travel</em> is an otherseas1 album from 2024."
     },
     {
         "title": "Technical Design Intern",
@@ -214,10 +225,7 @@
         "date": "202603",
         "category": "Writing",
         "tags": [ "Text", "Publication" ],
-        "type": "iframe",
-        "src": [
-            "<iframe src='https://www.are.na/block/45549422'/>"
-        ]
+        "type": "iframe"
             
     },
     {
@@ -226,10 +234,7 @@
         "date": "202510",
         "category": "Writing",
         "tags": [ "Text", "Publication" ],
-        "type": "iframe",
-        "src": [
-            "<iframe src='https://www.are.na/block/45549475'/>"
-        ]
+        "type": "iframe"
             
     },
     {
@@ -238,10 +243,7 @@
         "date": "202409",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
-        "src": [
-            "<iframe src='https://www.are.na/block/45549484'/>"
-        ]
+        "type": "iframe"
             
     },
     {
@@ -250,10 +252,7 @@
         "date": "202506",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
-        "src": [
-            "<iframe src='https://www.are.na/block/45549502'/>"
-        ]
+        "type": "iframe"
     },
     {
         "title": "Law poem",
@@ -261,10 +260,7 @@
         "date": "202505",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
-        "src": [
-            "<iframe src='https://www.are.na/block/45549535'/>"
-        ]
+        "type": "iframe"
             
     },
     {
@@ -273,10 +269,7 @@
         "date": "202504",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
-        "src": [
-            "<iframe src='https://www.are.na/block/45549539'/>"
-        ]
+        "type": "iframe"
             
     },
     {
@@ -287,7 +280,10 @@
         "tags": [ ],
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/36255444/original_152a71f15f6ad2d0c3d041093442c8c7.png?1745609092?bc=0"
+            "https://d2w9rnfcy7mm78.cloudfront.net/44806921/original_3c9c202d0fa796e1f06c79dce0b82942.png?1774636672?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/46788254/original_0be16c713c5b004c87dde2b9a55fbcdd.jpeg?1780711778?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/36255444/original_152a71f15f6ad2d0c3d041093442c8c7.png?1745609092?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/30834132/original_c4f9b07bc486374ac75e008d48b63b73.jpg?1726855823?bc=0"
         ]
             
     },
@@ -299,7 +295,10 @@
         "tags": [ ],
         "type": "image",
         "src": [
-            "https://d2w9rnfcy7mm78.cloudfront.net/31691043/original_bc933d675d861e1c5293f20f4ce51c25.png?1729808475?bc=0"
+            "https://d2w9rnfcy7mm78.cloudfront.net/31691043/original_bc933d675d861e1c5293f20f4ce51c25.png?1729808475?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/39819982/original_92f891c28423a2c9e35f8d8d72cc6921.png?1758766327?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/32893877/original_8941691e5cbc469a326f28e94c49f4e3.jpg?1733859962?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/39819988/original_619b18cdf9118a50c574922679909997.png?1758766344?bc=0"
         ]
             
     },
