@@ -6,11 +6,6 @@ export function Table({ data, title }: {
     data: ItemType[];
     title: string;
 }) {
-    const [currExpanded, setCurrExpanded] = useState("");
-
-    const expandedCallback = (s: string) => {
-        setCurrExpanded(s);
-    };
 
     return (
         <table id="list">
@@ -25,7 +20,7 @@ export function Table({ data, title }: {
                     </td>
                 </tr>
                 {data.map((item, i) =>
-                    <ListItem item={item} key={i} currExpanded={currExpanded} setCurrExpanded={expandedCallback}/>
+                    <ListItem item={item} key={i}/>
                 )}
             </tbody>
         </table>

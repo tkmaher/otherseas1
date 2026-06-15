@@ -3,21 +3,20 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { ItemType } from "@/types";
 import Displayer from "./displayer";
 import { useLenis } from "lenis/react";
+import { useSelectionContext } from "@/contexts/selectionContext";
 
 export function ListItem({
     item,
-    currExpanded,
-    setCurrExpanded,
 }: {
     item: ItemType;
-    currExpanded: string;
-    setCurrExpanded: (s: string) => void;
 }) {
     const makeId = useCallback(
         (title: string, category: string) =>
             `${title}-${category}`.replace(/[^a-zA-Z0-9-_]/g, "-"),
         []
     );
+
+    const { currExpanded, toggleTheme } = useSelectionContext();
 
     const id = makeId(item.title, item.category);
     const isToggled = currExpanded === id;
@@ -35,11 +34,12 @@ export function ListItem({
     }, [isToggled]);
 
     const handleToggle = () => {
+        if (!item.src) return
         if (isToggled) {
             setIsFullyOpen(false);
-            setCurrExpanded("");
+            toggleTheme("");
         } else {
-            setCurrExpanded(id);
+            toggleTheme(id);
             setTimeout(() => {
                 setIsFullyOpen(true);
                 lenis?.resize();
@@ -65,7 +65,7 @@ export function ListItem({
                 <td colSpan={3}>
                     <div className="row-inner">
                         <div className="row-cell row-title">
-                            <label>
+                            {item.src && <label>
                                 <input
                                     type="checkbox"
                                     checked={isToggled}
@@ -77,6 +77,7 @@ export function ListItem({
                                     }}
                                 />
                             </label>
+                            }
                             {item.client ? (
                                 <>
                                     <a
