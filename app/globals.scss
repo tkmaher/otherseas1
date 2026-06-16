@@ -2,13 +2,6 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 html {
   height: 100%;
@@ -36,6 +29,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .content-left {
@@ -44,132 +38,263 @@ a {
   padding-bottom: 2em;
 }
 
+/* ── Table shell ─────────────────────────────────────────── */
+
+
 #list {
-  width: 47dvw;
-  max-width: 50dvw;
+  width: 100%;
   padding: 0.8em;
   border-collapse: collapse;
-  tr {
-    border-bottom: 0.1em solid var(--foreground);
-  }
-  
+}
+
+/* ── Row: half-width via inner wrapper ───────────────────── */
+
+.row {
   td {
-    padding: 0.2em;
-
-  }
-  .tags {
-    text-align: right;
-  }
-  .date {
-    text-align: center;
-  }
-
-  .client {
-    opacity: 50%;
-    font-size: 14px;
-    display: inline-block;
-  }
-  
-}
-
-.content-right {
-  .card {
-    position: fixed;
-    right: 10dvw;
-    transform-origin: center;
-    pointer-events: none;
-    width: 30dvw;
-    height: 30dvw;
-
-    .container {
-      right: 50%;
-      padding: 0.2em;
-      border: 0.1em solid var(--foreground);
-      width: auto;
-      height: auto;
-      position: absolute;
-      max-height: 30dvw;
-      max-width: 30dvw;
-      object-fit: contain;
-      transform-origin: center;
-      left: 15dvw;
-      top: 25dvh;
-      transform: translate(-50%, -50%);
-      pointer-events: all;
-      cursor: pointer;
-      transition: padding 0.1s ease;
-
-      &:has(iframe) {
-        width: 30dvw;
-        height: 30dvw;
-      }
-
-      iframe {
-        border: 0;
-        width: 100% !important;
-        height: 100% !important;
-        pointer-events: none;
-      }
-    }
-    .exempt {
-      iframe {
-        pointer-events: all;
-      }
-    }
-  }
-
-  .center {
-    translate: -50% -50% !important;
-    left: 50% !important;
-    width: 70dvh;
-    height: 70dvh;
-    .container {
-      max-width: 70dvh;
-      max-height: 70dvh;
-      left: 50%;
-      right: 0;
-      top: 50%;
-    }
-    @media (max-width: 768px) {
-      translate: 0% -50% !important;
-    }
-  }
-
-  .selector {
-    position: fixed;
-    right: 25dvw;
-    width: 15dvh;
-    display: flex;
-    justify-content: center;
-    gap: 2.5em;
-
+    padding: 0;
   }
 }
 
-.header {
-  width: 100%;
-  font-size: 20px;
-  margin-bottom: 1em;
-  text-align: justify;
-  a {
-    text-decoration: underline;
-  }
-}
-
-.footer {
-  width: 100dvw;
-  padding: 0;
-  
+.row-inner {
   display: flex;
-  height: 1em;
-  .color-block {
-    flex:1;
+  width: 50%;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--foreground); 
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }
 
-a {
-  cursor: pointer;
+.row-cell {
+  padding: 0.2em;
 }
+
+.row-title {
+  flex: 1 1 50%;
+}
+
+.row-date {
+  flex: 0 0 10%;
+  text-align: center;
+}
+
+.row-tags {
+  flex: 0 0 40%;
+  text-align: right;
+}
+
+.client {
+  opacity: 50%;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* ── Expanded / collapsed body rows ─────────────────────── */
+
+.body-collapsed,
+.body-expanded {
+  vertical-align: top;
+}
+
+.body-collapsed td,
+.body-expanded td {
+  padding: 0;
+  display: grid;  // ← td IS the grid container
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+
+.body-collapsed td {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.body-expanded td {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.body-collapsed .body-inner {
+  visibility: hidden;  
+  min-height: 0;
+}
+
+.body-expanded {
+  .body-inner {
+    height: fit-content;   
+    opacity: 1;
+    transition: height 0.3s ease, opacity 0.3s ease, min-height 0.3s ease;
+  }
+}
+
+/* ── Body inner: 50/50 split ─────────────────────────────── */
+
+.body-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  gap: 5em;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.body-description {
+  flex: 0 0 50%;
+  box-sizing: border-box;
+  overflow-y: visible;
+  text-align: justify;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+  padding: 5em;
+  display: flex;
+  align-items: flex-start;
+  gap: 5em;
+  div {
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.body-collapsed .body-description {
+  opacity: 0;
+}
+
+.body-displayer {
+  padding-top: 0;
+  box-sizing: border-box;
+  flex-basis: 50%;
+  padding: 5em 5em 5em 0;
+  display: flex;
+  align-items: stretch;
+}
+
+/* ── Mosaic displayer ────────────────────────────────────── */
+
+/*
+  The displayer is always a square.
+  We achieve this with an aspect-ratio: 1 / 1 container that
+  fills the available width, then use CSS grid to lay out images.
+
+  Grid template:
+    1 src  → 1×1
+    2 srcs → 2 columns, 1 row
+    3 srcs → top row spans full width, bottom row has 2 columns
+    4 srcs → top row spans full width, bottom row has 3 columns
+*/
+
+.mosaic-displayer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  gap: 0.8em;
+
+  /* Default: 1 image — single cell */
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border: 1px solid var(--foreground);
+  padding: 0.8em;
+  transition: opacity 0.3s ease;
+
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  &[data-count="2"] {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  &[data-count="3"] {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+  }
+
+  &[data-count="4"] {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+  }
+
+
+  .mosiac-image {
+    transition: opacity 0.1s ease;
+    cursor: zoom-in;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.mosaic-carousel {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100dvh;
+  width: 100dvw;
+  z-index: 999;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+  padding: 0 !important;
+  border: none !important;
+
+  .mosiac-image {
+    overflow: auto;
+    grid-row: 1 !important;
+    grid-column: 1 !important;
+    background-color: var(--background);
+    &:hover {
+      opacity: 1;
+      transition: none;
+      cursor: default;
+    }
+    img {
+      padding: 3em;
+      max-width: calc(100dvw - 6em);
+      max-height: calc(100dvh - 6em);
+      object-fit: contain !important;
+    }
+  }
+
+  .buttons {
+    position: fixed;
+    bottom: 0;
+    width: 100dvw;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    transform: translateX(-50%);
+    button {
+      background-color: var(--background);
+      color: var(--foreground);
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      font-size: 16px;
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+/* ── Hover interactions ──────────────────────────────────── */
+
+@media (hover: hover) {
+  .row:hover {
+    input[type="checkbox"]:not(:checked) {
+      background-color: var(--foreground) !important;
+    }
+    input[type="checkbox"]:checked {
+      background-color: auto !important;
+    }
+  }
+}
+
+/* ── Checkbox ────────────────────────────────────────────── */
 
 input[type="checkbox"] {
   -webkit-appearance: none;
@@ -186,24 +311,32 @@ input[type="checkbox"] {
   margin-right: 1em;
 }
 
-.highlight {
-  background-color: rgba(0, 0, 0, 0.265);
+/* ── Misc ────────────────────────────────────────────────── */
+
+.header {
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 1em;
+  text-align: justify;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
-@media (hover: hover) {
-  .row:hover {
+.footer {
+  width: 100dvw;
+  padding: 0;
+  display: flex;
+  height: 1em;
 
-      input[type="checkbox"]:not(:checked) {
-        background-color: var(--foreground) !important;
-      }
-      input[type="checkbox"]:checked {
-        background-color: auto !important;
-      }
+  .color-block {
+    flex: 1;
   }
+}
 
-  .container:hover {
-    border: 0.2em solid var(--foreground) !important;
-  }
+.highlight {
+  background-color: rgba(0, 0, 0, 0.265);
 }
 
 img {
@@ -211,31 +344,6 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+  //box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-  #list {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .content-right .selector {
-    right: 50% !important;
-  }
-
-  .content-right .card {
-    left: 50%;
-    width: 30vh;
-    height: 30vh;
-    .container {
-      left: auto;
-      right: auto;
-      max-width: 30vh;
-      max-height: 30vh;
-      &:has(iframe) {
-        width: 30vh;
-        height: 30vh;
-      }
-    }
-  }
-}
