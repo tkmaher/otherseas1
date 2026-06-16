@@ -3,6 +3,7 @@
         "title": "UbuTube",
         "date": "202606",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47052906/original_47af7246ec3bb3cfcdbf763eaddf7ed0.png?1781548707?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47024517/original_f4a5fc56e490a8c38afc18713812fcf9.png?1781459941?bc=0",
@@ -17,6 +18,7 @@
         "title": "arena flow",
         "date": "202604",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47024579/original_3f5560138c89b8f37bc5249daaa0258c.png?1781460169?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47024580/original_5d61c860129bb708f683a3c31facbeaf.png?1781460172?bc=0",
@@ -31,6 +33,7 @@
         "title": "Siris",
         "date": "202509",
         "type": "iframe",
+        "color": "",
         "src": [
             "<iframe title='vimeo-player' src='https://player.vimeo.com/video/1117929744?h=f0762262cf' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
         ],
@@ -44,6 +47,7 @@
         "title": "Games",
         "date": "",
         "type": "image",
+        "color": "",
         "src": [
             "https://img.itch.zone/aW1nLzM5MjIwNjYuZ2lm/original/QHKXOy.gif",
             "https://d2w9rnfcy7mm78.cloudfront.net/29416565/original_a397037211b53d4c9fe0d67e087895a4.gif?1721010499?bc=0",
@@ -59,6 +63,7 @@
         "client": "for View 3",
         "date": "202602",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/45547554/original_322a2fbd2935a571e727ea71bdb774d1.png?1776979177?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47024617/original_16919f9c7a9634b1537cf4e51ab94803.png?1781460348?bc=0",
@@ -75,6 +80,7 @@
         "client": "for Redux Radio",
         "date": "202503",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47041699/original_827c37d39d228990bc96190f8890f757.png?1781531729?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/45542079/original_f765abb7c5760deda39b8fa1bbb6e3c5.png?1776965362?bc=0",
@@ -91,6 +97,7 @@
         "client": "for blip",
         "date": "202512",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/45542545/original_c670017bf1f98480fb78766e9a377977.png?1776966782?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47052991/original_e4be947fd6473e8e18cefade34830231.png?1781548862?bc=0"
@@ -106,6 +113,7 @@
         "clientLink": "https://reduxrad.io",
         "date": "202508",
         "type": "iframe",
+        "color": "",
         "src": [
             "<iframe width='560' height='315' src='https://www.youtube.com/embed/jUIKmnem-7Y?si=eD1RR3Qzm4X5d4K2'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
         ],
@@ -118,6 +126,7 @@
         "title": "Tree-notation I",
         "date": "202212",
         "type": "iframe",
+        "color": "",
         "src": [
             "<iframe title='vimeo-player' src='https://player.vimeo.com/video/983323044?h=0eb7227c66' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
         ],   
@@ -132,6 +141,7 @@
         "client": "for Redux Radio",
         "clientLink": "https://reduxrad.io",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/45546384/original_783445c454c87097dcd9a8a27d170c91.png?1776975886?bc=0"
         ],
@@ -145,6 +155,7 @@
         "date": "202409",
         "client": "for MEMCO",
         "type": "iframe",
+        "color": "",
         "src": [
             "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/track=1291105860/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/track/folded-mirrors'>Folded Mirrors by otherseas</a></iframe>"
         ],
@@ -158,6 +169,7 @@
         "date": "202602",
         "client": "for View 3",
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47053288/original_ad1ca6d1bf8ef29429eaab6bae167832.jpeg?1781549393?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/45549582/original_3141be5d68796c5670b55ac8148f4aa2.jpeg?1776986042?bc=0",
@@ -173,6 +185,7 @@
         "title": "Goodbye Seas",
         "date": "202510",
         "type": "image",
+        "color": "",
         "src": [
             "https://f4.bcbits.com/img/a4080945538_10.jpg",
             "https://f4.bcbits.com/img/0041485542_10.jpg",
@@ -188,6 +201,7 @@
         "title": "Travel",
         "date": "202408",
         "type": "iframe",
+        "color": "",
         "src": [
             "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/album=1057144630/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/album/travel'>Travel by otherseas</a></iframe>"
         ],
@@ -279,6 +293,7 @@
         "category": "Appendix",
         "tags": [ ],
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/44806921/original_3c9c202d0fa796e1f06c79dce0b82942.png?1774636672?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/46788254/original_0be16c713c5b004c87dde2b9a55fbcdd.jpeg?1780711778?bc=0",
@@ -294,6 +309,7 @@
         "category": "Appendix",
         "tags": [ ],
         "type": "image",
+        "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/31691043/original_bc933d675d861e1c5293f20f4ce51c25.png?1729808475?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/39819982/original_92f891c28423a2c9e35f8d8d72cc6921.png?1758766327?bc=0",
