@@ -125,16 +125,16 @@ export function ListItem({
                     <div className="body-inner">
                         <div className="body-description">
                             
-                            <div
+                            {item.description && <div
                                 dangerouslySetInnerHTML={{ __html: item.description }}
-                            />
+                            />}
                             {item.link && <>
                                     {' '}<a href={item.link} target="_blank">↗</a>
                                 </>
                             }
                         </div>
                         <div className="body-displayer">
-                            {currExpanded && <Displayer
+                            {(currExpanded && item.src && item.type) &&  <Displayer
                                 srcs={item.src}
                                 type={item.type}
                                 triggered={isFullyOpen}

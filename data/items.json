@@ -216,13 +216,17 @@
         "client": "Visteon LLC",
         "clientLink": "https://www.visteon.com/overview/default.aspx",
         "tags": [ "UI/UX" ],
-        "category": "CV"
+        "category": "CV",
+        "color": ""
+
     },
     {
         "title": "B.S. Computer Science",
         "client": "The University of Michigan",
         "date": "202505",
-        "category": "Education"
+        "category": "Education",
+        "color": ""
+
     },
     {
         "title": "Distributed search engine",
@@ -230,7 +234,9 @@
         "link": "https://github.com/SearchEngineDesign/SearchEngine",
         "date": "202505",
         "category": "CV",
-        "tags": [ "Programming" ]
+        "tags": [ "Programming" ],
+        "color": ""
+
     },
     {
         "title": "Mud story",
@@ -239,7 +245,9 @@
         "date": "202603",
         "category": "Writing",
         "tags": [ "Text", "Publication" ],
-        "type": "iframe"
+        "type": "iframe",
+        "color": ""
+
             
     },
     {
@@ -248,7 +256,9 @@
         "date": "202510",
         "category": "Writing",
         "tags": [ "Text", "Publication" ],
-        "type": "iframe"
+        "type": "iframe",
+        "color": ""
+
             
     },
     {
@@ -257,7 +267,9 @@
         "date": "202409",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe"
+        "type": "iframe",
+        "color": ""
+
             
     },
     {
@@ -266,7 +278,9 @@
         "date": "202506",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe"
+        "type": "iframe",
+        "color": ""
+
     },
     {
         "title": "Law poem",
@@ -274,7 +288,8 @@
         "date": "202505",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe"
+        "type": "iframe",
+        "color": ""
             
     },
     {
@@ -283,7 +298,8 @@
         "date": "202504",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe"
+        "type": "iframe",
+        "color": ""
             
     },
     {
@@ -323,21 +339,24 @@
         "link": "mailto:os@otherseas1.com",
         "date": "",
         "category": "Links",
-        "tags": [ ]
+        "tags": [ ],
+        "color": ""
     },
     {
         "title": "GitHub",
         "link": "https://github.com/tkmaher?tab=repositories",
         "date": "",
         "category": "Links",
-        "tags": [ ]
+        "tags": [ ],
+        "color": ""
     },
     {
         "title": "Instagram",
         "link": "https://www.instagram.com/otherseas1/",
         "date": "",
         "category": "Links",
-        "tags": [ ]
+        "tags": [ ],
+        "color": ""
     }
 
     

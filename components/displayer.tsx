@@ -68,7 +68,7 @@ export default function Displayer({
     color
 }: {
     srcs: string[];
-    type: "iframe" | "image";
+    type: string;
     triggered: boolean;
     color: string;
 }) {

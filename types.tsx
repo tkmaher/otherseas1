@@ -1,15 +1,15 @@
 export interface ItemType {
     title: string,
     date: string,
-    description: string,
+    description?: string,
     link?: string,
     tags?: string[],
     category: string,
     client?: string,
     clientLink?: string,
     color: string,
-    type: "iframe" | "image",
-    src: string[]
+    type?: string,
+    src?: string[]
 }
 
 export const colors: string[] = [
