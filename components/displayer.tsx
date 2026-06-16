@@ -3,22 +3,6 @@ import { useSelectionContext } from "@/contexts/selectionContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type Direction = "top" | "bottom" | "left" | "right";
-const DIRECTIONS: Direction[] = ["top", "bottom", "left", "right"];
-
-function randomDirection(): Direction {
-    return DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
-}
-
-function getTranslate(dir: Direction): string {
-    switch (dir) {
-        case "top":    return "translateY(-40px)";
-        case "bottom": return "translateY(40px)";
-        case "left":   return "translateX(-40px)";
-        case "right":  return "translateX(40px)";
-    }
-}
-
 function MosaicImage({
     src,
     alt,
@@ -35,7 +19,6 @@ function MosaicImage({
     type: string
 }) {
     const [visible, setVisible] = useState(false);
-    const [dir] = useState<Direction>(() => randomDirection());
     
     useEffect(() => {
         if (!triggered) {
@@ -60,7 +43,6 @@ function MosaicImage({
                         style={{
                             objectFit: "cover",
                             opacity: visible ? 1 : 0,
-                            transform: visible ? "translate(0,0)" : getTranslate(dir),
                             transition: "opacity 0.5s ease, transform 0.5s ease",
                         }}
                         onClick={() => setImage(currImage === src ? '' : src)}
@@ -70,7 +52,6 @@ function MosaicImage({
                         style={{
                             objectFit: "cover",
                             opacity: visible ? 1 : 0,
-                            transform: visible ? "translate(0,0)" : getTranslate(dir),
                             transition: "opacity 0.5s ease, transform 0.5s ease",
                             height: '100%'
                         }}
@@ -84,10 +65,12 @@ export default function Displayer({
     srcs,
     type,
     triggered,
+    color
 }: {
     srcs: string[];
     type: "iframe" | "image";
     triggered: boolean;
+    color: string;
 }) {
     if (!srcs || srcs.length === 0) return null;
     const count = Math.min(srcs.length, 4);
@@ -124,7 +107,14 @@ export default function Displayer({
     }, [currImage, srcs]);
 
     return (
-        <div className={`mosaic-displayer ${isCarousel && 'mosaic-carousel'}`} data-count={count}>
+        <div 
+            className={`mosaic-displayer ${isCarousel && 'mosaic-carousel'}`} 
+            data-count={count}
+            style={{
+                backgroundColor: isCarousel ? undefined : color,
+                opacity: triggered ? 1 : 0
+            }}
+        >
                 {count === 1 && img(srcs[0], 0, { gridColumn: "1 / -1", gridRow: "1 / -1" })}
 
                 {count === 2 && (<>

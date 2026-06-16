@@ -123,15 +123,22 @@ export function ListItem({
             >
                 <td colSpan={3}>
                     <div className="body-inner">
-                        <div
-                            className="body-description"
-                            dangerouslySetInnerHTML={{ __html: item.description }}
-                        />
+                        <div className="body-description">
+                            
+                            <div
+                                dangerouslySetInnerHTML={{ __html: item.description }}
+                            />
+                            {item.link && <>
+                                    {' '}<a href={item.link} target="_blank">↗</a>
+                                </>
+                            }
+                        </div>
                         <div className="body-displayer">
                             {currExpanded && <Displayer
                                 srcs={item.src}
                                 type={item.type}
                                 triggered={isFullyOpen}
+                                color={item.color}
                             />}
                         </div>
                     </div>
