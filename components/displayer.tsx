@@ -112,7 +112,8 @@ export default function Displayer({
             data-count={count}
             style={{
                 backgroundColor: isCarousel ? undefined : color,
-                opacity: triggered ? 1 : 0
+                opacity: triggered ? 1 : 0,
+                transform: triggered ? "translateY(0)" : "translateY(-500px)"
             }}
         >
                 {count === 1 && img(srcs[0], 0, { gridColumn: "1 / -1", gridRow: "1 / -1" })}
