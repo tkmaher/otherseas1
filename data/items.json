@@ -12,7 +12,7 @@
         "link": "https://ubutube.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "UbuTube is an extension of <a href=`https://ubu.com` target=`_blank`>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube."
+        "description": "UbuTube is an extension of <a href='https://ubu.com' target='_blank'>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube."
     },
     {
         "title": "arena flow",
@@ -27,7 +27,7 @@
         "link": "https://arena-flow.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href=`https://are.na` target=`_blank`>are.na</a>. "
+        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href='https://are.na' target='_blank'>are.na</a>. "
     },
     {
         "title": "Siris",
@@ -72,7 +72,7 @@
         "link": "https://view-3.com",
         "tags": [ "Web", "Sound" ],
         "category": "CV",
-        "description": "view-3.com is the website of the band View 3, which consists of <a href=`https://otherseas1.bandcamp.com` target=`_blank`>otherseas1</a> and <a href=`https://soundcloud.com/zagczagczagc` target=`_blank`>zagc</a>."
+        "description": "view-3.com is the website of the band View 3, which consists of <a href='https://otherseas1.bandcamp.com' target='_blank'>otherseas1</a> and <a href='https://soundcloud.com/zagczagczagc' target='_blank'>zagc</a>."
     },
 
     {
@@ -148,7 +148,7 @@
         "link": "https://reduxrad.io/shows/loisirs",
         "tags": [ "Sound" ],
         "category": "CV",
-        "description": "loisirs distribués is a collaborative radio program that showcases ambient and avant-garde music. It's hosted by otherseas1 and <a href=`https://faulkner.blue/` target=`_blank`>blu</a>."
+        "description": "loisirs distribués is a collaborative radio program that showcases ambient and avant-garde music. It's hosted by otherseas1 and <a href='https://faulkner.blue/' target='_blank'>blu</a>."
     },
     {
         "title": "Folded Mirrors",
