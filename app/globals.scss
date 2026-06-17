@@ -345,3 +345,37 @@ img {
   //box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+
+
+@media (max-width: 800px) {
+  .body-inner {
+    flex-direction: column-reverse;
+    border-bottom: 1px solid var(--foreground);
+    gap: 1em;
+    .body-description {
+      padding: 0.8em;
+      gap: 1em;
+    }
+    .body-displayer {
+      padding: 0;
+      width: 100%;
+      padding: 0.8em;
+      padding-bottom: 0;
+    }
+    .mosaic-displayer {
+      padding: 0.4em;
+      gap: 0.4em;
+    }
+  }
+
+  .body-expanded .body-inner {
+    padding: 1em 0;
+
+  }
+
+  .mosaic-carousel .mosiac-image img {
+    padding: 1em;
+    max-width: calc(100dvw - 2em);
+    max-height: calc(100dvh - 6em);
+  }
+}
