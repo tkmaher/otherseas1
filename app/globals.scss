@@ -57,12 +57,25 @@ a {
 
 .row-inner {
   display: flex;
-  width: 50%;
+  max-width: calc(50% + 0.4em);
   box-sizing: border-box;
   border-bottom: 1px solid var(--foreground); 
+  transition: max-width 0.3s ease;
 
   @media (max-width: 768px) {
     width: 100%;
+  }
+}
+
+.row-inner-expanded {
+  max-width: 100%;
+  border-top: 1px solid var(--foreground); 
+
+}
+
+.row:has(+ * + * td .row-inner-expanded), .row:has( + * td .row-inner-expanded) {
+  .row-inner {
+    border-bottom: none !important;
   }
 }
 
@@ -100,57 +113,69 @@ a {
 .body-collapsed td,
 .body-expanded td {
   padding: 0;
-  display: grid;  // ← td IS the grid container
-  transition: grid-template-rows 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  display: grid;
+  overflow: hidden;
+  transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .body-collapsed td {
-  grid-template-rows: 0fr;
   opacity: 0;
 }
 
 .body-expanded td {
-  grid-template-rows: 1fr;
   opacity: 1;
 }
 
 .body-collapsed .body-inner {
   visibility: hidden;  
+  padding: 0;
+  height: 0;
+}
+
+.body-collapsed {
+  height: 0;
 }
 
 .body-expanded {
   .body-inner {
-    height: fit-content;   
+    margin-bottom: 3em;
+    height: calc(100dvh - 2em);
     opacity: 1;
     transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
-/* ── Body inner: 50/50 split ─────────────────────────────── */
-
 .body-inner {
   min-height: 0;
+  height: 0;
+  opacity: 0;
   display: flex;
-  gap: 5em;
   width: 100%;
   box-sizing: border-box;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  flex-direction: column;
+  padding: 0.2em;
+  overflow: hidden;
+  /* transition now lives here, unconditionally, so it applies on BOTH open and close */
+  transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+              opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+              min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .body-description {
-  flex: 0 0 50%;
+  
   box-sizing: border-box;
   overflow-y: visible;
   text-align: justify;
   opacity: 1;
   transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
-  padding: 5em;
   display: flex;
   align-items: flex-start;
-  gap: 5em;
+  justify-content: space-between;
+  width: 100%;
   div {
-
+    flex-basis: 50%;
     a {
       text-decoration: underline;
     }
@@ -162,12 +187,18 @@ a {
 }
 
 .body-displayer {
-  padding-top: 0;
   box-sizing: border-box;
-  flex-basis: 50%;
-  padding: 5em 5em 5em 0;
   display: flex;
   align-items: stretch;
+  width: 100dvw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.body-expanded + .row {
+  .row-inner {
+    border-top: 1px solid var(--foreground);
+  }
 }
 
 /* ── Mosaic displayer ────────────────────────────────────── */
@@ -185,75 +216,65 @@ a {
 */
 
 .mosaic-displayer {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  display: grid;
-  gap: 0.8em;
-
-  /* Default: 1 image — single cell */
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  border: 1px solid var(--foreground);
-  padding: 0.8em;
-  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  iframe {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  &[data-count="2"] {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
-
-  &[data-count="3"] {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
-  }
-
-  &[data-count="4"] {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
-  }
-
+  height: 60dvh;
+  display: flex;
+  gap: 0.5em;
+  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .mosiac-image {
-    transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    flex-shrink: 0;
+    height: 100%;
     cursor: zoom-in;
-    &:hover {
-      opacity: 0.5;
+    transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
     }
+
+    @media (hover: hover) {
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  iframe {
+    height: 100% !important;
   }
 }
 
 .mosaic-carousel {
+  position: fixed;
   top: 0;
   left: 0;
-  position: fixed;
   height: 100dvh;
   width: 100dvw;
   z-index: 999;
-  grid-template-columns: 1fr !important;
-  grid-template-rows: 1fr !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   padding: 0 !important;
   border: none !important;
 
   .mosiac-image {
-    overflow: auto;
-    grid-row: 1 !important;
-    grid-column: 1 !important;
+    height: auto;
     background-color: var(--background);
+
     &:hover {
       opacity: 1;
       transition: none;
       cursor: default;
     }
+
     img {
+      width: auto;
       padding: 3em;
       max-width: calc(100dvw - 6em);
       max-height: calc(100dvh - 6em);
-      object-fit: contain !important;
+      object-fit: contain;
     }
   }
 
@@ -265,6 +286,7 @@ a {
     justify-content: space-between;
     left: 50%;
     transform: translateX(-50%);
+
     button {
       background-color: var(--background);
       color: var(--foreground);
@@ -272,6 +294,7 @@ a {
       padding: 0.5em 1em;
       cursor: pointer;
       font-size: 16px;
+
       &:active {
         opacity: 0.5;
       }
@@ -349,22 +372,14 @@ img {
 
 @media (max-width: 800px) {
   .body-inner {
-    flex-direction: column-reverse;
     border-bottom: 1px solid var(--foreground);
     gap: 1em;
     .body-description {
-      padding: 0.8em;
       gap: 1em;
     }
     .body-displayer {
       padding: 0;
-      width: 100%;
-      padding: 0.8em;
       padding-bottom: 0;
-    }
-    .mosaic-displayer {
-      padding: 0.4em;
-      gap: 0.4em;
     }
   }
 

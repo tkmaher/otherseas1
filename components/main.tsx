@@ -5,8 +5,7 @@ import { useState } from "react";
 import { colors } from "@/types"
 import { Table } from "./table";
 import { AnimatePresence, motion } from "motion/react";
-import { SelectionProvider } from "@/contexts/selectionContext";
-
+import { useSelectionContext } from "@/contexts/selectionContext";
 
 export default function Main({ data }: { data: ItemType[] }) {
 
@@ -21,10 +20,9 @@ export default function Main({ data }: { data: ItemType[] }) {
 
     const order = ["CV", "Education", "Music", "Writing", "Links", "Appendix"];
 
-    const [chosen, setChosen] = useState("#ffffff");
+    const { currColor, setCurrColor } = useSelectionContext();
 
     return (
-        <SelectionProvider>
             <AnimatePresence mode="wait">
                 <motion.div
                     key="table"
@@ -34,7 +32,9 @@ export default function Main({ data }: { data: ItemType[] }) {
                     transition={{ duration: 0.4 }}
                     style={{ width: "100%", height: "100%" }}
                 >
-                    <div className="content-left" style={{ backgroundColor: chosen }}>
+                    <div className="content-left" style={{ 
+                        backgroundColor: currColor,
+                    }}>
                             <div className="header">
                                 <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
                                 Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
@@ -62,12 +62,11 @@ export default function Main({ data }: { data: ItemType[] }) {
                                     className="color-block"
                                     style={{ backgroundColor: val }}
                                     key={index}
-                                    onClick={() => setChosen(val)}
+                                    onClick={() => setCurrColor(val)}
                                 />
                             )}
                         </div>
                 </motion.div>
             </AnimatePresence>
-        </SelectionProvider>
     );
 }

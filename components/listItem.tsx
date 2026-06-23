@@ -5,6 +5,12 @@ import Displayer from "./displayer";
 import { useLenis } from "lenis/react";
 import { useSelectionContext } from "@/contexts/selectionContext";
 
+const MOBILE_QUERY = "(max-width: 768px)";
+
+function isMobileViewport() {
+    return typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches;
+}
+
 export function ListItem({
     item,
 }: {
@@ -26,7 +32,6 @@ export function ListItem({
     const rowRef = useRef<HTMLTableRowElement>(null);
     const lenis = useLenis();
 
-
     useEffect(() => {
         if (!isToggled) {
             setIsFullyOpen(false);
@@ -34,7 +39,7 @@ export function ListItem({
     }, [isToggled]);
 
     const handleToggle = () => {
-        if (!item.src) return
+        if (!item.src) return;
         if (isToggled) {
             setIsFullyOpen(false);
             toggleTheme("");
@@ -42,15 +47,23 @@ export function ListItem({
             toggleTheme(id);
             setTimeout(() => {
                 setIsFullyOpen(true);
-                lenis?.resize();
-                lenis?.scrollTo(`#${id}`, { duration: 0.6, offset: -4 });
-            }, 320); 
+                // Skip lenis smooth-scroll on mobile — it's noticeably laggy there.
+                if (!isMobileViewport()) {
+                    lenis?.resize();
+                    lenis?.scrollTo(`#${id}`, { duration: 0.6 });
+                }
+            }, 320);
         }
     };
 
-    const handleTransitionEnd = useCallback(() => {
-        lenis?.resize();
-    }, [lenis]);
+    const handleTransitionEnd = useCallback(
+        (e: React.TransitionEvent<HTMLTableRowElement>) => {
+            if (e.propertyName !== "height") return;
+            if (isMobileViewport()) return;
+            lenis?.resize();
+        },
+        [lenis]
+    );
 
     const handleLinkClick = (e: React.MouseEvent) => e.stopPropagation();
 
@@ -63,7 +76,7 @@ export function ListItem({
                 onClick={handleToggle}
             >
                 <td colSpan={3}>
-                    <div className="row-inner">
+                    <div className={isToggled ? "row-inner row-inner-expanded" : "row-inner"}>
                         <div className="row-cell row-title">
                             {item.src && <label>
                                 <input
@@ -124,7 +137,7 @@ export function ListItem({
                 <td colSpan={3}>
                     <div className="body-inner">
                         <div className="body-description">
-                            
+
                             {item.description && <div
                                 dangerouslySetInnerHTML={{ __html: item.description }}
                             />}

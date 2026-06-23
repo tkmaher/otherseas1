@@ -5,17 +5,22 @@ const SelectionContext = createContext<{
     currImage: string;
     toggleTheme: (s: string) => void;
     setImage: (s: string) => void;
+    currColor: string;
+    setCurrColor: (s: string) => void;
 }>({
     currExpanded: '',
     toggleTheme: () => {},
     currImage: '',
-    setImage: () => {}
+    setImage: () => {},
+    currColor: '#ffffff',
+    setCurrColor: () => {}
 });
 
 // 2. Create a provider component
 export function SelectionProvider({children}: { children: React.ReactNode }) {
   const [currExpanded, setCurrExpanded] = useState('');
   const [currImage, setCurrImage] = useState('');
+  const [currColor, setColor] = useState('#ffffff')
 
   const toggleTheme = (s: string) => {
     setCurrExpanded(s);
@@ -25,8 +30,12 @@ export function SelectionProvider({children}: { children: React.ReactNode }) {
     setCurrImage(s);
   }
 
+  const setCurrColor = (s: string) => {
+    setColor(s);
+  }
+
   return (
-    <SelectionContext.Provider value={{ currExpanded, currImage, toggleTheme, setImage }}>
+    <SelectionContext.Provider value={{ currExpanded, currImage, toggleTheme, setImage, currColor, setCurrColor }}>
       {children}
     </SelectionContext.Provider>
   );
