@@ -5,7 +5,7 @@ import Displayer from "./displayer";
 import { useLenis } from "lenis/react";
 import { useSelectionContext } from "@/contexts/selectionContext";
 
-const MOBILE_QUERY = "(max-width: 768px)";
+const MOBILE_QUERY = "(max-width: 800px)";
 
 function isMobileViewport() {
     return typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches;
@@ -135,26 +135,28 @@ export function ListItem({
                 onTransitionEnd={handleTransitionEnd}
             >
                 <td colSpan={3}>
-                    <div className="body-inner">
-                        <div className="body-description">
+                    <div className="body-grid">
+                        <div className="body-inner">
+                            <div className="body-description">
 
-                            {item.description && <div
-                                dangerouslySetInnerHTML={{ __html: item.description }}
-                            />}
-                            {item.link && <>
-                                    {' '}<a href={item.link} target="_blank">
-                                        <img src="linkout.svg"/>
-                                    </a>
-                                </>
-                            }
-                        </div>
-                        <div className="body-displayer">
-                            {(currExpanded && item.src && item.type) &&  <Displayer
-                                srcs={item.src}
-                                type={item.type}
-                                triggered={isFullyOpen}
-                                color={item.color}
-                            />}
+                                {item.description && <div
+                                    dangerouslySetInnerHTML={{ __html: item.description }}
+                                />}
+                                {item.link && <>
+                                        {' '}<a href={item.link} target="_blank">
+                                            <img src="linkout.svg"/>
+                                        </a>
+                                    </>
+                                }
+                            </div>
+                            <div className="body-displayer">
+                                {(currExpanded && item.src && item.type) &&  <Displayer
+                                    srcs={item.src}
+                                    type={item.type}
+                                    triggered={isFullyOpen}
+                                    color={item.color}
+                                />}
+                            </div>
                         </div>
                     </div>
                 </td>

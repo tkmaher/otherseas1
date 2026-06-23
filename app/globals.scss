@@ -40,11 +40,12 @@ a {
 
 /* ── Table shell ─────────────────────────────────────────── */
 
-
 #list {
   width: 100%;
+  table-layout: fixed;   /* stop the table from sizing off cell content */
   padding: 0.8em;
   border-collapse: collapse;
+  border-spacing: 0px;
 }
 
 /* ── Row: half-width via inner wrapper ───────────────────── */
@@ -59,7 +60,7 @@ a {
   display: flex;
   max-width: calc(50% + 0.4em);
   box-sizing: border-box;
-  border-bottom: 1px solid var(--foreground); 
+  border-top: 1px solid var(--foreground); 
   transition: max-width 0.3s ease;
 
   @media (max-width: 768px) {
@@ -109,13 +110,27 @@ a {
 .body-expanded {
   vertical-align: top;
 }
-
 .body-collapsed td,
 .body-expanded td {
   padding: 0;
+}
+
+.body-collapsed .body-grid,
+.body-expanded .body-grid {
   display: grid;
   overflow: hidden;
-  transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: grid-template-rows 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+              opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.body-collapsed .body-grid {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.body-expanded .body-grid {
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 .body-collapsed td {
@@ -138,10 +153,10 @@ a {
 
 .body-expanded {
   .body-inner {
-    margin-bottom: 3em;
     height: calc(100dvh - 2em);
     opacity: 1;
     transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-bottom: 1px solid var(--foreground);
   }
 }
 
@@ -152,12 +167,11 @@ a {
   display: flex;
   width: 100%;
   box-sizing: border-box;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  justify-content: start;
   padding: 0.2em;
   overflow: hidden;
-  /* transition now lives here, unconditionally, so it applies on BOTH open and close */
+  
   transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
               opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
               min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -171,13 +185,16 @@ a {
   opacity: 1;
   transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
   width: 100%;
   div {
     flex-basis: 50%;
-    a {
-      text-decoration: underline;
+  }
+  & > a {
+    text-decoration: underline;
+    img {
+      border-bottom: 2px solid var(--foreground);
     }
   }
 }
@@ -190,15 +207,16 @@ a {
   box-sizing: border-box;
   display: flex;
   align-items: stretch;
-  width: 100dvw;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  width: 100%;            
+  max-width: 100%;
+  min-width: 0;      
 }
 
 .body-expanded + .row {
   .row-inner {
-    border-top: 1px solid var(--foreground);
+    border-top: none;
   }
+  
 }
 
 /* ── Mosaic displayer ────────────────────────────────────── */
@@ -220,6 +238,7 @@ a {
   display: flex;
   gap: 0.5em;
   transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow: scroll hidden;
 
   .mosiac-image {
     flex-shrink: 0;
@@ -371,11 +390,17 @@ img {
 
 
 @media (max-width: 800px) {
-  .body-inner {
+  .body-expanded .body-inner {
     border-bottom: 1px solid var(--foreground);
     gap: 1em;
+    height: fit-content;
+    padding: 0.8em 0;
+    margin-bottom: 0;
     .body-description {
       gap: 1em;
+      div {
+        flex-basis: auto;
+      }
     }
     .body-displayer {
       padding: 0;
@@ -383,9 +408,8 @@ img {
     }
   }
 
-  .body-expanded .body-inner {
-    padding: 1em 0;
-
+  .mosaic-displayer {
+    height: 40dvh;
   }
 
   .mosaic-carousel .mosiac-image img {
@@ -393,4 +417,9 @@ img {
     max-width: calc(100dvw - 2em);
     max-height: calc(100dvh - 6em);
   }
+
+  .row-inner {
+    max-width: 100%;
+  }
+  
 }

@@ -40,7 +40,7 @@ function MosaicImage({
                         opacity: visible ? 1 : 0,
                         transition: "opacity 0.5s ease",
                     }}
-                    onClick={() => setImage(currImage === src ? '' : src)}
+                    onClick={() => setImage(src)}
                 />
             ) : (
                 <div
@@ -68,8 +68,6 @@ export default function Displayer({
     triggered: boolean;
     color: string;
 }) {
-    // All hooks must run unconditionally (before any early return) —
-    // they were previously called after a conditional `return null`.
     const { currImage, setImage, currColor } = useSelectionContext();
     const touchStartX = useRef<number | null>(null);
 
