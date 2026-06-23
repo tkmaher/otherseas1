@@ -143,7 +143,7 @@ export function ListItem({
                                     dangerouslySetInnerHTML={{ __html: item.description }}
                                 />}
                                 {item.link && <>
-                                        {' '}<a href={item.link} target="_blank">
+                                        {' '}<a className="linkout" href={item.link} target="_blank">
                                             <img src="linkout.svg"/>
                                         </a>
                                     </>

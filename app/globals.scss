@@ -46,6 +46,11 @@ a {
   padding: 0.8em;
   border-collapse: collapse;
   border-spacing: 0px;
+  .row:first-child {
+    .row-inner {
+      border-top: none !important;
+    }
+  }
 }
 
 /* ── Row: half-width via inner wrapper ───────────────────── */
@@ -61,6 +66,7 @@ a {
   max-width: calc(50% + 0.4em);
   box-sizing: border-box;
   border-top: 1px solid var(--foreground); 
+  border-bottom: 1px solid var(--foreground); 
   transition: max-width 0.3s ease;
 
   @media (max-width: 768px) {
@@ -75,6 +81,12 @@ a {
 }
 
 .row:has(+ * + * td .row-inner-expanded), .row:has( + * td .row-inner-expanded) {
+  .row-inner {
+    border-bottom: none !important;
+  }
+}
+
+.row:has(+ * + * td .row-inner), .row:has(+ * td .row-inner) {
   .row-inner {
     border-bottom: none !important;
   }
@@ -157,7 +169,6 @@ a {
     height: fit-content;
     opacity: 1;
     transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-bottom: 1px solid var(--foreground);
   }
 }
 
@@ -169,9 +180,8 @@ a {
   width: 100%;
   box-sizing: border-box;
   flex-direction: column-reverse;
-  gap: 0.4em;
+  gap: 0.2em;
   justify-content: space-between;
-  padding: 0.2em;
   overflow: hidden;
   
   transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -185,17 +195,30 @@ a {
   overflow-y: visible;
   text-align: justify;
   opacity: 1;
-  transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1), max-width 0.3s ease;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   gap: 1em;
- 
+  padding: 0.2em;
+  border-top: 1px solid var(--foreground);
+  max-width: 100%;
+  border-bottom: 1px solid var(--foreground);
+
+  .linkout {
+    max-height: 1em;
+    display: flex;
+    img {
+      max-height: 2em;
+
+    }
+  }
 }
 
 .body-collapsed .body-description {
   opacity: 0;
+  max-width: 50%;
 }
 
 .body-displayer {
@@ -205,6 +228,8 @@ a {
   width: calc(100% + 1em);            
   max-width: 100%;
   min-width: 0;      
+  padding: 0.2em;
+  border-top: 1px solid var(--foreground);
 }
 
 .body-expanded + .row {
