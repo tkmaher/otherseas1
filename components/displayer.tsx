@@ -1,5 +1,6 @@
 "use client";
 import { useSelectionContext } from "@/contexts/selectionContext";
+import { useLenis } from "lenis/react";
 import { useEffect, useRef, useState } from "react";
 
 function MosaicImage({
@@ -70,8 +71,28 @@ export default function Displayer({
 }) {
     const { currImage, setImage, currColor } = useSelectionContext();
     const touchStartX = useRef<number | null>(null);
+    const lenis = useLenis();
 
     const isCarousel = !!srcs && srcs.length > 0 && currImage !== '' && srcs.includes(currImage);
+
+    useEffect(() => {
+        if (!isCarousel) return;
+
+        lenis?.stop();
+
+        const { body, documentElement: html } = document;
+        const prevBodyOverflow = body.style.overflow;
+        const prevHtmlOverflow = html.style.overflow;
+
+        body.style.overflow = 'hidden';
+        html.style.overflow = 'hidden';
+
+        return () => {
+            lenis?.start();
+            body.style.overflow = prevBodyOverflow;
+            html.style.overflow = prevHtmlOverflow;
+        };
+    }, [isCarousel, lenis]);
 
     const nav = (dir: string) => {
         const currentIndex = srcs.indexOf(currImage);

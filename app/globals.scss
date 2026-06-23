@@ -67,7 +67,7 @@ a {
   box-sizing: border-box;
   border-top: 1px solid var(--foreground); 
   border-bottom: 1px solid var(--foreground); 
-  transition: max-width 0.3s ease;
+  transition: max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media (max-width: 768px) {
     width: 100%;
@@ -78,12 +78,6 @@ a {
   max-width: 100%;
   border-top: 1px solid var(--foreground); 
 
-}
-
-.row:has(+ * + * td .row-inner-expanded), .row:has( + * td .row-inner-expanded) {
-  .row-inner {
-    border-bottom: none !important;
-  }
 }
 
 .row:has(+ * + * td .row-inner), .row:has(+ * td .row-inner) {
@@ -145,48 +139,34 @@ a {
   opacity: 1;
 }
 
-.body-collapsed td {
-  opacity: 0;
-}
-
-.body-expanded td {
-  opacity: 1;
-}
-
-.body-collapsed .body-inner {
-  visibility: hidden;  
-  padding: 0;
-  height: 0;
-}
-
 .body-collapsed {
   height: 0;
 }
 
-.body-expanded {
-  .body-inner {
-    //height: calc(100dvh - 2em);
-    height: fit-content;
-    opacity: 1;
-    transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-}
 
 .body-inner {
-  min-height: 0;
   height: 0;
+  min-height: 0; /* keep static — needed for the grid-template-rows:0fr trick to shrink fully; doesn't need to transition since it never changes */
+  max-width: 50%;
   opacity: 0;
+  visibility: hidden;
   display: flex;
-  width: 100%;
   box-sizing: border-box;
   flex-direction: column-reverse;
   gap: 0.2em;
   justify-content: space-between;
   overflow: hidden;
-  
   transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
               opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
-              min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+              max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+              visibility 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.body-expanded .body-inner {
+  height: calc(100dvh - 2em);
+  max-width: 100%;
+  opacity: 1;
+  visibility: visible;
 }
 
 .body-description {
@@ -195,7 +175,7 @@ a {
   overflow-y: visible;
   text-align: justify;
   opacity: 1;
-  transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1), max-width 0.3s ease;
+  transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1), max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -205,6 +185,7 @@ a {
   border-top: 1px solid var(--foreground);
   max-width: 100%;
   border-bottom: 1px solid var(--foreground);
+
 
   .linkout {
     max-height: 1em;
@@ -218,14 +199,14 @@ a {
 
 .body-collapsed .body-description {
   opacity: 0;
-  max-width: 50%;
 }
 
 .body-displayer {
   box-sizing: border-box;
   display: flex;
-  align-items: stretch;
-  width: calc(100% + 1em);            
+  align-items: flex-end;
+  width: calc(100% + 1em);    
+  flex-grow: 1;        
   max-width: 100%;
   min-width: 0;      
   padding: 0.2em;
@@ -297,6 +278,7 @@ a {
   justify-content: center;
   padding: 0 !important;
   border: none !important;
+  overflow: auto;
 
   .mosiac-image {
     height: auto;
@@ -399,23 +381,10 @@ input[type="checkbox"] {
   background-color: rgba(0, 0, 0, 0.265);
 }
 
-img {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  //box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-
-
 @media (max-width: 800px) {
   .body-expanded .body-inner {
-    border-bottom: 1px solid var(--foreground);
-    gap: 1em;
     height: fit-content;
-    padding: 0.8em 0;
-    margin-bottom: 0;
+   
     .body-description {
       gap: 1em;
       div {
@@ -428,14 +397,23 @@ img {
     }
   }
 
+  .body-inner {
+    max-width: 100% !important;
+  }
+
+
   .mosaic-displayer {
-    height: 40dvh;
+    height: 30dvh;
+  }
+
+  .mosaic-carousel {
+    height: 100dvh;
   }
 
   .mosaic-carousel .mosiac-image img {
     padding: 1em;
-    max-width: calc(100dvw - 2em);
-    max-height: calc(100dvh - 6em);
+    width: calc(100dvw - 2em);
+    height: 100dvh;
   }
 
   .row-inner {
