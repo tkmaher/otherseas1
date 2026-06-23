@@ -153,7 +153,8 @@ a {
 
 .body-expanded {
   .body-inner {
-    height: calc(100dvh - 2em);
+    //height: calc(100dvh - 2em);
+    height: fit-content;
     opacity: 1;
     transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), min-height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     border-bottom: 1px solid var(--foreground);
@@ -168,7 +169,8 @@ a {
   width: 100%;
   box-sizing: border-box;
   flex-direction: column-reverse;
-  justify-content: start;
+  gap: 0.4em;
+  justify-content: space-between;
   padding: 0.2em;
   overflow: hidden;
   
@@ -185,18 +187,11 @@ a {
   opacity: 1;
   transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  div {
-    flex-basis: 50%;
-  }
-  & > a {
-    text-decoration: underline;
-    img {
-      border-bottom: 2px solid var(--foreground);
-    }
-  }
+  gap: 1em;
+ 
 }
 
 .body-collapsed .body-description {
@@ -207,7 +202,7 @@ a {
   box-sizing: border-box;
   display: flex;
   align-items: stretch;
-  width: 100%;            
+  width: calc(100% + 1em);            
   max-width: 100%;
   min-width: 0;      
 }
