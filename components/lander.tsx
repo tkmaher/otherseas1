@@ -57,15 +57,12 @@ export default function Lander({
         updatePercent(scroll);
     });
 
-    // Recompute on resize/orientation change (e.g. iOS toolbar show/hide
-    // changing innerHeight) using the last known scroll position.
     useEffect(() => {
         const onResize = () => updatePercent(lastScrollRef.current);
         window.addEventListener("resize", onResize);
         return () => window.removeEventListener("resize", onResize);
     }, [updatePercent]);
 
-    // Initial calc on mount, in case Lenis hasn't fired a scroll event yet.
     useEffect(() => {
         updatePercent(lenis?.scroll ?? window.scrollY);
     }, [lenis, updatePercent]);
@@ -75,8 +72,8 @@ export default function Lander({
         if (!carousel) return;
     
         let frameId: number;
-        const SPEED = 0.4; // px per frame
-        let position = carousel.scrollLeft; // local float accumulator
+        const SPEED = 0.4; 
+        let position = carousel.scrollLeft; 
         let userActive = false;
         let resumeTimeout: ReturnType<typeof setTimeout>;
     

@@ -163,7 +163,7 @@ a {
 }
 
 .body-expanded .body-inner {
-  height: calc(100dvh - 2em);
+  height: calc(100vh - 2em);
   max-width: 100%;
   opacity: 1;
   visibility: visible;
@@ -237,7 +237,7 @@ a {
 */
 
 .mosaic-displayer {
-  height: 60dvh;
+  height: 60vh;
   display: flex;
   gap: 0.4em;
   transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -390,9 +390,8 @@ input[type="checkbox"] {
 }
 
 .lander-spacer {
-  // Fixed, never animated. This is the only thing reserving scroll
-  // distance for the collapse — keep it constant or Lenis will jitter.
-  height: 100dvh;
+  
+  height: 100vh;
 }
 
 .lander {
@@ -400,7 +399,7 @@ input[type="checkbox"] {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   z-index: 50;
 
   font-size: 28px;
@@ -452,7 +451,7 @@ input[type="checkbox"] {
 
 @media (max-width: 800px) {
   .body-expanded .body-inner {
-    height: 40dvh;
+    height: 40vh;
    
     .body-description {
       gap: 1em;
@@ -474,7 +473,7 @@ input[type="checkbox"] {
 
 
   .mosaic-displayer {
-    height: 30dvh;
+    height: 30dh;
   }
 
   .mosaic-carousel {
@@ -507,6 +506,11 @@ input[type="checkbox"] {
 
   .row-tags {
     display: none;
+  }
+
+  .lander-top {
+    overflow-x: hidden;
+    touch-action: pan-y;
   }
 
 }
