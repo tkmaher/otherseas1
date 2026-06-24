@@ -1,7 +1,8 @@
 "use client";
 
 import { useSelectionContext } from "@/contexts/selectionContext";
-import { useEffect, useRef, useState } from "react";
+import { useLenis } from "lenis/react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function LanderImage({
     src,
@@ -40,52 +41,96 @@ export default function Lander({
 }) {
     const [collapsePercent, setCollapsePercent] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
-    const tickingRef = useRef(false);
+    const lastScrollRef = useRef(0);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (tickingRef.current) return;
-            tickingRef.current = true;
-            requestAnimationFrame(() => {
-                const spacerHeight = window.innerHeight;
-                const percent =
-                    spacerHeight > 0
-                        ? Math.min(100, Math.max(0, (window.scrollY / spacerHeight) * 100))
-                        : 0;
-                setCollapsePercent(percent);
-                tickingRef.current = false;
-            });
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener("scroll", handleScroll);
+    const updatePercent = useCallback((scroll: number) => {
+        lastScrollRef.current = scroll;
+        const spacerHeight = window.innerHeight;
+        const percent =
+            spacerHeight > 0
+                ? Math.min(100, Math.max(0, (scroll / spacerHeight) * 100))
+                : 0;
+        setCollapsePercent(percent);
     }, []);
 
-    // Slowly auto-scroll the carousel to the right, looping seamlessly.
+    const lenis = useLenis(({ scroll }) => {
+        updatePercent(scroll);
+    });
+
+    // Recompute on resize/orientation change (e.g. iOS toolbar show/hide
+    // changing innerHeight) using the last known scroll position.
+    useEffect(() => {
+        const onResize = () => updatePercent(lastScrollRef.current);
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, [updatePercent]);
+
+    // Initial calc on mount, in case Lenis hasn't fired a scroll event yet.
+    useEffect(() => {
+        updatePercent(lenis?.scroll ?? window.scrollY);
+    }, [lenis, updatePercent]);
+
     useEffect(() => {
         const carousel = carouselRef.current;
         if (!carousel) return;
-
+    
         let frameId: number;
         const SPEED = 0.4; // px per frame
-
+        let position = carousel.scrollLeft; // local float accumulator
+        let userActive = false;
+        let resumeTimeout: ReturnType<typeof setTimeout>;
+    
+        const pause = () => {
+            userActive = true;
+            clearTimeout(resumeTimeout);
+        };
+    
+        const resume = () => {
+            
+            clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                position = carousel.scrollLeft;
+                userActive = false;
+            }, 800);
+        };
+    
+        carousel.addEventListener("pointerdown", pause);
+        carousel.addEventListener("pointerup", resume);
+        carousel.addEventListener("pointercancel", resume);
+        carousel.addEventListener("touchstart", pause, { passive: true });
+        carousel.addEventListener("touchend", resume, { passive: true });
+        carousel.addEventListener("wheel", pause, { passive: true });
+        carousel.addEventListener("wheel", resume, { passive: true });
+    
         const tick = () => {
             const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-            if (maxScroll > 0) {
-                const next = carousel.scrollLeft + SPEED;
-                carousel.scrollLeft = next >= maxScroll ? maxScroll : next;
+            if (maxScroll > 0 && !userActive) {
+                position = Math.min(maxScroll, position + SPEED);
+                carousel.scrollLeft = position;
             }
             frameId = requestAnimationFrame(tick);
         };
-
+    
         frameId = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(frameId);
+        return () => {
+            cancelAnimationFrame(frameId);
+            clearTimeout(resumeTimeout);
+            carousel.removeEventListener("pointerdown", pause);
+            carousel.removeEventListener("pointerup", resume);
+            carousel.removeEventListener("pointercancel", resume);
+            carousel.removeEventListener("touchstart", pause);
+            carousel.removeEventListener("touchend", resume);
+            carousel.removeEventListener("wheel", pause);
+            carousel.removeEventListener("wheel", resume);
+        };
     }, []);
 
-
     const handleLanderClick = () => {
-        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        if (lenis) {
+            lenis.scrollTo(window.innerHeight, { duration: 1.2 });
+        } else {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        }
     };
 
     const isFullyCollapsed = collapsePercent >= 100;
@@ -102,13 +147,11 @@ export default function Lander({
 
     return (
         <>
-
-            <div className="lander-spacer" aria-hidden="true" 
-                style={{        
+            <div className="lander-spacer" aria-hidden="true"
+                style={{
                     backgroundColor: currColor
                 }}
             />
-
 
             <div
                 className="lander"

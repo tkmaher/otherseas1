@@ -139,9 +139,9 @@ export function ListItem({
                         <div className="body-inner">
                             <div className="body-description">
 
-                                {item.description && <div
+                                {item.description ? <div
                                     dangerouslySetInnerHTML={{ __html: item.description }}
-                                />}
+                                /> : <div></div>}
                                 {item.link && <>
                                         {' '}<a className="linkout" href={item.link} target="_blank">
                                             <img src="linkout.svg"/>
