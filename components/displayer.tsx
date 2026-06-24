@@ -39,8 +39,8 @@ function MosaicImage({
                     alt={alt}
                     style={{
                         opacity: visible ? 1 : 0,
-                        scale: visible ? 1 : 0,
-                        transition: "opacity 0.5s ease, scale 0.5s ease",
+                        transform: visible ? "translateY(0)" : "translateY(20px)",
+                        transition: "opacity 0.5s ease, transform 0.5s ease",
                     }}
                     onClick={() => setImage(src)}
                 />
@@ -49,8 +49,8 @@ function MosaicImage({
                     dangerouslySetInnerHTML={{ __html: src }}
                     style={{
                         opacity: visible ? 1 : 0,
-                        scale: visible ? 1 : 0,
-                        transition: "opacity 0.5s ease, scale 0.5s ease",
+                        transform: visible ? "translateY(0)" : "translateY(20px)",
+                        transition: "opacity 0.5s ease, transform 0.5s ease",
                         height: '100%'
                     }}
                 />

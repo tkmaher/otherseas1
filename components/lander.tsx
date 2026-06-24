@@ -1,5 +1,6 @@
 "use client";
 
+import { useSelectionContext } from "@/contexts/selectionContext";
 import { useEffect, useRef, useState } from "react";
 
 function LanderImage({
@@ -89,17 +90,24 @@ export default function Lander({
 
     const isFullyCollapsed = collapsePercent >= 100;
 
+    const { currColor } = useSelectionContext();
+
     const landerStyle: React.CSSProperties = {
         clipPath: `inset(0 0 ${collapsePercent}% 0)`,
         pointerEvents: isFullyCollapsed ? "none" : "auto",
         transformOrigin: "top",
         translate: `0 -${collapsePercent}px`,
+        backgroundColor: currColor
     };
 
     return (
         <>
 
-            <div className="lander-spacer" aria-hidden="true" />
+            <div className="lander-spacer" aria-hidden="true" 
+                style={{        
+                    backgroundColor: currColor
+                }}
+            />
 
 
             <div

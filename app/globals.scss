@@ -146,7 +146,7 @@ a {
 
 .body-inner {
   height: 0;
-  min-height: 0; /* keep static — needed for the grid-template-rows:0fr trick to shrink fully; doesn't need to transition since it never changes */
+  min-height: 0; 
   max-width: 50%;
   opacity: 0;
   visibility: hidden;
@@ -163,7 +163,7 @@ a {
 }
 
 .body-expanded .body-inner {
-  height: calc(100dvh - 5em);
+  height: calc(100dvh - 2em);
   max-width: 100%;
   opacity: 1;
   visibility: visible;
@@ -213,7 +213,6 @@ a {
   max-width: 100%;
   min-width: 0;      
   padding: 0.2em;
-  border-top: 1px solid var(--foreground);
 }
 
 .body-expanded + .row {
@@ -246,14 +245,14 @@ a {
 
   .mosiac-image {
     flex-shrink: 0;
-    height: 100%;
     cursor: zoom-in;
     transition: opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
-
+    display: flex;
     img {
       display: block;
       height: 100%;
-      width: auto;
+      align-self: flex-end;
+      width: fit-content;
     }
 
     @media (hover: hover) {
@@ -363,6 +362,8 @@ input[type="checkbox"] {
 
 /* ── Misc ────────────────────────────────────────────────── */
 
+
+
 .header {
   width: 100%;
   font-size: 20px;
@@ -456,7 +457,6 @@ input[type="checkbox"] {
    
     .body-description {
       gap: 1em;
-      align-items: self-end;
       div {
         flex-basis: auto;
       }
@@ -487,10 +487,25 @@ input[type="checkbox"] {
     padding: 1em;
     width: calc(100dvw - 2em);
     height: 100dvh;
+    max-width: 100dvw;
   }
 
   .row-inner {
     max-width: 100%;
   }
   
+  .lander-top div img {
+    max-width: 50dvw !important;
+  }
+
+  .body-displayer:has(iframe) {
+    justify-content: center;
+    iframe {
+      max-width: 90dvw;
+    }
+  }
+
+  .row-tags {
+    display: none;
+  }
 }
