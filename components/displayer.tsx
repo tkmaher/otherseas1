@@ -39,7 +39,8 @@ function MosaicImage({
                     alt={alt}
                     style={{
                         opacity: visible ? 1 : 0,
-                        transition: "opacity 0.5s ease",
+                        scale: visible ? 1 : 0,
+                        transition: "opacity 0.5s ease, scale 0.5s ease",
                     }}
                     onClick={() => setImage(src)}
                 />
@@ -48,7 +49,8 @@ function MosaicImage({
                     dangerouslySetInnerHTML={{ __html: src }}
                     style={{
                         opacity: visible ? 1 : 0,
-                        transition: "opacity 0.5s ease",
+                        scale: visible ? 1 : 0,
+                        transition: "opacity 0.5s ease, scale 0.5s ease",
                         height: '100%'
                     }}
                 />
@@ -71,6 +73,7 @@ export default function Displayer({
 }) {
     const { currImage, setImage, currColor } = useSelectionContext();
     const touchStartX = useRef<number | null>(null);
+    const scrollRef = useRef<HTMLDivElement>(null);
     const lenis = useLenis();
 
     const isCarousel = !!srcs && srcs.length > 0 && currImage !== '' && srcs.includes(currImage);
@@ -145,6 +148,26 @@ export default function Displayer({
         nav(deltaX > 0 ? 'prev' : 'next');
     };
 
+    useEffect(() => {
+        const displayer = scrollRef.current;
+        if (!displayer) return;
+
+        let frameId: number;
+        const SPEED = 0.4; // px per frame
+
+        const tick = () => {
+            const maxScroll = displayer.scrollWidth - displayer.clientWidth;
+            if (maxScroll > 0) {
+                const next = displayer.scrollLeft + SPEED;
+                displayer.scrollLeft = next >= maxScroll ? maxScroll : next;
+            }
+            frameId = requestAnimationFrame(tick);
+        };
+
+        //frameId = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(frameId);
+    }, []);
+
     if (!srcs || srcs.length === 0) return null;
 
     return (
@@ -157,6 +180,7 @@ export default function Displayer({
             }}
             onTouchStart={isCarousel ? handleTouchStart : undefined}
             onTouchEnd={isCarousel ? handleTouchEnd : undefined}
+            ref={scrollRef}
         >
             {srcs.map((src, i) => (
                 <MosaicImage key={`${src}-${i}`} src={src} alt={type} index={i} triggered={triggered} type={type} />

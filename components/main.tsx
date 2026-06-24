@@ -1,11 +1,11 @@
 "use client";
 
 import { ItemType } from "@/types";
-import { useState } from "react";
 import { colors } from "@/types"
 import { Table } from "./table";
 import { AnimatePresence, motion } from "motion/react";
 import { useSelectionContext } from "@/contexts/selectionContext";
+import Lander from "./lander";
 
 export default function Main({ data }: { data: ItemType[] }) {
 
@@ -16,6 +16,8 @@ export default function Main({ data }: { data: ItemType[] }) {
         return acc;
     }, {});
 
+    const images = Object.values(categorized).flat().filter(item => item.type === "image").map(item => item.src?.map(src => src)).flat() as string[];
+
     Object.values(categorized).forEach(arr => arr.sort((a, b) => b.date.localeCompare(a.date)));
 
     const order = ["CV", "Education", "Music", "Writing", "Links", "Appendix"];
@@ -23,7 +25,8 @@ export default function Main({ data }: { data: ItemType[] }) {
     const { currColor, setCurrColor } = useSelectionContext();
 
     return (
-            <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
+            <Lander srcs={images}>
                 <motion.div
                     key="table"
                     initial={{ opacity: 0 }}
@@ -67,6 +70,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                             )}
                         </div>
                 </motion.div>
-            </AnimatePresence>
+            </Lander>
+        </AnimatePresence>
     );
 }
