@@ -390,8 +390,9 @@ input[type="checkbox"] {
 }
 
 .lander-spacer {
-  
-  height: 100vh;
+  // Fixed, never animated. This is the only thing reserving scroll
+  // distance for the collapse — keep it constant or Lenis will jitter.
+  height: 100dvh;
 }
 
 .lander {
@@ -399,7 +400,7 @@ input[type="checkbox"] {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   z-index: 50;
 
   font-size: 28px;
@@ -451,7 +452,7 @@ input[type="checkbox"] {
 
 @media (max-width: 800px) {
   .body-expanded .body-inner {
-    height: 40vh;
+    height: 40dvh;
    
     .body-description {
       gap: 1em;
@@ -473,7 +474,7 @@ input[type="checkbox"] {
 
 
   .mosaic-displayer {
-    height: 30dh;
+    height: 30dvh;
   }
 
   .mosaic-carousel {
@@ -512,5 +513,4 @@ input[type="checkbox"] {
     overflow-x: hidden;
     touch-action: pan-y;
   }
-
 }
