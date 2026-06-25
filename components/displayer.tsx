@@ -32,7 +32,7 @@ function MosaicImage({
     if (currImage !== '' && currImage !== src) return null;
 
     return (
-        <div className={type === "iframe" ? undefined : "mosiac-image "}>
+        <div className={type === "iframe" ? undefined : "mosaic-image  "}>
             {type === "image" ? (
                 <img
                     src={src}
