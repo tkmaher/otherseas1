@@ -43,22 +43,29 @@ export default function Lander({
     const carouselRef = useRef<HTMLDivElement>(null);
     const lastScrollRef = useRef(0);
 
+    const spacerHeightRef = useRef(
+        typeof window !== "undefined" ? window.innerHeight : 0
+    );
+    
     const updatePercent = useCallback((scroll: number) => {
         lastScrollRef.current = scroll;
-        const spacerHeight = window.innerHeight;
+        const spacerHeight = spacerHeightRef.current;
         const percent =
             spacerHeight > 0
                 ? Math.min(100, Math.max(0, (scroll / spacerHeight) * 100))
                 : 0;
         setCollapsePercent(percent);
     }, []);
-
+    
     const lenis = useLenis(({ scroll }) => {
         updatePercent(scroll);
     });
-
+    
     useEffect(() => {
-        const onResize = () => updatePercent(lastScrollRef.current);
+        const onResize = () => {
+            spacerHeightRef.current = window.innerHeight;
+            updatePercent(lastScrollRef.current);
+        };
         window.addEventListener("resize", onResize);
         return () => window.removeEventListener("resize", onResize);
     }, [updatePercent]);
