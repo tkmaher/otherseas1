@@ -222,19 +222,6 @@ a {
   
 }
 
-/* ── Mosaic displayer ────────────────────────────────────── */
-
-/*
-  The displayer is always a square.
-  We achieve this with an aspect-ratio: 1 / 1 container that
-  fills the available width, then use CSS grid to lay out images.
-
-  Grid template:
-    1 src  → 1×1
-    2 srcs → 2 columns, 1 row
-    3 srcs → top row spans full width, bottom row has 2 columns
-    4 srcs → top row spans full width, bottom row has 3 columns
-*/
 
 .mosaic-displayer {
   height: 60vh;
@@ -247,6 +234,8 @@ a {
     height: 100%;     
     flex-shrink: 0;
     min-width: 0;      
+    cursor: zoom-in;
+    background-color: rgb(196, 196, 196);
   
     img {
       height: 100%;
@@ -284,6 +273,7 @@ a {
 
   .mosiac-image  {
     height: auto;
+    background-color: transparent;
 
     &:hover {
       opacity: 1;
@@ -297,6 +287,9 @@ a {
       max-width: calc(100dvw - 6em);
       max-height: calc(100dvh - 6em);
       object-fit: contain;
+      &:hover {
+        opacity: 1 !important;
+      }
     }
   }
 
@@ -392,7 +385,7 @@ input[type="checkbox"] {
 .lander-spacer {
   // Fixed, never animated. This is the only thing reserving scroll
   // distance for the collapse — keep it constant or Lenis will jitter.
-  height: 100dvh;
+  height: 100vh;
 }
 
 .lander {
@@ -400,7 +393,7 @@ input[type="checkbox"] {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   z-index: 50;
 
   font-size: 28px;
@@ -452,7 +445,7 @@ input[type="checkbox"] {
 
 @media (max-width: 800px) {
   .body-expanded .body-inner {
-    height: 40dvh;
+    height: 40vh;
    
     .body-description {
       gap: 1em;
@@ -507,6 +500,10 @@ input[type="checkbox"] {
 
   .row-tags {
     display: none;
+  }
+
+  .lander {
+    font-size: 22px;
   }
 
   .lander-top {
