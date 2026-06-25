@@ -23,7 +23,7 @@ function MosaicImage({
             setVisible(false);
             return;
         }
-        const timer = setTimeout(() => setVisible(true), index * 220);
+        const timer = setTimeout(() => setVisible(true), (index - 1) * 220);
         return () => clearTimeout(timer);
     }, [triggered, index]);
 

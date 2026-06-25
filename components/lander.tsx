@@ -27,6 +27,7 @@ function LanderImage({
                     transform: visible ? "translateY(0)" : "translateY(20px)",
                     transition: "opacity 0.5s ease, transform 0.5s ease",
                 }}
+                onLoad={() => window.dispatchEvent(new Event("resize"))}
             />
         </div>
     );
@@ -128,6 +129,19 @@ export default function Lander({
             carousel.removeEventListener("wheel", resume);
         };
     }, []);
+
+    useEffect(() => {
+        if (!lenis) return;
+    
+        const raf = requestAnimationFrame(() => lenis.resize());
+    
+        const settleTimer = setTimeout(() => lenis.resize(), 500);
+    
+        return () => {
+            cancelAnimationFrame(raf);
+            clearTimeout(settleTimer);
+        };
+    }, [lenis]);
 
     const handleLanderClick = () => {
         if (lenis) {

@@ -235,7 +235,6 @@ a {
     flex-shrink: 0;
     min-width: 0;      
     cursor: zoom-in;
-    background-color: rgb(196, 196, 196);
   
     img {
       height: 100%;
@@ -273,7 +272,6 @@ a {
 
   .mosaic-image   {
     height: auto;
-    background-color: transparent;
 
     &:hover {
       opacity: 1;
