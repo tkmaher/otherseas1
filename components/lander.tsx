@@ -12,6 +12,7 @@ function LanderImage({
     index: number;
 }) {
     const [visible, setVisible] = useState(false);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => setVisible(true), index * 220);
@@ -25,9 +26,12 @@ function LanderImage({
                 style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateY(0)" : "translateY(20px)",
-                    transition: "opacity 0.5s ease, transform 0.5s ease",
+                    maxWidth: loaded ? "20dvw" : 0
                 }}
-                onLoad={() => window.dispatchEvent(new Event("resize"))}
+                onLoad={() => {
+                    window.dispatchEvent(new Event("resize"));
+                    setLoaded(true);
+                }}
             />
         </div>
     );
