@@ -4,13 +4,7 @@ import { useSelectionContext } from "@/contexts/selectionContext";
 import { useLenis } from "lenis/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-function LanderImage({
-    src,
-    index,
-}: {
-    src: string;
-    index: number;
-}) {
+function LanderImage({ src, index }: { src: string; index: number }) {
     const [visible, setVisible] = useState(false);
     const [loaded, setLoaded] = useState(false);
 
@@ -26,12 +20,18 @@ function LanderImage({
                 style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateY(0)" : "translateY(20px)",
-                    maxWidth: loaded ? "20dvw" : 0
+                    maxWidth: loaded ? "20dvw" : 0,
+                }}
+                ref={(el) => {
+                    if (el && el.complete && el.naturalWidth > 0 && !loaded) {
+                        setLoaded(true);
+                    }
                 }}
                 onLoad={() => {
                     window.dispatchEvent(new Event("resize"));
                     setLoaded(true);
                 }}
+                onError={() => setLoaded(true)}
             />
         </div>
     );
