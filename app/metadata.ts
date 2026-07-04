@@ -5,7 +5,7 @@ export const staticMetadata: Metadata = {
     applicationName: "Tom Maher",
     title: {
       template: 'Tom Maher | %s',
-      default: 'Tom Maher', // a default is required when creating a template
+      default: 'Tom Maher', 
     },
     description: "otherseas1.com is the website of developer Tom Maher.",
     keywords: ["media", "web design", "sound", "music", "portfolio"],

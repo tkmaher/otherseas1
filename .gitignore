@@ -19,6 +19,7 @@
 
 # production
 /build
+/public/case_studies
 
 # misc
 .DS_Store

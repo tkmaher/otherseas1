@@ -1,0 +1,100 @@
+{
+    "items": [
+        {
+            "slug": "ubutube",
+            "title": "UbuTube",
+            "date": 2026,
+            "cover": "/case_studies/ubutube/header_for_editing.mp4",
+            "link": "https://ubutube.org",
+            "stack": [
+                {
+                    "type": "Type",
+                    "tools": ["Web platform"]
+                },
+                {
+                    "type": "Skills",
+                    "tools": ["Web scraping", "Data streaming", "CRUD"]
+                },
+                {
+                    "type": "Tools",
+                    "tools": ["Next.js", "Figma", "bs4"]
+                }
+            ],
+            "sections": [
+                    {
+                        "subsections": [
+                            {
+                                "displayStyle": "autocarousel",
+                                "description": "UbuTube is an auxillary extension of the avant-garde archive site ubu.com. It acts as a fricitonless, print-like frame upon which visual media can assume the viewer's total attention.",
+                                "images": [
+                                    {
+                                        "src": "/case_studies/ubutube/header_1.png"
+                                    },
+                                    {
+                                        "src": "/case_studies/ubutube/header_2.png"
+                                    },
+                                    {
+                                        "src": "/case_studies/ubutube/header_3.png"
+                                    }
+                                ]
+                            }
+                            
+                        ]
+                    },
+                    {
+                        "header": "Background",
+                        "subsections": [
+                            {
+                                "displayStyle": "rowstack",
+                                "description": "<a href='https://ubu.com' target='_blank'>ubu.com</a>"
+                            }
+                        ]
+                    },
+                    {
+                        "header": "Process",
+                        "subsections": [
+                            {
+                                "header": "Inception",
+                                "displayStyle": "",
+                                "description": ""
+                            },
+                            {
+                                "displayStyle": "wide",
+                                "images": [
+                                    {
+                                        "src": "video of terminal scraping",
+                                        "description": "The UbuWeb mirror scraper in action. Requests are staggered to avoid overloading the parent site."
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "Black Square/The Spiral",
+                                "displayStyle": "",
+                                "description": "the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)"
+                            },
+                            {
+                                "header": "Difficulties",
+                                "displayStyle": "",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "header": "Result",
+                        "subsections": [
+
+                        ]
+                    }
+            ],
+            "bibliography": [
+                {
+                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
+                    "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
+                }, 
+                {
+                    "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
+                }
+            ]
+        }
+    ]
+}
