@@ -1,20 +1,30 @@
-"use client";
-import { useRef, useEffect } from "react";
-import { PortfolioItemType, SectionType, StackType, SubsectionType } from "@/portfoliotypes";
+import { Citation, ImageType, PortfolioItemType, SectionType, StackType, SubsectionType } from "@/portfoliotypes";
 import Image from "next/image";
+import { AutoCarousel } from "./autocarousel";
+import { ImageSlider } from "./imageslider";
 
-function PortfolioMedia({src, classN}: {src: string, classN: string}) {
-    if (src.includes(".mp4")) {
-        return (
-            <video className={classN} autoPlay muted loop playsInline >
-                <source src={src} type="video/mp4" />
-                Your browser does not
-                support the video tag.
-            </video>
-        )
-    }
+export function PortfolioMedia({
+    media, 
+    classN, 
+    removeBackground
+}: {
+    media: ImageType, 
+    classN?: string, 
+    removeBackground?: boolean
+}) {
+
     return (
-        <Image src={src} alt="portfolio media" width={3600} height={3600} className={classN} />
+        <div className={removeBackground ? "portfolio-media-flex no-bg" : "portfolio-media-flex"}>
+            {media.src.includes(".mp4") ? 
+                <video className={classN} autoPlay muted loop playsInline >
+                    <source src={media.src} type="video/mp4" />
+                    Your browser does not
+                    support the video tag.
+                </video> :
+                <Image src={media.src} alt="portfolio media" width={3600} height={3600} className={classN} />
+            }
+            <div className="portfolio-media-caption">{media.caption}</div>
+        </div>
     )
 }
 
@@ -31,103 +41,86 @@ function PortfolioStack({stack}: {stack: StackType}) {
     );
 }
 
-
-function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
-    const trackRef = useRef<HTMLDivElement>(null);
-    const positionRef = useRef(0);
-    const velocityRef = useRef(0);
-    const halfWidthRef = useRef(0);
-    const lastBurstRef = useRef(0);
-    const rafRef = useRef<number>(0);
-
-    const images = subsection.images;
-
-    useEffect(() => {
-        if (!images || images.length === 0) return;
-
-        const track = trackRef.current;
-        if (!track) return;
-
-        // Width of a single set of images (the track holds two sets back-to-back)
-        const measure = () => {
-            halfWidthRef.current = track.scrollWidth / 2;
-        };
-        measure();
-
-        const resizeObserver = new ResizeObserver(measure);
-        resizeObserver.observe(track);
-
-        const BASE_SPEED = 0.03;   // px/ms — the "never stops" idle drift
-        const BURST_SPEED = 0.32;  // px/ms — speed right after a burst
-        const BURST_INTERVAL = 2600; // ms between bursts
-        const DECAY = 0.0025;      // higher = burst fades out faster
-
-        velocityRef.current = BASE_SPEED;
-
-        let lastTime = performance.now();
-        lastBurstRef.current = lastTime;
-
-        const tick = (now: number) => {
-            const dt = now - lastTime;
-            lastTime = now;
-
-            if (now - lastBurstRef.current > BURST_INTERVAL) {
-                velocityRef.current = BURST_SPEED;
-                lastBurstRef.current = now;
+function Slider({subsection}: {subsection: SubsectionType}) {
+    if (!subsection.images || subsection.images.length < 2) return null;
+    return (
+        <div className="subsection-row">
+            <ImageSlider image1={subsection.images[0]} image2={subsection.images[1]}/>
+            {subsection.description && 
+                <div className="desc-right" dangerouslySetInnerHTML={{__html: subsection.description}}/>
             }
+        </div>
+    )
+}
 
-            velocityRef.current =
-                BASE_SPEED + (velocityRef.current - BASE_SPEED) * Math.exp(-DECAY * dt);
-
-            positionRef.current -= velocityRef.current * dt;
-
-            if (halfWidthRef.current > 0 && positionRef.current <= -halfWidthRef.current) {
-                positionRef.current += halfWidthRef.current;
-            }
-
-            track.style.transform = `translate3d(${positionRef.current}px, 0, 0)`;
-
-            rafRef.current = requestAnimationFrame(tick);
-        };
-
-        rafRef.current = requestAnimationFrame(tick);
-
-        return () => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            resizeObserver.disconnect();
-        };
-    }, [images]);
-
-    if (!images) return null;
+function ScrollLeft({subsection}: {subsection: SubsectionType}) {
+    if (!subsection.images || subsection.images.length == 0) return null;
 
     return (
-        <div className="subsection-autocarousel-parent">
-            <div
-                className="subsection-autocarousel"
-                onWheel={(e) => e.preventDefault()}
-            >
-                <div ref={trackRef} className="subsection-autocarousel-track">
-                    {images.map((img, i) => (
-                        <PortfolioMedia src={img.src} classN="subsection-autocarousel-image" key={`a-${i}`} />
-                    ))}
-                    {images.map((img, i) => (
-                        <PortfolioMedia src={img.src} classN="subsection-autocarousel-image" key={`b-${i}`} />
-                    ))}
-                </div>
-            </div>
-            {subsection.description && <div className="desc">
-                {subsection.description}
-            </div>}
+        <div className="subsection-row">
+            {subsection.description && 
+                <div className="desc-right" dangerouslySetInnerHTML={{__html: subsection.description}}/>
+            }
+            {subsection.images.length > 0 && 
+                <>
+                {subsection.images.map((media, i) => (
+                    <PortfolioMedia key={media.src ?? i} media={media} classN="portfolio-cover-small" />
+                ))}
+                </>
+            }
         </div>
     );
 }
 
-function PortfolioSection({section}: {section: SectionType}) {
+function Row({subsection, index, type}: {subsection: SubsectionType, index: number, type: "left" | "right"}) {
+    if (!subsection.images) return null;
+    const letter = String.fromCharCode(97 + index);
+    return (
+        <div className="subsection-row" style={{flexDirection: type == "left" ? "row-reverse" : "row"}}>
+            <div className="portfolio-subsection-header">{letter}. {subsection.header}</div>
+            <div>
+                {subsection.images.map((media, i) => (
+                    <PortfolioMedia key={media.src ?? i} media={media} classN="portfolio-normal" />
+                ))}
+            </div>
+            {subsection.description && 
+                <div className="desc-right" dangerouslySetInnerHTML={{__html: subsection.description}}/>
+            }
+
+        </div>
+    );
+}
+
+function PortfolioSection({section, index}: {section: SectionType, index: number}) {
     return (
         <div className="portfolio-section">
+            {section.header && <div className="portfolio-section-header">
+                <div>{index}. {section.header}</div>
+                <img src="/section_next.svg"/>
+            </div>}
             {section.subsections.map((subsection, i) => (
                 <div key={i}>
                     {subsection.displayStyle == "autocarousel" && <AutoCarousel subsection={subsection}/>}
+                    {subsection.displayStyle == "slider" && <Slider subsection={subsection}/>}
+                    {subsection.displayStyle == "scroll-left" && <ScrollLeft subsection={subsection}/>}
+                    {subsection.displayStyle == "row-right" && <Row subsection={subsection} index={i} type="right"/>}
+                    {subsection.displayStyle == "row-left" && <Row subsection={subsection} index={i} type="left"/>}
+
+                </div>
+            ))}
+        </div>
+    )
+}
+
+function References({bibliography}: {bibliography: Citation[]}) {
+    if (!bibliography || bibliography.length == 0) return null;
+    return (
+        <div>
+            <div className="portfolio-stack-title">References</div>
+            {bibliography.map((citation, i) => (
+                <div key={i} className="portfolio-stack-tool">
+                    <>{citation.description} </>
+                    <a href={citation.link} target="_blank">{citation.link}</a>
                 </div>
             ))}
         </div>
@@ -136,10 +129,23 @@ function PortfolioSection({section}: {section: SectionType}) {
 
 export default function PortfolioViewer({item}: {item: PortfolioItemType}) {
     return (
-        <div className="portfolio ">
-            <div className=" portfolio-header-title">
-                
-                <PortfolioMedia src={item.cover} classN="portfolio-cover" />
+        <div className="portfolio">
+
+            <div className="portfolio-header">
+                <div className="portfolio-title">
+                    <div>
+                        {item.title}
+                    </div>
+                </div>
+                <a href={item.link} target="_blank">
+                    <img src="/linkout.svg"/>
+                </a>
+            </div>
+            <div className="date">
+                {item.date}
+            </div>
+            <div className="portfolio-header-title">
+                <PortfolioMedia media={{src: item.cover}} classN="portfolio-cover" />
                 <div className="portfolio-stats portfolio-row">
                     {item.stack.map((stack, index) => (
                         <PortfolioStack key={index} stack={stack} />
@@ -148,9 +154,10 @@ export default function PortfolioViewer({item}: {item: PortfolioItemType}) {
             </div>
             <div className="portfolio-sections-column">
                 {item.sections.map((section, i) => (
-                    <PortfolioSection section={section} key={i}/>
+                    <PortfolioSection section={section} key={i} index={i}/>
                 ))}
             </div>
+            <References bibliography={item.bibliography}/>
         </div>
     )
 }

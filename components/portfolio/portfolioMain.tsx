@@ -1,6 +1,6 @@
 "use client";
 import { PortfolioItemType } from "@/portfoliotypes";
-import PortfolioViewer from "./portfolioviewer";
+import PortfolioViewer, { PortfolioMedia } from "./portfolioviewer";
 import { colors } from "@/types";
 import { SelectionProvider, useSelectionContext } from "@/contexts/selectionContext";
 import { Fragment } from "react/jsx-runtime";
@@ -17,12 +17,10 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                 {items.map((item, i) => (
                     <div key={i} className="portfolio-node-parent">
                         <div className="portfolio-node"></div>
-                        {/*item.title*/}
                         <div className="portfolio-subnode-row">
                             {item.sections.map((section, s) => (
                                 <Fragment key={s}>
                                     <div className="portfolio-subnode"></div>
-                                    {/*section.header*/}
                                 </Fragment>
                             ))}
                         </div>
@@ -31,19 +29,6 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                 <a href="/">Home</a>
             </div>
             <div className="portfolio-parent" data-lenis-prevent>
-                <div className="portfolio-header">
-                    <div className="portfolio-title">
-                        <div className="date">
-                            {items[current].date}
-                        </div>
-                        <div>
-                            {items[current].title}
-                        </div>
-                    </div>
-                    <a href={items[current].link} target="_blank">
-                        <img src="/linkout.svg"/>
-                    </a>
-                </div>
                 <PortfolioViewer item={items[current]}/>
                 <div className="footer">
                     {colors.map((val, index) =>
@@ -55,7 +40,26 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                         />
                         )}
                 </div>
+                <div className="portfolio-navbar">
+                    <div className="prev">
+                        {current > 0 && 
+                            <a href={`/portfolio/${items[current - 1].slug}`}>
+                                <PortfolioMedia media={{src: items[current - 1].cover}} classN="portfolio-navbar-img"/>
+                                Previous : {items[current - 1].title}
+                            </a>
+                        }
+                    </div>
+                    <div className="next">
+                        {current < items.length - 1 && 
+                            <a href={`/portfolio/${items[current + 1].slug}`}>
+                                <PortfolioMedia media={{src: items[current + 1].cover}} classN="portfolio-navbar-img"/>
+
+                                Next : {items[current + 1].title}
+                            </a>}
+                    </div>
+                </div>
             </div>
+
             
         </div>
     )

@@ -1,9 +1,32 @@
 {
     "items": [
         {
+            "slug": "test1",
+            "title": "UbuTube",
+            "date": "",
+            "cover": "/case_studies/ubutube/header_for_editing.mp4",
+            "link": "",
+            "stack": [
+                
+            ],
+            "sections": [
+                
+            ],
+            "bibliography": [
+                {
+                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
+                    "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
+                }, 
+                {
+                    "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
+                }
+            ]
+        },
+        
+        {
             "slug": "ubutube",
             "title": "UbuTube",
-            "date": 2026,
+            "date": "UbuTube (2026) is an auxillary print-like extension for the avant-garde media site ubu.com.",
             "cover": "/case_studies/ubutube/header_for_editing.mp4",
             "link": "https://ubutube.org",
             "stack": [
@@ -25,7 +48,6 @@
                         "subsections": [
                             {
                                 "displayStyle": "autocarousel",
-                                "description": "UbuTube is an auxillary extension of the avant-garde archive site ubu.com. It acts as a fricitonless, print-like frame upon which visual media can assume the viewer's total attention.",
                                 "images": [
                                     {
                                         "src": "/case_studies/ubutube/header_1.png"
@@ -45,8 +67,34 @@
                         "header": "Background",
                         "subsections": [
                             {
-                                "displayStyle": "rowstack",
-                                "description": "<a href='https://ubu.com' target='_blank'>ubu.com</a>"
+                                "displayStyle": "slider",
+                                "description": "<a href='https://ubu.com' target='_blank'>ubu.com</a>",
+                                "images": [
+                                    {
+                                        "src": "/case_studies/ubutube/background_4.png"
+                                    },
+                                    {
+                                        "src": "/case_studies/ubutube/background_5.png",
+                                        "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page. [1]"
+                                    }
+                                ]
+                            },
+                            {
+                                "displayStyle": "scroll-left",
+                                "images": [
+                                    {
+                                        "src": "/case_studies/ubutube/background_1.png",
+                                        "caption": "The ubu.com homepage. [2]"
+                                    },
+                                    {
+                                        "src": "/case_studies/ubutube/background_2.png",
+                                        "caption": "The ubu.com artist list. [3]"
+                                    },
+                                    {
+                                        "src": "/case_studies/ubutube/background_3.png",
+                                        "caption": "An artist profile on ubu.com. [4]"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -54,23 +102,30 @@
                         "header": "Process",
                         "subsections": [
                             {
-                                "header": "Inception",
-                                "displayStyle": "",
-                                "description": ""
-                            },
-                            {
-                                "displayStyle": "wide",
+                                "header": "Data collection and prototyping",
+                                "displayStyle": "row-right",
+                                "description": "Lorem ipsum",
                                 "images": [
                                     {
-                                        "src": "video of terminal scraping",
-                                        "description": "The UbuWeb mirror scraper in action. Requests are staggered to avoid overloading the parent site."
+                                        "src": "/case_studies/ubutube/process_4.mp4",
+                                        "caption": "The UbuWeb scraper in action. Requests are staggered to avoid overloading the parent site."
                                     }
                                 ]
                             },
                             {
-                                "header": "Black Square/The Spiral",
-                                "displayStyle": "",
-                                "description": "the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)"
+                                "header": "Black Square / Spiral",
+                                "displayStyle": "row-right",
+                                "description": "the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)",
+                                "images": [
+                                    {
+                                        "src": "/case_studies/ubutube/process_2.avif",
+                                        "caption": "<i>Black Square</i> on display at the Tate Modern. [5]"
+                                    },
+                                    {
+                                        "src": "/case_studies/ubutube/process_3.jpg",
+                                        "caption": "Still from <i>Ubu Roi</i> (1965). [6]"
+                                    }
+                                ]
                             },
                             {
                                 "header": "Difficulties",
@@ -95,6 +150,30 @@
                     "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
                 }
             ]
+        },
+        {
+            "slug": "test2",
+            "title": "UbuTube",
+            "date": "",
+            "cover": "/case_studies/ubutube/header_for_editing.mp4",
+            "link": "",
+            "stack": [
+                
+            ],
+            "sections": [
+                
+            ],
+            "bibliography": [
+                {
+                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
+                    "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
+                }, 
+                {
+                    "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
+                }
+            ]
         }
+        
+
     ]
 }
