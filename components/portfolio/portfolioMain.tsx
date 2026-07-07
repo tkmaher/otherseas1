@@ -1,6 +1,7 @@
 "use client";
 import { PortfolioItemType } from "@/portfoliotypes";
-import PortfolioViewer, { PortfolioMedia } from "./portfolioviewer";
+import PortfolioViewer from "./portfolioviewer";
+import { PortfolioMedia } from "./portfoliomedia";
 import { colors } from "@/types";
 import { SelectionProvider, useSelectionContext } from "@/contexts/selectionContext";
 import { Fragment } from "react/jsx-runtime";
@@ -45,7 +46,7 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                         {current > 0 && 
                             <a href={`/portfolio/${items[current - 1].slug}`}>
                                 <PortfolioMedia media={{src: items[current - 1].cover}} classN="portfolio-navbar-img"/>
-                                Previous : {items[current - 1].title}
+                                Previous - {items[current - 1].title}
                             </a>
                         }
                     </div>
@@ -54,7 +55,7 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                             <a href={`/portfolio/${items[current + 1].slug}`}>
                                 <PortfolioMedia media={{src: items[current + 1].cover}} classN="portfolio-navbar-img"/>
 
-                                Next : {items[current + 1].title}
+                                Next - {items[current + 1].title}
                             </a>}
                     </div>
                 </div>

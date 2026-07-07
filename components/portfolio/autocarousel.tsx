@@ -1,9 +1,9 @@
 "use client";
-import { SubsectionType } from "@/portfoliotypes";
+import { ImageTypeParent } from "@/portfoliotypes";
 import { useRef, useEffect } from "react";
-import { PortfolioMedia } from "./portfolioviewer";
+import { PortfolioMedia } from "./portfoliomedia";
 
-export function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
+export function AutoCarousel({ group }: { group: ImageTypeParent }) {
     const trackRef = useRef<HTMLDivElement>(null);
     const positionRef = useRef(0);
     const velocityRef = useRef(0);
@@ -11,7 +11,7 @@ export function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
     const lastBurstRef = useRef(0);
     const rafRef = useRef<number>(0);
 
-    const images = subsection.images;
+    const images = group.srcs;
 
     useEffect(() => {
         if (!images || images.length === 0) return;
@@ -19,7 +19,6 @@ export function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
         const track = trackRef.current;
         if (!track) return;
 
-        // Width of a single set of images (the track holds two sets back-to-back)
         const measure = () => {
             halfWidthRef.current = track.scrollWidth / 2;
         };
@@ -28,10 +27,10 @@ export function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
         const resizeObserver = new ResizeObserver(measure);
         resizeObserver.observe(track);
 
-        const BASE_SPEED = 0.03;   // px/ms — the "never stops" idle drift
-        const BURST_SPEED = 0.32;  // px/ms — speed right after a burst
-        const BURST_INTERVAL = 2600; // ms between bursts
-        const DECAY = 0.0025;      // higher = burst fades out faster
+        const BASE_SPEED = 0.03;
+        const BURST_SPEED = 0.32;
+        const BURST_INTERVAL = 2600;
+        const DECAY = 0.0025;
 
         velocityRef.current = BASE_SPEED;
 
@@ -69,14 +68,11 @@ export function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
         };
     }, [images]);
 
-    if (!images) return null;
+    if (!images || images.length === 0) return null;
 
     return (
         <div className="subsection-autocarousel-parent">
-            <div
-                className="subsection-autocarousel"
-                onWheel={(e) => e.preventDefault()}
-            >
+            <div className="subsection-autocarousel" onWheel={(e) => e.preventDefault()}>
                 <div ref={trackRef} className="subsection-autocarousel-track">
                     {images.map((img, i) => (
                         <PortfolioMedia media={img} classN="subsection-autocarousel-image" key={`a-${i}`} />
@@ -86,8 +82,6 @@ export function AutoCarousel({ subsection }: { subsection: SubsectionType }) {
                     ))}
                 </div>
             </div>
-            {subsection.description && <div className="desc" dangerouslySetInnerHTML={{__html: subsection.description}}>
-            </div>}
         </div>
     );
 }

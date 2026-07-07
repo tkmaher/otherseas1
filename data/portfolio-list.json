@@ -47,16 +47,21 @@
                     {
                         "subsections": [
                             {
-                                "displayStyle": "autocarousel",
+                                "displayStyle": "row-right",
                                 "images": [
                                     {
-                                        "src": "/case_studies/ubutube/header_1.png"
-                                    },
-                                    {
-                                        "src": "/case_studies/ubutube/header_2.png"
-                                    },
-                                    {
-                                        "src": "/case_studies/ubutube/header_3.png"
+                                        "type": "autocarousel",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/header_1.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/header_2.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/header_3.png"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -67,32 +72,43 @@
                         "header": "Background",
                         "subsections": [
                             {
-                                "displayStyle": "slider",
+                                "displayStyle": "row-right",
                                 "description": "<a href='https://ubu.com' target='_blank'>ubu.com</a>",
                                 "images": [
+                                        
                                     {
-                                        "src": "/case_studies/ubutube/background_4.png"
-                                    },
-                                    {
-                                        "src": "/case_studies/ubutube/background_5.png",
-                                        "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page. [1]"
+                                        "type": "slider",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/background_4.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/background_5.png",
+                                                "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page. [1]"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
                             {
-                                "displayStyle": "scroll-left",
+                                "displayStyle": "row-right",
                                 "images": [
                                     {
-                                        "src": "/case_studies/ubutube/background_1.png",
-                                        "caption": "The ubu.com homepage. [2]"
-                                    },
-                                    {
-                                        "src": "/case_studies/ubutube/background_2.png",
-                                        "caption": "The ubu.com artist list. [3]"
-                                    },
-                                    {
-                                        "src": "/case_studies/ubutube/background_3.png",
-                                        "caption": "An artist profile on ubu.com. [4]"
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/background_1.png",
+                                                "caption": "The ubu.com homepage. [2]"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/background_2.png",
+                                                "caption": "The ubu.com artist list. [3]"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/background_3.png",
+                                                "caption": "An artist profile on ubu.com. [4]"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -107,8 +123,13 @@
                                 "description": "Lorem ipsum",
                                 "images": [
                                     {
-                                        "src": "/case_studies/ubutube/process_4.mp4",
-                                        "caption": "The UbuWeb scraper in action. Requests are staggered to avoid overloading the parent site."
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_4.mp4",
+                                                "caption": "The UbuWeb scraper in action. Requests are staggered to avoid overloading the parent site."
+                                            }
+                                        ]
                                     }
                                 ]
                             },
@@ -116,14 +137,20 @@
                                 "header": "Black Square / Spiral",
                                 "displayStyle": "row-right",
                                 "description": "the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)",
+                                
                                 "images": [
                                     {
-                                        "src": "/case_studies/ubutube/process_2.avif",
-                                        "caption": "<i>Black Square</i> on display at the Tate Modern. [5]"
-                                    },
-                                    {
-                                        "src": "/case_studies/ubutube/process_3.jpg",
-                                        "caption": "Still from <i>Ubu Roi</i> (1965). [6]"
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_2.avif",
+                                                "caption": "<i>Black Square</i> on display at the Tate Modern. [5]"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/process_3.jpg",
+                                                "caption": "Still from <i>Ubu Roi</i> (1965). [6]"
+                                            }
+                                        ]
                                     }
                                 ]
                             },

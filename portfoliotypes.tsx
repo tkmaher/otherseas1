@@ -5,7 +5,7 @@ export interface PortfolioType {
 export interface PortfolioItemType {
     slug: string,
     title: string,
-    date: number,
+    date: string,
     link: string,
     stack: StackType[],
     sections: SectionType[],
@@ -22,7 +22,12 @@ export interface SubsectionType {
     header?: string,
     displayStyle: string,
     description?: string,
-    images?: ImageType[]
+    images?: ImageTypeParent[]
+}
+
+export interface ImageTypeParent {
+    type: string,
+    srcs: ImageType[]
 }
 
 export interface ImageType {
