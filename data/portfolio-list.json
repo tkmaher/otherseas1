@@ -73,45 +73,27 @@
                         "subsections": [
                             {
                                 "displayStyle": "row-right",
-                                "description": "<a href='https://ubu.com' target='_blank'>ubu.com</a>",
+                                "description": [
+                                    "UbuTube (<a href='https://ubu.com' target='_blank'>ubu.com</a>) is an digital avant-garde media library founded in 1996. Notoriously unbound by capital, law, or hierarchy, UbuWeb is 'a purposely unstable library, a conflicted curation, an archive assembled by embracing the fragmented, the biased, the subjective, and the incomplete.'[2] "
+                                ],
                                 "images": [
                                         
                                     {
                                         "type": "slider",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/background_4.png"
+                                                "src": "/case_studies/ubutube/background_5.png"
+
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/background_5.png",
+                                                "src": "/case_studies/ubutube/background_4.png",
                                                 "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page. [1]"
                                             }
                                         ]
                                     }
                                 ]
-                            },
-                            {
-                                "displayStyle": "row-right",
-                                "images": [
-                                    {
-                                        "type": "scroll-left",
-                                        "srcs": [
-                                            {
-                                                "src": "/case_studies/ubutube/background_1.png",
-                                                "caption": "The ubu.com homepage. [2]"
-                                            },
-                                            {
-                                                "src": "/case_studies/ubutube/background_2.png",
-                                                "caption": "The ubu.com artist list. [3]"
-                                            },
-                                            {
-                                                "src": "/case_studies/ubutube/background_3.png",
-                                                "caption": "An artist profile on ubu.com. [4]"
-                                            }
-                                        ]
-                                    }
-                                ]
                             }
+                            
                         ]
                     },
                     {
@@ -120,7 +102,7 @@
                             {
                                 "header": "Data collection and prototyping",
                                 "displayStyle": "row-right",
-                                "description": "Lorem ipsum",
+                                "description": ["In order to isomorphically translate an archive between sites, we must first archive the archive. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship."],
                                 "images": [
                                     {
                                         "type": "column",
@@ -131,16 +113,58 @@
                                             }
                                         ]
                                     }
+                                    
+                                ]
+                            },
+                            {
+                                "displayStyle": "row-left",
+                                "description": [
+                                    "The original UbuWeb user interface was reinvented--not because the UbuWeb UI is flawed, but because UbuTube must be something other than a 'website'. In order to do so, however, it must first be a website. Can the master's tools dismantle the master's house?",
+                                    "UbuTube's design began as a disparate array of text blocks vying for space upon an undifferentiated white plane. The purpose of this deconstruction was to promote the hegemony of the content (in this case, 'film') over its non-filmic digital container. The negation of the container, however, does not remove the container, but, like an inverted glove, relegates the content to the container's negative. This difficult loop prompted a turn towards alternate avenues of escape."
+                                ],
+                                "images": [
+                                    {
+                                        "type": "slider",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_1.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/process_5.png",
+                                                "caption": "First iteration of an UbuTube film page."
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "displayStyle": "row-right",
+                                "description": [
+                                    "Instead of dissolving the container, we transform it. UbuTube becomes a <i>Cahiers du Cinéma</i> in miniature, a mimesis of print media lacking a target for its mimicry. The table of contents is brought to the fore, ever-present on the right-hand side of the page. The typography is totally uniform. Dividing borders demarcate coassociative textual zones like newspaper classifieds. The fixed outer margin reveals the final nature of the container. It is not a website, but rather a kind of pamphlet to be flipped through.",
+                                    "Any one of UbuTube's 3000+ pages is quickly and readily accessible from any other. Everything the user might need is available to them at any moment, but what the user actually wants--the film itself--constantly occupies the page's visual horizon."
+                                ],
+                                "images": [
+                                    {
+                                        "type": "slider",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_7.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/process_8.png"
+                                            }
+                                        ]
+                                    }
                                 ]
                             },
                             {
                                 "header": "Black Square / Spiral",
                                 "displayStyle": "row-right",
-                                "description": "the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)",
+                                "description": ["the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)"],
                                 
                                 "images": [
                                     {
-                                        "type": "column",
+                                        "type": "scroll-left",
                                         "srcs": [
                                             {
                                                 "src": "/case_studies/ubutube/process_2.avif",
@@ -157,14 +181,29 @@
                             {
                                 "header": "Difficulties",
                                 "displayStyle": "",
-                                "description": ""
+                                "description": [""]
                             }
                         ]
                     },
                     {
                         "header": "Result",
                         "subsections": [
-
+                            {
+                                "displayStyle": "row-right",
+                                "images": [
+                                    {
+                                        "type": "autocarousel",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/result_2.mp4"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/result_3.mp4"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     }
             ],
@@ -174,14 +213,19 @@
                     "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
                 }, 
                 {
+                    "description": "'About UbuWeb.' Ubu.Com,",
+                    "link": "https://ubu.com/resources/about.html"
+
+                },
+                {
                     "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
                 }
             ]
         },
         {
-            "slug": "test2",
-            "title": "UbuTube",
-            "date": "",
+            "slug": "arena-flow",
+            "title": "arena flow",
+            "date": "<i>arena flow</i> (2026) is an infinite canvas data visualization program for the content aggregation site are.na.",
             "cover": "/case_studies/ubutube/header_for_editing.mp4",
             "link": "",
             "stack": [
@@ -195,6 +239,7 @@
                     "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
                     "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
                 }, 
+                
                 {
                     "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
                 }

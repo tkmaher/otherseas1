@@ -21,7 +21,7 @@ export interface SectionType {
 export interface SubsectionType {
     header?: string,
     displayStyle: string,
-    description?: string,
+    description?: string[],
     images?: ImageTypeParent[]
 }
 

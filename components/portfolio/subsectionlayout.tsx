@@ -3,7 +3,14 @@ import { ImageGroups } from "./imagegroup";
 
 function SubsectionDescription({ subsection }: { subsection: SubsectionType }) {
     if (!subsection.description) return null;
-    return <div className="desc-right" dangerouslySetInnerHTML={{ __html: subsection.description }} />;
+    
+    return (
+        <div className="desc-right">  
+            {subsection.description.map((desc, i) => 
+                <div key={i} dangerouslySetInnerHTML={{ __html: desc }} />
+            )}
+        </div>
+    );
 }
 
 export function Subsection({ subsection, index }: { subsection: SubsectionType, index: string }) {

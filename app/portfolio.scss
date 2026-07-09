@@ -5,11 +5,17 @@
   height: 100dvh;
   overflow: hidden;
   display: flex;
+  > *:not(.portfolio-sidebar, .portfolio-title) {
+
+    font-family: serif;
+  }
   flex-direction: column;
   a {
     text-decoration: underline;
   }
   background-color: $background;
+
+
 }
 
 .portfolio-parent {
@@ -68,7 +74,7 @@
 
 .portfolio-header-container {
   overflow-y: visible;
-  padding: 0 25dvw 0 0;
+  padding: 0 5em;
 }
 
 .portfolio-header {
@@ -114,7 +120,7 @@
   flex-direction: column;
   min-width: 0;
   flex: 1 1 auto;
-  padding: 0 5em 1em 10em;
+  padding: 0 5em 1em 5em;
   
 }
 
@@ -123,7 +129,7 @@
   flex-direction: column;
   color: $background;
   background-color: $foreground;
-  padding: 1em;
+  padding: 1.5em;
   align-items: center;
   gap: 0.4em;
 }
@@ -153,7 +159,7 @@
 .subsection-row {
   display: flex;
   flex-direction: row;
-  gap: 0.4em;
+  gap: 0.2em;
   justify-content: space-between;
 }
 
@@ -210,16 +216,19 @@
 .subsection-scrollleft {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: fit-content;
   overflow-x: auto;
-  .portfolio-cover {
-      
+
+  .portfolio-cover-small {
+      height: 60dvh;
+      width: auto;
+      max-width: none;
+      flex-shrink: 0;
       object-fit: contain;
       display: flex;
-      width: auto;
   }
 }
 
@@ -339,13 +348,17 @@
 }
 
 .desc, .desc-right {
-  text-indent: 1.5em;
-  text-align: justify;
   position: sticky;
   align-self: flex-start;
   top: calc($sectionHeaderHeight + 0.4rem);
   z-index: 8;                    
-  background-color: $background; 
+  
+  max-width: 20em;
+  div {
+    background-color: $background; 
+    text-indent: 1.5em;
+
+  }
 }
 
 .subsection-autocarousel {
@@ -378,7 +391,6 @@
 
 .portfolio-navbar-img {
   height: 10em;
-  max-width: 50%;
   width: auto;
 }
 
