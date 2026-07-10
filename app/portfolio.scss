@@ -74,7 +74,8 @@
 
 .portfolio-header-container {
   overflow-y: visible;
-  padding: 0 5em;
+  width: calc(100% - 16em);
+  margin: 0 8em;
 }
 
 .portfolio-header {

@@ -1,32 +1,10 @@
 {
     "items": [
-        {
-            "slug": "test1",
-            "title": "UbuTube",
-            "date": "",
-            "cover": "/case_studies/ubutube/header_for_editing.mp4",
-            "link": "",
-            "stack": [
-                
-            ],
-            "sections": [
-                
-            ],
-            "bibliography": [
-                {
-                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
-                    "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
-                }, 
-                {
-                    "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
-                }
-            ]
-        },
         
         {
             "slug": "ubutube",
             "title": "UbuTube",
-            "date": "UbuTube (2026) is an auxillary print-like extension for the avant-garde media site ubu.com.",
+            "date": "UbuTube (2026) reimagines UbuWeb as a streaming platform.",
             "cover": "/case_studies/ubutube/header_for_editing.mp4",
             "link": "https://ubutube.org",
             "stack": [
@@ -74,7 +52,9 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "UbuTube (<a href='https://ubu.com' target='_blank'>ubu.com</a>) is an digital avant-garde media library founded in 1996. Notoriously unbound by capital, law, or hierarchy, UbuWeb is 'a purposely unstable library, a conflicted curation, an archive assembled by embracing the fragmented, the biased, the subjective, and the incomplete.'[2] "
+                                    "UbuTube (<a href='https://ubu.com' target='_blank'>ubu.com</a>) is a digital avant-garde media library founded in 1996. Notoriously unbound by capital flows, law, or hierarchy, UbuWeb is 'a purposely unstable library, a conflicted curation, an archive assembled by embracing the fragmented, the biased, the subjective, and the incomplete.'[2] ",
+                                    "UbuTube's conduct and development over the last thirty years has been admirably reflective of its mission. Its hundreds of thousands of files remain freely and readily accessible to all. However, as anticipated by its creators, some parts of the site have not withstood the test of time. Links are broken, file types are unsupported, and content is scattered all over the place. Given the importance of UbuWeb's work and my particular affinity for avant-garde film, I took to preserving the site through my own guerilla archivism. The result was UbuTube, a hybrid of UbuWeb and YouTube that aims to provide a formal, consistent backdrop for UbuWeb's disparate catalog.",
+                                    "UbuTube operates on axioms of minimalism, immediacy, and universality, but also provides its users with a hightened degree of personalization and interactivity. None of the original content has been altered, but the container has been radically changed."                                
                                 ],
                                 "images": [
                                         
@@ -100,16 +80,15 @@
                         "header": "Process",
                         "subsections": [
                             {
-                                "header": "Data collection and prototyping",
+                                "header": "Data collection",
                                 "displayStyle": "row-right",
-                                "description": ["In order to isomorphically translate an archive between sites, we must first archive the archive. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship."],
+                                "description": ["In order to isomorphically translate UbuWeb to UbuTube, the archive must be archived. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship."],
                                 "images": [
                                     {
                                         "type": "column",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_4.mp4",
-                                                "caption": "The UbuWeb scraper in action. Requests are staggered to avoid overloading the parent site."
+                                                "src": "/case_studies/ubutube/process_4.mp4"
                                             }
                                         ]
                                     }
@@ -117,10 +96,11 @@
                                 ]
                             },
                             {
+				                "header": "Visual design",
                                 "displayStyle": "row-left",
                                 "description": [
-                                    "The original UbuWeb user interface was reinvented--not because the UbuWeb UI is flawed, but because UbuTube must be something other than a 'website'. In order to do so, however, it must first be a website. Can the master's tools dismantle the master's house?",
-                                    "UbuTube's design began as a disparate array of text blocks vying for space upon an undifferentiated white plane. The purpose of this deconstruction was to promote the hegemony of the content (in this case, 'film') over its non-filmic digital container. The negation of the container, however, does not remove the container, but, like an inverted glove, relegates the content to the container's negative. This difficult loop prompted a turn towards alternate avenues of escape."
+                                    "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the design to reflect the original website's ideology in the same manner that its content does. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other zones of expression.",
+                                    "The first draft took the form of a disparate array of text blocks vying for space upon an undifferentiated white plane. The reasoning behind this deconstruction was to promote the hegemony of the filmic content over the non-filmic digital container. The negation of the container, however, does not remove the container, but, like an inverted glove, relegates the content to the container's negative. This difficult loop prompted a turn towards alternate avenues of escape--transforming the container rather than negating it."
                                 ],
                                 "images": [
                                     {
@@ -140,8 +120,8 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "Instead of dissolving the container, we transform it. UbuTube becomes a <i>Cahiers du Cinéma</i> in miniature, a mimesis of print media lacking a target for its mimicry. The table of contents is brought to the fore, ever-present on the right-hand side of the page. The typography is totally uniform. Dividing borders demarcate coassociative textual zones like newspaper classifieds. The fixed outer margin reveals the final nature of the container. It is not a website, but rather a kind of pamphlet to be flipped through.",
-                                    "Any one of UbuTube's 3000+ pages is quickly and readily accessible from any other. Everything the user might need is available to them at any moment, but what the user actually wants--the film itself--constantly occupies the page's visual horizon."
+                                    "Instead of dissolving the container, we transform it. UbuTube becomes a <i>Cahiers du Cinéma</i> in miniature, a mimesis of print media lacking a target for its mimicry. The typography is totally uniform. Dividing borders demarcate coassociative textual zones like newspaper classifieds. The fixed outer margin suggests another medium: UbuTube is not a website, but rather a kind of pamphlet to be flipped through. The page-like navigation animations on the mobile interface are the most explicit expression of this.",
+                                    "As in a periodical, the table of contents is brought to the fore, ever-present on the right-hand side of the page. Any one of UbuTube's 3000+ pages is quickly and readily accessible from any other. Everything the user might need is available to them at any moment, but what the user actually wants--the film itself--constantly occupies the horizon of the gaze."
                                 ],
                                 "images": [
                                     {
@@ -159,8 +139,13 @@
                             },
                             {
                                 "header": "Black Square / Spiral",
-                                "displayStyle": "row-right",
-                                "description": ["the black square is a dissolution of the line between content and expression/alfred jarry's spiral (<i>gidouille</i>)"],
+                                "displayStyle": "row-left",
+                                "description": [
+                                    "There are no images on the UbuTube website, save for two. The home page features a large reproduction of Kazimir Malevich's <i>Black Square</i>, while a small spiral--reproduced in the favicon--occupies the top left corner.",
+                                    "Malevich intended to separate art from imitation by neglecting artistic content and pursuing a radical supremacy of form. However, this dispossession inadvertently gave rise to a new kind of content synonymous with its own expression. <i>Black Square</i> is replete with content, but it is not symbolicating. Like a black hole collapsing on itself, what the painting <i>is</i> becomes inseparable from what it <i>does</i>.",
+                                    "Given the manner in which UbuWeb's films follow this avant-gardist tradition, I felt that it would be proper for their container to do the same. Each film has preexisting layers of content and form within itself, but when considered in the context of UbuTube, these layers fold into a singular content for which the site itself becomes the principal expressive medium. Instead of subjugating the content to the medium, we do the opposite: the site's expressive form becomes subjugated to its content, achieving an teleologically identical kind of synthesis. Everything is now directed towards the film, which sucks in the gaze of the user like the black hole of the black square.",
+                                    "UbuTube's minor symbol is the spiral (<i>gidouille</i>), which is a direct allusion to Alfred Jarry's <i>Ubu Roi</i> (1896). The <i>gidouille</i> adorns the stomach of Jarry's protagonist, representing his boundless hunger and greed. The spiral logomark was chosen for its metonomy with UbuWeb/Tube. An 1965 television adaptation of <i>Ubu Roi</i> is viewable on both sites.[9]"
+                                ],
                                 
                                 "images": [
                                     {
@@ -175,21 +160,35 @@
                                                 "caption": "Still from <i>Ubu Roi</i> (1965). [6]"
                                             }
                                         ]
+                                    },
+                                    {
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_6.mp4"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/header_3.png"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
                             {
-                                "header": "Difficulties",
+                                "header": "Feedback",
                                 "displayStyle": "",
                                 "description": [""]
                             }
                         ]
                     },
                     {
-                        "header": "Result",
+                        "header": "Impact",
                         "subsections": [
                             {
                                 "displayStyle": "row-right",
+				"description": [
+                    "talk about user features + provide statistics"
+                ],
                                 "images": [
                                     {
                                         "type": "autocarousel",
@@ -209,11 +208,11 @@
             ],
             "bibliography": [
                 {
-                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
-                    "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
+                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015, ",
+                    "link": "https://www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
                 }, 
                 {
-                    "description": "'About UbuWeb.' Ubu.Com,",
+                    "description": "“About UbuWeb.“ Ubu.Com, ",
                     "link": "https://ubu.com/resources/about.html"
 
                 },
@@ -225,24 +224,192 @@
         {
             "slug": "arena-flow",
             "title": "arena flow",
-            "date": "<i>arena flow</i> (2026) is an infinite canvas data visualization program for the content aggregation site are.na.",
-            "cover": "/case_studies/ubutube/header_for_editing.mp4",
-            "link": "",
+            "date": "<i>arena flow</i> (2026) is an infinite canvas data visualization program for are.na.",
+            "cover": "video",
+            "link": "https://arena-flow.org",
             "stack": [
-                
+                {
+                    "type": "Type",
+                    "tools": ["Web platform"]
+                },
+                {
+                    "type": "Skills",
+                    "tools": ["OAuth", "Web APIs", "Data visualization"]
+                },
+                {
+                    "type": "Tools",
+                    "tools": ["React.js", "React Flow"]
+                }
             ],
             "sections": [
-                
+                    {
+                        "subsections": [
+                            {
+                                "displayStyle": "row-right",
+                                "images": [
+                                    {
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/header_1.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/header_2.png"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/header_3.png"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                            
+                        ]
+                    },
+                    {
+                        "header": "Background",
+                        "subsections": [
+                            {
+                                "displayStyle": "row-right",
+                                "description": [
+                                    "extoll the values of are.na",
+				                    "talk about graph theory as the impetus + mention the api[2]"                                
+                                ],
+                                "images": [
+                                        
+                                    {
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "image of are.na channel",
+ 						                        "caption": "A channel on are.na. [1]"
+                                            },
+                                            {
+                                                "src": "diagram of how users/blocks/channels connect",
+						                        "caption": "Visual representation of an are.na neighborhood."
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    
+                    {
+                        "header": "Process",
+                        "subsections": [
+                            {
+                                "header": "Algorithm",
+                                "displayStyle": "row-right",
+                                "description": ["In order to isomorphically translate UbuWeb to UbuTube, the archive must be archived. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship."],
+                                "images": [
+                                    {
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_4.mp4"
+                                            }
+                                        ]
+                                    }
+                                    
+                                ]
+                            },
+                            {
+                                "header": "Visual design",
+                                                "displayStyle": "row-left",
+                                                "description": [
+                                                    "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the design to reflect the original website's ideology in the same manner that its content does. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other zones of expression.",
+                                                    "The first draft took the form of a disparate array of text blocks vying for space upon an undifferentiated white plane. The reasoning behind this deconstruction was to promote the hegemony of the filmic content over the non-filmic digital container. The negation of the container, however, does not remove the container, but, like an inverted glove, relegates the content to the container's negative. This difficult loop prompted a turn towards alternate avenues of escape--transforming the container rather than negating it."
+                                                ],
+                                                "images": [
+                                                    {
+                                                        "type": "slider",
+                                                        "srcs": [
+                                                            {
+                                                                "src": "arena channel"
+                                                            },
+                                                            {
+                                                                "src": "arena channel translated to arena flow",
+                                                                "caption": "First iteration of an UbuTube film page."
+                                                            }
+                                                        ]
+                                                    },
+                                    {
+                                                        "type": "column",
+                                                        "srcs": [
+                                                            {
+                                                                "src": "same channel as sidebar list"
+                                                            },
+                                                            {
+                                                                "src": "Individual block"
+                                                            },
+                                                            {
+                                                                "src": "same block, expanded"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                            {
+				                "header": "OAuth integration",
+                                "displayStyle": "row-right",
+                                "description": [
+                                    ""
+                                ],
+                                "images": [
+                                    {
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "arena flow logged in user block"
+                                            },
+                                            {
+                                                "src": "are.na user"
+                                                
+                                            },
+                                            {
+                                                "src": "some user interaction buttons on a white background"
+                                                
+                                            }
+                                        ]
+                                    },
+				                    {
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "video of user adding/deleting block to channel"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "header": "Impact",
+                        "subsections": [
+                            {
+                                "displayStyle": "row-right",
+                                "images": [
+                                    {
+                                        "type": "autocarousel",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/result_2.mp4"
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/result_3.mp4"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                    
             ],
             "bibliography": [
-                {
-                    "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015,",
-                    "link": "www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
-                }, 
                 
-                {
-                    "description": "Ubu Roi. Directed by Jean-Christophe Averty, Office de Radiodiffusion Télévision Française, 1965."
-                }
             ]
         }
         
