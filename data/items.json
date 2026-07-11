@@ -1,5 +1,21 @@
 [
     {
+        "title": "Twist",
+        "client": "for Spinbeat",
+
+        "date": "202607",
+        "type": "iframe",
+        "color": "",
+        "src": [
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/bCK_ixSKa3w?si=qHN2HaSnnWDRDcFL'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
+
+        ],
+        "link": "https://www.youtube.com/watch?v=bCK_ixSKa3w",
+        "tags": [ "Video"],
+        "category": "CV",
+        "description": "The music video for <i>Twist</i> by Spinbeat, from the 2026 album <a href='https://diskono.com/products/spinbeat-play-pixel-lp' target='_blank'><i>Play</i></a>."
+    },
+    {
         "title": "UbuTube",
         "date": "202606",
         "type": "image",
