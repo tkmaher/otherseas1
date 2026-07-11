@@ -96,7 +96,7 @@
                                 ]
                             },
                             {
-				                "header": "Visual design",
+				                "header": "Experience design",
                                 "displayStyle": "row-left",
                                 "description": [
                                     "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the design to reflect the original website's ideology in the same manner that its content does. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other zones of expression.",
@@ -144,7 +144,7 @@
                                     "There are no images on the UbuTube website, save for two. The home page features a large reproduction of Kazimir Malevich's <i>Black Square</i>, while a small spiral--reproduced in the favicon--occupies the top left corner.",
                                     "Malevich intended to separate art from imitation by neglecting artistic content and pursuing a radical supremacy of form. However, this dispossession inadvertently gave rise to a new kind of content synonymous with its own expression. <i>Black Square</i> is replete with content, but it is not symbolicating. Like a black hole collapsing on itself, what the painting <i>is</i> becomes inseparable from what it <i>does</i>.",
                                     "Given the manner in which UbuWeb's films follow this avant-gardist tradition, I felt that it would be proper for their container to do the same. Each film has preexisting layers of content and form within itself, but when considered in the context of UbuTube, these layers fold into a singular content for which the site itself becomes the principal expressive medium. Instead of subjugating the content to the medium, we do the opposite: the site's expressive form becomes subjugated to its content, achieving an teleologically identical kind of synthesis. Everything is now directed towards the film, which sucks in the gaze of the user like the black hole of the black square.",
-                                    "UbuTube's minor symbol is the spiral (<i>gidouille</i>), which is a direct allusion to Alfred Jarry's <i>Ubu Roi</i> (1896). The <i>gidouille</i> adorns the stomach of Jarry's protagonist, representing his boundless hunger and greed. The spiral logomark was chosen for its metonomy with UbuWeb/Tube. An 1965 television adaptation of <i>Ubu Roi</i> is viewable on both sites.[9]"
+                                    "UbuTube's minor symbol is the spiral (<i>gidouille</i>), which is a direct allusion to Alfred Jarry's <i>Ubu Roi</i> (1896). The <i>gidouille</i> adorns the stomach of Jarry's protagonist, representing his boundless hunger and greed. The spiral logomark was chosen for its metonomy with UbuWeb/Tube. An 1965 television adaptation of <i>Ubu Roi</i> is viewable on <a href='https://ubu.com/film/jarry_ubu-averty.html' target='_blank'>both</a> <a href='https://ubutube.org/film/4186738431008895' target='_blank'>sites</a>."
                                 ],
                                 
                                 "images": [
@@ -175,9 +175,24 @@
                                 ]
                             },
                             {
-                                "header": "Feedback",
-                                "displayStyle": "",
-                                "description": [""]
+                                "header": "Interactivity",
+                                "displayStyle": "row-left",
+                                "description": ["user features + design ideology behind their implementation + what makes this good"],
+                                "images": [
+                                    {
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/ubutube/process_9.png",
+                                                "caption": "Users are discouraged from making low-quality comments."
+                                            },
+                                            {
+                                                "src": "/case_studies/ubutube/process_10.png",
+                                                "caption": "Users can save films to their bookmarks and link to other sites on their profile. Nothing an individual user does is private."
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -186,9 +201,9 @@
                         "subsections": [
                             {
                                 "displayStyle": "row-right",
-				"description": [
-                    "talk about user features + provide statistics"
-                ],
+                                "description": [
+                                    "talk about user features + provide statistics"
+                                ],
                                 "images": [
                                     {
                                         "type": "autocarousel",
@@ -224,8 +239,8 @@
         {
             "slug": "arena-flow",
             "title": "arena flow",
-            "date": "<i>arena flow</i> (2026) is an infinite canvas data visualization program for are.na.",
-            "cover": "video",
+            "date": "<i>arena flow</i> (2026) is an infinite canvas data visualization program for Are.na.",
+            "cover": "/case_studies/arena-flow/result_1.mp4",
             "link": "https://arena-flow.org",
             "stack": [
                 {
@@ -251,13 +266,13 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/header_1.png"
+                                                "src": "/case_studies/arena-flow/header_0.png"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/header_2.png"
+                                                "src": "/case_studies/arena-flow/header_1.png"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/header_3.png"
+                                                "src": "/case_studies/arena-flow/header_2.png"
                                             }
                                         ]
                                     }
@@ -272,21 +287,38 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "extoll the values of are.na",
-				                    "talk about graph theory as the impetus + mention the api[2]"                                
+                                    "<a href='https://are.na' target='_blank'>Are.na</a> is a content aggregation website oriented towards artists and designers. The site is based around a hierarchy of 'blocks' and 'channels'. Blocks contain files uploaded by users, while channels are collections of those blocks (and may also contain channels themselves).",
+				                    "Since blocks can be shared between channels and appropriated by different users, node connections quickly grow beyond the scope of Are.na's native UI. The relationship between blocks and channels is unidrectional, but the relationship between channels and other channels is bidrectional. With these rules in mind, I created <i>arena flow</i>, a web app that uses <a target='_blank' href='https://en.wikipedia.org/wiki/Adjacency_list'>adjacency lists</a> to dynamically construct directed graphs based on connections between blocks, channels, users, and groups."
                                 ],
                                 "images": [
                                         
                                     {
-                                        "type": "column",
+                                        "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "image of are.na channel",
- 						                        "caption": "A channel on are.na. [1]"
-                                            },
+                                                "src": "/case_studies/arena-flow/background_2.png"
+                                            }, 
                                             {
-                                                "src": "diagram of how users/blocks/channels connect",
-						                        "caption": "Visual representation of an are.na neighborhood."
+                                                "src": "/case_studies/arena-flow/background_1.png",
+                                                "caption": "Representation of Are.na neighborhood associativity. Users [U] create blocks [B] and channels [C]. Channels may contain blocks and other channels."
+                                            }
+                                        ]
+                                    }
+                                
+                                ]
+                            }, 
+                            {
+                                "displayStyle": "row-left",
+                                "description": [
+                                    "While Are.na principally acts as a helpful tool for non-technical designers and artists, it also extends a great deal of agency to developers who may wish to extend or modify it. I made full use of the <a href='https://www.are.na/developers/explore' target='_blank'>Are.na developer API</a> to derive and process Are.na's data. The aim was to allow the user to do anything on <i>arena flow</i> that they'd be able to do on Are.na."
+                                ],
+                                "images": [
+                                    {
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/arena-flow/background_3.png",
+                                                "caption": "The Are.na API specification."
                                             }
                                         ]
                                     }
@@ -301,7 +333,7 @@
                             {
                                 "header": "Algorithm",
                                 "displayStyle": "row-right",
-                                "description": ["In order to isomorphically translate UbuWeb to UbuTube, the archive must be archived. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship."],
+                                "description": [""],
                                 "images": [
                                     {
                                         "type": "column",
@@ -316,40 +348,38 @@
                             },
                             {
                                 "header": "Visual design",
-                                                "displayStyle": "row-left",
-                                                "description": [
-                                                    "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the design to reflect the original website's ideology in the same manner that its content does. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other zones of expression.",
-                                                    "The first draft took the form of a disparate array of text blocks vying for space upon an undifferentiated white plane. The reasoning behind this deconstruction was to promote the hegemony of the filmic content over the non-filmic digital container. The negation of the container, however, does not remove the container, but, like an inverted glove, relegates the content to the container's negative. This difficult loop prompted a turn towards alternate avenues of escape--transforming the container rather than negating it."
-                                                ],
-                                                "images": [
-                                                    {
-                                                        "type": "slider",
-                                                        "srcs": [
-                                                            {
-                                                                "src": "arena channel"
-                                                            },
-                                                            {
-                                                                "src": "arena channel translated to arena flow",
-                                                                "caption": "First iteration of an UbuTube film page."
-                                                            }
-                                                        ]
-                                                    },
+                                "displayStyle": "row-left",
+                                "description": [
+                                    ""
+                                ],
+                                "images": [
                                     {
-                                                        "type": "column",
-                                                        "srcs": [
-                                                            {
-                                                                "src": "same channel as sidebar list"
-                                                            },
-                                                            {
-                                                                "src": "Individual block"
-                                                            },
-                                                            {
-                                                                "src": "same block, expanded"
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
+                                        "type": "slider",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/arena-flow/design_1.png"
                                             },
+                                            {
+                                                "src": "/case_studies/arena-flow/design_2.png"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "column",
+                                        "srcs": [
+                                            {
+                                                "src": "same channel as sidebar list"
+                                            },
+                                            {
+                                                "src": "Individual block"
+                                            },
+                                            {
+                                                "src": "same block, expanded"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
 				                "header": "OAuth integration",
                                 "displayStyle": "row-right",
@@ -392,13 +422,10 @@
                                 "displayStyle": "row-right",
                                 "images": [
                                     {
-                                        "type": "autocarousel",
+                                        "type": "column",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/result_2.mp4"
-                                            },
-                                            {
-                                                "src": "/case_studies/ubutube/result_3.mp4"
+                                                "src": "/case_studies/arena-flow/result_1.mp4"
                                             }
                                         ]
                                     }

@@ -17,7 +17,7 @@ function PortfolioStack({ stack }: { stack: StackType }) {
 
 function PortfolioSection({ section, index }: { section: SectionType, index: number }) {
     return (
-        <div className="portfolio-section">
+        <div className="portfolio-section" id={`${section.header ?? "sec"}-${index}`}>
             {section.header && <div className="portfolio-section-header">
                 <div>{index}. {section.header}</div>
             </div>}

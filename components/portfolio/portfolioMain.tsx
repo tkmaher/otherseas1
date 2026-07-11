@@ -5,6 +5,72 @@ import { PortfolioMedia } from "./portfoliomedia";
 import { colors } from "@/types";
 import { SelectionProvider, useSelectionContext } from "@/contexts/selectionContext";
 import { Fragment } from "react/jsx-runtime";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const stringToIntHash = (str: string) => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0;   
+    }
+    return Math.abs(hash);
+};
+
+function ColorLink({
+    parentSlug, 
+    inParent, 
+    sectionPath, 
+    sectionId
+}: {
+    parentSlug: string, 
+    inParent: boolean, 
+    sectionPath: string, 
+    sectionId: string
+}) {
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const getIntersection = (id: string) => {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        const centerEl = document.elementFromPoint(centerX, centerY);
+
+        const parentDiv = document.getElementById(id);
+
+        const isDescendant = parentDiv && parentDiv.contains(centerEl);
+        return isDescendant ?? false;
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsIntersecting(getIntersection(sectionId));
+        };
+
+        const parent = document.getElementById('portfolio-parent');
+        if (!parent) return;
+
+        parent.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        return () => {
+            parent.removeEventListener('scroll', handleScroll);
+        };
+    })
+
+    return (
+        <Link 
+            style={{
+                
+                backgroundColor: (inParent && isIntersecting) ? colors[
+                    stringToIntHash(sectionId + parentSlug) % colors.length
+                ] : "transparent"
+            }}
+            className="portfolio-subnode" 
+            href={`/portfolio/${sectionPath}`}
+        />
+    )
+}
 
 function PortfolioChild({ items, current }: { items: PortfolioItemType[], current: number }) {
 
@@ -17,11 +83,24 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
 
                 {items.map((item, i) => (
                     <div key={i} className="portfolio-node-parent">
-                        <div className="portfolio-node"></div>
+                        <Link 
+                            className="portfolio-node"
+                            style={{
+                                backgroundColor: item.slug === items[current].slug ? 
+                                    colors[stringToIntHash(item.slug) % colors.length] 
+                                    : "transparent"
+                            }}
+                            href={`/portfolio/${item.slug}`}
+                        />
                         <div className="portfolio-subnode-row">
                             {item.sections.map((section, s) => (
                                 <Fragment key={s}>
-                                    <div className="portfolio-subnode"></div>
+                                    <ColorLink 
+                                        parentSlug={item.slug}
+                                        inParent={item.slug === items[current].slug}
+                                        sectionPath={`${item.slug}/#${section.header ?? "sec"}-${s}`} 
+                                        sectionId={`${section.header ?? "sec"}-${s}`}
+                                    />
                                 </Fragment>
                             ))}
                         </div>
@@ -29,7 +108,7 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                 ))}
                 <a href="/">Home</a>
             </div>
-            <div className="portfolio-parent" data-lenis-prevent>
+            <div id="portfolio-parent" data-lenis-prevent>
                 <PortfolioViewer item={items[current]}/>
                 <div className="footer">
                     {colors.map((val, index) =>
