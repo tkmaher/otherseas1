@@ -31,12 +31,13 @@ function PortfolioSection({ section, index }: { section: SectionType, index: num
 function References({ bibliography }: { bibliography: Citation[] }) {
     if (!bibliography || bibliography.length == 0) return null;
     return (
-        <div>
+        <div className="portfolio-ref-stack">
             <div className="portfolio-stack-title">References</div>
             {bibliography.map((citation, i) => (
-                <div key={i} className="portfolio-stack-tool">
-                    <>{citation.description} </>
+                <div key={i} className="portfolio-ref-tool" id={`ref-${i}`}>
+                    {i + 1}. <>{citation.description} </>
                     <a href={citation.link} target="_blank">{citation.link}</a>
+                    {citation.link && '.'}
                 </div>
             ))}
         </div>
@@ -46,7 +47,9 @@ function References({ bibliography }: { bibliography: Citation[] }) {
 export default function PortfolioViewer({ item }: { item: PortfolioItemType }) {
     return (
         <div className="portfolio">
-            <div className="portfolio-header-container">
+            <div className="portfolio-header-container" id="header">
+                {/* <PortfolioMedia media={{ src: item.cover }} classN="portfolio-cover" /> */}
+                <iframe src={item.link} className="portfolio-cover"/>
                 <div className="portfolio-header">
                     <div className="portfolio-header-row">
                         <div className="portfolio-title">
@@ -56,18 +59,14 @@ export default function PortfolioViewer({ item }: { item: PortfolioItemType }) {
                             <img src="/linkout.svg" />
                         </a>
                     </div>
-                    <div className="date">
-                        {item.date}
-                    </div>
+                    <div className="date" dangerouslySetInnerHTML={{__html: item.date}}/>
+                        
                 </div>
-                <div className="portfolio-header-title">
-                    <PortfolioMedia media={{ src: item.cover }} classN="portfolio-cover" />
-                    <div className="portfolio-stats portfolio-row">
-                        {item.stack.map((stack, index) => (
-                            <PortfolioStack key={index} stack={stack} />
-                        ))}
-                    </div>
-                </div>
+            </div>
+            <div className="portfolio-stats">
+                {item.stack.map((stack, index) => (
+                    <PortfolioStack key={index} stack={stack} />
+                ))}
             </div>
             <div className="portfolio-sections-column">
                 {item.sections.map((section, i) => (

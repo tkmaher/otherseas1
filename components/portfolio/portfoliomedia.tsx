@@ -1,5 +1,6 @@
 "use client";
 
+import { useSelectionContext } from "@/contexts/selectionContext";
 import { ImageType } from "@/portfoliotypes";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -19,6 +20,8 @@ export function PortfolioMedia({
     const [isLoaded, setIsLoaded] = useState(false);
 
     const isVisible = isInView && isLoaded;
+
+    const { setImage, setCaption } = useSelectionContext();
 
     // Fade/pop-in trigger, once per element
     useEffect(() => {
@@ -43,6 +46,15 @@ export function PortfolioMedia({
         (classN ? classN + " " : "") +
         (isVisible ? "media-in-view" : "media-pre-view");
 
+    const clickCallback = () => {
+        setImage(media.src);
+        if (media.caption) {
+            setCaption(media.caption);
+        } else {
+            setCaption("");
+        }
+    };
+
     return (
         <div
             ref={containerRef}
@@ -57,6 +69,7 @@ export function PortfolioMedia({
                     loop
                     playsInline
                     onLoadedData={() => setIsLoaded(true)}
+                    onClick={clickCallback}
                 >
                     <source src={media.src} type="video/mp4" />
                     Your browser does not
@@ -70,9 +83,10 @@ export function PortfolioMedia({
                     height={3600}
                     className={mediaClassName}
                     onLoad={() => setIsLoaded(true)}
+                    onClick={clickCallback}
                 />
             }
-            <div className="portfolio-media-caption">{media.caption}</div>
+            {media.caption && <div className="portfolio-media-caption" dangerouslySetInnerHTML={{__html: media.caption}}/>}
         </div>
     )
 }

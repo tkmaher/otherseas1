@@ -32,7 +32,7 @@ function MosaicImage({
     if (currImage !== '' && currImage !== src) return null;
 
     return (
-        <div className={type === "iframe" ? undefined : "mosaic-image  "}>
+        <div className={type === "iframe" ? undefined : "mosaic-image"}>
             {type === "image" ? (
                 <img
                     src={src}
@@ -40,7 +40,7 @@ function MosaicImage({
                     style={{
                         opacity: visible ? 1 : 0,
                         transform: visible ? "translateY(0)" : "translateY(20px)",
-                        transition: "opacity 0.5s ease, transform 0.5s ease",
+                        transition: "opacity 0.3s ease, transform 0.3s ease",
                     }}
                     onClick={() => setImage(src)}
                 />
@@ -50,7 +50,7 @@ function MosaicImage({
                     style={{
                         opacity: visible ? 1 : 0,
                         transform: visible ? "translateY(0)" : "translateY(20px)",
-                        transition: "opacity 0.5s ease, transform 0.5s ease",
+                        transition: "opacity 0.3s ease, transform 0.3s ease",
                         height: '100%'
                     }}
                 />
@@ -199,9 +199,9 @@ export default function Displayer({
 
             {isCarousel &&
                 <div className="buttons">
-                    <button onClick={() => nav('prev')}>Previous</button>
+                    <button onClick={() => nav('prev')} style={{flexGrow: 1}}>Previous</button>
                     <button onClick={() => setImage('')}>Close</button>
-                    <button onClick={() => nav('next')}>Next</button>
+                    <button onClick={() => nav('next')} style={{flexGrow: 1}}>Next</button>
                 </div>
             }
         </div>

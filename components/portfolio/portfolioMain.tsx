@@ -7,6 +7,8 @@ import { SelectionProvider, useSelectionContext } from "@/contexts/selectionCont
 import { Fragment } from "react/jsx-runtime";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Displayer from "../displayer";
+import PortfolioCarousel from "./portfoliocarousel";
 
 const stringToIntHash = (str: string) => {
     let hash = 0;
@@ -42,6 +44,7 @@ function ColorLink({
         return isDescendant ?? false;
     }
 
+
     useEffect(() => {
         const handleScroll = () => {
             setIsIntersecting(getIntersection(sectionId));
@@ -74,7 +77,15 @@ function ColorLink({
 
 function PortfolioChild({ items, current }: { items: PortfolioItemType[], current: number }) {
 
-    const { currColor, setCurrColor } = useSelectionContext();
+    const { currColor, setCurrColor, currImage } = useSelectionContext();
+
+    const allSrcs = items[current].sections.flatMap(
+        section => section.subsections.flatMap(
+            subsection => subsection.images && subsection.images.map(
+                image => image.srcs
+            )
+        )
+    ).flat();
 
     return (
 
@@ -90,7 +101,7 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                                     colors[stringToIntHash(item.slug) % colors.length] 
                                     : "transparent"
                             }}
-                            href={`/portfolio/${item.slug}`}
+                            href={`/portfolio/${item.slug}/#header`}
                         />
                         <div className="portfolio-subnode-row">
                             {item.sections.map((section, s) => (
@@ -125,7 +136,7 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                         {current > 0 && 
                             <a href={`/portfolio/${items[current - 1].slug}`}>
                                 <PortfolioMedia media={{src: items[current - 1].cover}} classN="portfolio-navbar-img"/>
-                                Previous - {items[current - 1].title}
+                                <div className="desc">Previous : {items[current - 1].title}</div>
                             </a>
                         }
                     </div>
@@ -134,11 +145,18 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                             <a href={`/portfolio/${items[current + 1].slug}`}>
                                 <PortfolioMedia media={{src: items[current + 1].cover}} classN="portfolio-navbar-img"/>
 
-                                Next - {items[current + 1].title}
+                                <div className="desc">Next : {items[current + 1].title}</div>
                             </a>}
                     </div>
                 </div>
             </div>
+
+            {currImage != '' && <PortfolioCarousel
+                srcs={allSrcs}
+                type="image"
+                triggered={currColor !== "transparent"}
+                currColor={currColor}
+            />}
 
             
         </div>

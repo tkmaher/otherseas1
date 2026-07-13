@@ -4,7 +4,7 @@
         {
             "slug": "ubutube",
             "title": "UbuTube",
-            "date": "UbuTube (2026) reimagines UbuWeb as a streaming platform.",
+            "date": "UbuWeb, reimagined as a streaming platform.",
             "cover": "/case_studies/ubutube/header_for_editing.mp4",
             "link": "https://ubutube.org",
             "stack": [
@@ -52,8 +52,8 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "UbuTube (<a href='https://ubu.com' target='_blank'>ubu.com</a>) is a digital avant-garde media library founded in 1996. Notoriously unbound by capital flows, law, or hierarchy, UbuWeb is 'a purposely unstable library, a conflicted curation, an archive assembled by embracing the fragmented, the biased, the subjective, and the incomplete.'[2] ",
-                                    "UbuTube's conduct and development over the last thirty years has been admirably reflective of its mission. Its hundreds of thousands of files remain freely and readily accessible to all. However, as anticipated by its creators, some parts of the site have not withstood the test of time. Links are broken, file types are unsupported, and content is scattered all over the place. Given the importance of UbuWeb's work and my particular affinity for avant-garde film, I took to preserving the site through my own guerilla archivism. The result was UbuTube, a hybrid of UbuWeb and YouTube that aims to provide a formal, consistent backdrop for UbuWeb's disparate catalog.",
+                                    "UbuWeb (<a href='https://ubu.com' target='_blank'>ubu.com</a>) is a digital avant-garde media library founded in 1996. Notoriously untethered from capital and legal flows, UbuWeb is 'a purposely unstable library, a conflicted curation, an archive assembled by embracing the fragmented, the biased, the subjective, and the incomplete.'<a href='#ref-2'><sup>[2]</sup></a> ",
+                                    "UbuTube's conduct and development over the last thirty years has been admirably reflective of its mission. Its hundreds of thousands of files remain freely and readily accessible to all. However, as anticipated by its creators, some parts of the site have not withstood the test of time. Links are broken, file types are unsupported, and content is unorganized. Given the importance of UbuWeb's work and my particular affinity for avant-garde film, I took to preserving the site through my own guerilla archivism. The result was UbuTube, a reimagining of UbuWeb that aims to provide a formal, consistent backdrop for UbuWeb's disparate catalog.",
                                     "UbuTube operates on axioms of minimalism, immediacy, and universality, but also provides its users with a hightened degree of personalization and interactivity. None of the original content has been altered, but the container has been radically changed."                                
                                 ],
                                 "images": [
@@ -67,7 +67,7 @@
                                             },
                                             {
                                                 "src": "/case_studies/ubutube/background_4.png",
-                                                "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page. [1]"
+                                                "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page.<a href='#ref-1'><sup>[1]</sup></a>"
                                             }
                                         ]
                                     }
@@ -80,9 +80,12 @@
                         "header": "Process",
                         "subsections": [
                             {
-                                "header": "Data collection",
+                                "header": "Data collection and development",
                                 "displayStyle": "row-right",
-                                "description": ["In order to isomorphically translate UbuWeb to UbuTube, the archive must be archived. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship."],
+                                "description": [
+                                    "In order to isomorphically translate UbuWeb's data to UbuTube, the archive must be archived. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship.",
+                                    "The biggest challenge during development came when trying to accurately sanitize the original pages. While many pages on ubu.com share the same format, outliers had to be flagged and manually parsed. This is no issue--as long as the scraper can flag them accurately. I iterated on a few crawling models to cover as many edge cases as possible. If the dataset had been larger, this method would have been unsustainable."
+                                ],
                                 "images": [
                                     {
                                         "type": "column",
@@ -99,8 +102,8 @@
 				                "header": "Experience design",
                                 "displayStyle": "row-left",
                                 "description": [
-                                    "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the design to reflect the original website's ideology in the same manner that its content does. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other zones of expression.",
-                                    "The first draft took the form of a disparate array of text blocks vying for space upon an undifferentiated white plane. The reasoning behind this deconstruction was to promote the hegemony of the filmic content over the non-filmic digital container. The negation of the container, however, does not remove the container, but, like an inverted glove, relegates the content to the container's negative. This difficult loop prompted a turn towards alternate avenues of escape--transforming the container rather than negating it."
+                                    "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the new design to reflect the original website's ideology in the same manner that its films do. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other expressive modes.",
+                                    "The first draft took the form of a disparate arrangement of text boxes vying for space upon an undifferentiated white plane. The reasoning behind this deconstruction was to promote the hegemony of the filmic content over the non-filmic digital container. The negation of the container, however, does not remove the container. Like an inverted glove, negation relegates the content to the container's negative. This difficult loop prompted the exploration of other avenues of escape."
                                 ],
                                 "images": [
                                     {
@@ -120,8 +123,8 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "Instead of dissolving the container, we transform it. UbuTube becomes a <i>Cahiers du Cinéma</i> in miniature, a mimesis of print media lacking a target for its mimicry. The typography is totally uniform. Dividing borders demarcate coassociative textual zones like newspaper classifieds. The fixed outer margin suggests another medium: UbuTube is not a website, but rather a kind of pamphlet to be flipped through. The page-like navigation animations on the mobile interface are the most explicit expression of this.",
-                                    "As in a periodical, the table of contents is brought to the fore, ever-present on the right-hand side of the page. Any one of UbuTube's 3000+ pages is quickly and readily accessible from any other. Everything the user might need is available to them at any moment, but what the user actually wants--the film itself--constantly occupies the horizon of the gaze."
+                                    "Instead of negating the container, we transform it. UbuTube becomes a <i>Cahiers du Cinéma</i> in miniature, a mimesis of print media lacking a target for its mimicry. The typography is totally uniform. Dividing borders demarcate coassociative textual zones like newspaper classifieds. The fixed outer margin suggests another medium: UbuTube is not a website, but rather a kind of pamphlet to be flipped through. The page-like navigation animations on the mobile interface are the most explicit expression of this.",
+                                    "As in a periodical, UbuTube's table of contents is brought to the fore, ever-present on the right-hand side of the page. Given the archive's sorting and filtering capacities, any one of UbuTube's 3000+ films is quickly and readily accessible from any other. Everything the user might need is available to them at any moment, but what the user actually wants--the film itself--constantly occupies the horizon of the gaze."
                                 ],
                                 "images": [
                                     {
@@ -143,8 +146,8 @@
                                 "description": [
                                     "There are no images on the UbuTube website, save for two. The home page features a large reproduction of Kazimir Malevich's <i>Black Square</i>, while a small spiral--reproduced in the favicon--occupies the top left corner.",
                                     "Malevich intended to separate art from imitation by neglecting artistic content and pursuing a radical supremacy of form. However, this dispossession inadvertently gave rise to a new kind of content synonymous with its own expression. <i>Black Square</i> is replete with content, but it is not symbolicating. Like a black hole collapsing on itself, what the painting <i>is</i> becomes inseparable from what it <i>does</i>.",
-                                    "Given the manner in which UbuWeb's films follow this avant-gardist tradition, I felt that it would be proper for their container to do the same. Each film has preexisting layers of content and form within itself, but when considered in the context of UbuTube, these layers fold into a singular content for which the site itself becomes the principal expressive medium. Instead of subjugating the content to the medium, we do the opposite: the site's expressive form becomes subjugated to its content, achieving an teleologically identical kind of synthesis. Everything is now directed towards the film, which sucks in the gaze of the user like the black hole of the black square.",
-                                    "UbuTube's minor symbol is the spiral (<i>gidouille</i>), which is a direct allusion to Alfred Jarry's <i>Ubu Roi</i> (1896). The <i>gidouille</i> adorns the stomach of Jarry's protagonist, representing his boundless hunger and greed. The spiral logomark was chosen for its metonomy with UbuWeb/Tube. An 1965 television adaptation of <i>Ubu Roi</i> is viewable on <a href='https://ubu.com/film/jarry_ubu-averty.html' target='_blank'>both</a> <a href='https://ubutube.org/film/4186738431008895' target='_blank'>sites</a>."
+                                    "Given the way that UbuWeb's films follow the avant-gardist tradition, I felt that it would be proper for UbuTube to do the same. Each film conntains its own preexisting array of content and expression, but when placed within the context of UbuTube, these layers fold into a singular content for which the site itself becomes the principal expressive medium. Instead of subjugating the content to the medium, we do the opposite: the site's expressive form becomes subjugated to its content, achieving a teleologically identical kind of synthesis. Everything is now directed towards the film, which sucks in the gaze of the user like the black hole of the black square.",
+                                    "UbuTube's minor symbol is the spiral (<i>gidouille</i>), which is a direct allusion to Alfred Jarry's <i>Ubu Roi</i> (1896). The <i>gidouille</i> adorns the stomach of Jarry's protagonist, representing his boundless hunger and greed. The spiral logomark was chosen for its metonomy with UbuWeb/Tube. A 1965 television adaptation of <i>Ubu Roi</i> is viewable on <a href='https://ubu.com/film/jarry_ubu-averty.html' target='_blank'>both</a> <a href='https://ubutube.org/film/4186738431008895' target='_blank'>sites</a>."
                                 ],
                                 
                                 "images": [
@@ -153,11 +156,11 @@
                                         "srcs": [
                                             {
                                                 "src": "/case_studies/ubutube/process_2.avif",
-                                                "caption": "<i>Black Square</i> on display at the Tate Modern. [5]"
+                                                "caption": "<i>Black Square</i> on display at the Tate Modern.<a href='#ref-3'><sup>[3]</sup></a>"
                                             },
                                             {
                                                 "src": "/case_studies/ubutube/process_3.jpg",
-                                                "caption": "Still from <i>Ubu Roi</i> (1965). [6]"
+                                                "caption": "Still from <i>Ubu Roi</i> (1965).<a href='#ref-4'><sup>[4]</sup></a>"
                                             }
                                         ]
                                     },
@@ -168,7 +171,7 @@
                                                 "src": "/case_studies/ubutube/process_6.mp4"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/header_3.png"
+                                                "src": "/case_studies/ubutube/process_11.png"
                                             }
                                         ]
                                     }
@@ -176,11 +179,16 @@
                             },
                             {
                                 "header": "Interactivity",
-                                "displayStyle": "row-left",
-                                "description": ["user features + design ideology behind their implementation + what makes this good"],
+                                "displayStyle": "row-right",
+                                "description": [
+                                    "Beyond visual changes, UbuTube's most marked divergence from UbuWeb involves its account system. UbuWeb has no user interactivity--but why would it need it? Account creation runs against its rhetoric of anonymity and impermanence. Regardless, the addition of users to UbuTube is a decision rooted more in pragmatics than ideology. UbuTube adds three principal features, each with its own logic:",
+                                    "1. Bookmarking: a user may bookmark films and return to them later via their profile. This gives the user motivation to explore the site, building their personal catalogue as they go. An individual film's bookmark count isn't displayed, so bookmarks don't function as 'likes', and bookmarking is not necessarily an indication of endorsement.",
+                                    "2. Commenting: unlike bookmarks, comments are displayed both on the pages of individual films and on the profiles of their authors. I was unsure whether including this feature would be the correct choice--I didn't want to present UbuTube as a social media platform. However, there are many platforms where comments are treated like 'reviews' and promote a higher level of engagement with digital material. To lay to rest any concerns, every comment has a minimum word count requirement.",
+                                    "3. View count: this feature was included out of statistical curiosity. Without a recommender system, which films would draw the most views? The answer turned out to be the films closest to the beginning of the catalog."
+                                ],
                                 "images": [
                                     {
-                                        "type": "column",
+                                        "type": "scroll-left",
                                         "srcs": [
                                             {
                                                 "src": "/case_studies/ubutube/process_9.png",
@@ -188,7 +196,7 @@
                                             },
                                             {
                                                 "src": "/case_studies/ubutube/process_10.png",
-                                                "caption": "Users can save films to their bookmarks and link to other sites on their profile. Nothing an individual user does is private."
+                                                "caption": "Bookmarks displayed on a user's page."
                                             }
                                         ]
                                     }
@@ -202,7 +210,8 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "talk about user features + provide statistics"
+                                    "UbuTube now operates as a robust, efficient, and highly functional extension of UbuWeb.",
+                                    "The site's release had a tertiary effect that I had only vaguely considered during its development: by recreating UbuWeb, I was inadvertently bringing its films to a new demographic of internet users. Those who may not have been familiar with the original site now have the chance to easily explore and interact with its content. Although the avant-garde is sometimes regarded as strange or obtuse, I'm confident that, given the proper motivation, any individual has the capacity to appreciate it in the same way that they appreciate 'conventional' cinema. Only, it takes actions like these to lead them down that path."
                                 ],
                                 "images": [
                                     {
@@ -223,6 +232,11 @@
             ],
             "bibliography": [
                 {
+                    "description": "“UbuWeb Film & Video: Richard Serra - Hands Tied (1968).” Ubu.Com, 2026, ",
+                    "link": "https://www.ubu.com/film/serra_tied.html"
+
+                },
+                {
                     "description": "Lee, Sarah. “Malevich’s Black Square on Display at Tate Modern Last Year.,” The Guardian, 13 Nov. 2015, ",
                     "link": "https://www.theguardian.com/world/2015/nov/13/russia-malevich-black-square-hidden-paintings"
                 }, 
@@ -239,8 +253,8 @@
         {
             "slug": "arena-flow",
             "title": "arena flow",
-            "date": "<i>arena flow</i> (2026) is an infinite canvas data visualization program for Are.na.",
-            "cover": "/case_studies/arena-flow/result_1.mp4",
+            "date": "An infinite canvas data visualization program for Are.na.",
+            "cover": "/case_studies/arena-flow/header.mp4",
             "link": "https://arena-flow.org",
             "stack": [
                 {
@@ -287,8 +301,8 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "<a href='https://are.na' target='_blank'>Are.na</a> is a content aggregation website oriented towards artists and designers. The site is based around a hierarchy of 'blocks' and 'channels'. Blocks contain files uploaded by users, while channels are collections of those blocks (and may also contain channels themselves).",
-				                    "Since blocks can be shared between channels and appropriated by different users, node connections quickly grow beyond the scope of Are.na's native UI. The relationship between blocks and channels is unidrectional, but the relationship between channels and other channels is bidrectional. With these rules in mind, I created <i>arena flow</i>, a web app that uses <a target='_blank' href='https://en.wikipedia.org/wiki/Adjacency_list'>adjacency lists</a> to dynamically construct directed graphs based on connections between blocks, channels, users, and groups."
+                                    "<a href='https://are.na' target='_blank'>Are.na</a> is a content aggregation website geared towards artists, designers, and the curatorially-minded. It allows users to create 'blocks' and 'channels'. Blocks contain files uploaded by users, while channels are collections of those blocks (which may also contain channels themselves).",
+				                    "Since blocks can be shared between channels and appropriated by different users, the invisible web of connections quickly grows beyond the scope of Are.na's native UI. In order to apprehend Are.na's true complexity, I created <i>arena flow</i>, a web app that uses graph theory to dynamically construct directed graphs based on connections between blocks, channels, users, and groups."
                                 ],
                                 "images": [
                                         
@@ -296,32 +310,12 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/background_2.png"
-                                            }, 
-                                            {
-                                                "src": "/case_studies/arena-flow/background_1.png",
-                                                "caption": "Representation of Are.na neighborhood associativity. Users [U] create blocks [B] and channels [C]. Channels may contain blocks and other channels."
+                                                "src": "/case_studies/arena-flow/background_2.png",
+                                                "caption": "A channel on Are.na."
                                             }
                                         ]
                                     }
                                 
-                                ]
-                            }, 
-                            {
-                                "displayStyle": "row-left",
-                                "description": [
-                                    "While Are.na principally acts as a helpful tool for non-technical designers and artists, it also extends a great deal of agency to developers who may wish to extend or modify it. I made full use of the <a href='https://www.are.na/developers/explore' target='_blank'>Are.na developer API</a> to derive and process Are.na's data. The aim was to allow the user to do anything on <i>arena flow</i> that they'd be able to do on Are.na."
-                                ],
-                                "images": [
-                                    {
-                                        "type": "scroll-left",
-                                        "srcs": [
-                                            {
-                                                "src": "/case_studies/arena-flow/background_3.png",
-                                                "caption": "The Are.na API specification."
-                                            }
-                                        ]
-                                    }
                                 ]
                             }
                         ]
@@ -333,13 +327,28 @@
                             {
                                 "header": "Algorithm",
                                 "displayStyle": "row-right",
-                                "description": [""],
+                                "description": [
+                                    "The crucial insight behind <i>arena flow</i> was that Are.na shares key traits with a <a href='https://en.wikipedia.org/wiki/Directed_graph' target='_blank'>directed graph</a>. When stripped down to its structural essence, the four types of Are.na objects (blocks, channels, users, and groups) are verticies, while the connections between them are edges. For instance, a channel C containing a block B can be represented by a directed edge from vertex C to vertex B. A block B owned by a user U can be represented similarly.",
+                                    "To algorithmically translate Are.na to a graph, I developed a custom graph engine that maintains <a target='_blank' href='https://en.wikipedia.org/wiki/Adjacency_list'>adjacency lists</a> of Are.na nodes, efficiently tracking and updating new connections as the user creates and removes them. This required two additional layers: a visual layer above for the user to interact with, and a network layer below to sync data with Are.na itself.",
+                                    "For the visual layer, I utilized <a href='https://reactflow.dev/' target='_blank'>React Flow</a>, a React library that transforms the page into a draggable canvas. While the library was easy to set up, I found it didn't support all the operations that my engine required, and I tried to modify it to the best of my ability.",
+                                    "As for the network layer, I made full use of the <a href='https://www.are.na/developers/explore' target='_blank'>Are.na developer API</a> to fetch and process Are.na data. The goal was to allow users of <i>arena flow</i> to do anything there that they'd be able to do on Are.na.",
+                                    "Together, these three layers work hand-over-hand to perform read, write, and update operations on actual Are.na blocks."
+                                ],
                                 "images": [
                                     {
-                                        "type": "column",
+                                        "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_4.mp4"
+                                                "src": "/case_studies/arena-flow/algorithm_2.png",
+                                                "caption": "Representation of Are.na neighborhood associativity. Users [U] create blocks [B] and channels [C]. Channels may contain blocks and other channels."
+                                            },
+                                            {
+                                                "src": "/case_studies/arena-flow/algorithm_1.png",
+                                                "caption": "The principal layers of the <i>arena flow</i> client."
+                                            },
+                                            {
+                                                "src": "/case_studies/arena-flow/background_3.png",
+                                                "caption": "The Are.na API specification."
                                             }
                                         ]
                                     }
@@ -347,10 +356,11 @@
                                 ]
                             },
                             {
-                                "header": "Visual design",
+                                "header": "Layout",
                                 "displayStyle": "row-left",
                                 "description": [
-                                    ""
+                                    "<i>arena flow</i>'s user interface takes strong cues from the original Are.na design. Its gray-on-gray color scheme and emphasis on right angles accentuate and promote its actual content.",
+                                    "As with the original site, media blocks on <i>arena flow</i> are meant to be visually distinct from their backdrop. Unlike Are.na, however, there is no hierachical separation between blocks and channels. Everything is contained within the frame, and the user doesn't need to navigate between multiple pages to traverse connections."
                                 ],
                                 "images": [
                                     {
@@ -360,54 +370,72 @@
                                                 "src": "/case_studies/arena-flow/design_1.png"
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/design_2.png"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "column",
-                                        "srcs": [
-                                            {
-                                                "src": "same channel as sidebar list"
-                                            },
-                                            {
-                                                "src": "Individual block"
-                                            },
-                                            {
-                                                "src": "same block, expanded"
+                                                "src": "/case_studies/arena-flow/design_2.png",
+                                                "caption": "Side-by-side comparison of a <a href='https://www.are.na/jil-g/ba-doku-acfplh7yzsk' target='_blank'>channel</a> on Are.na and its subsequent representation on <i>arena flow</i>."
                                             }
                                         ]
                                     }
                                 ]
                             },
                             {
-				                "header": "OAuth integration",
                                 "displayStyle": "row-right",
                                 "description": [
-                                    ""
+                                    "This level of consistency gave rise to a problem: given the single-page layout and the large amount of data associated with each node, information can easily clutter the interface. To remediate this, I relegated everything to a collapsible pane on the left side of the canvas. The content of the pane is tied to the currently selected node. Crucially, a node's connected nodes can be added to the canvas via the pane. The interaction between the information pane and the canvas constitute <i>arena flow</i>'s primary user loop.",
+                                    "The pane takes on a different layout based on the type of the selected node. Block nodes display that block's content and parent channels, channel nodes display that channel's parent channels and children, and user nodes display that user's followers, following, and children. Another navigation pane occupies the top right of the canvas, displaying the logged-in user and a list of currently rendered nodes."
                                 ],
                                 "images": [
                                     {
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "arena flow logged in user block"
+                                                "src": "/case_studies/arena-flow/process_8.png"
                                             },
                                             {
-                                                "src": "are.na user"
-                                                
+                                                "src": "/case_studies/arena-flow/process_7.png"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/arena-flow/process_6.mp4",
+                                                "caption": "Smooth transitions between panel/canvas states ensure an uninterrupted interaction loop."
+                                            }
+                                        ]
+                                    }
+                                    
+                                ]
+                            },
+                            {
+				                "header": "OAuth integration",
+                                "displayStyle": "row-right",
+                                "description": [
+                                    "During the first stage of its development, <i>arena flow</i> was functionally an Are.na renderer. It only had reading capabilities--changes on Are.na would affect the app, but changes on the app wouldn't write to Are.na. To take it to the next level, I realized that user actions on <i>arena flow</i> would have to be reflected on the parent site--otherwise, it would feel impermanent.",
+                                    "Fortunately, Are.na's API provides OAuth verification for 3rd-party clients. Using this, I set up a secure system where users could log in to create new blocks and channels using the canvas interface. By exploring other channels through the graph, they'd be able to add new blocks to their own, mimicking Are.na's content discovery flow.",
+                                    "The one shortcoming of this OAuth integration is its failure to facilitate block/channel deletion. Unlike block creation/modification, which only requires a parent channel ID, 3rd-party block/channel deletion requires a special connection ID between the parent channel and the child. Because the system I'd built didn't log official connection IDs and instead used a custom relationary schema, implementing deletion would require a total refactor. If I'd known this from the beginning, I would have implemented the <i>arena flow</i> graph on the basis of connection IDs, not node IDs."
+                                ],
+                                "images": [
+                                    {
+                                        "type": "scroll-left",
+                                        "srcs": [
+                                            {
+                                                "src": "/case_studies/arena-flow/process_5.png",
+                                                "caption": "Logged-in user blocks (left) vs. non logged-in user blocks (right)."
                                             },
                                             {
-                                                "src": "some user interaction buttons on a white background"
-                                                
+                                                "src": "/case_studies/arena-flow/process_4.mp4",
+                                                "caption": "Logging in to an Are.na account through <i>arena flow</i>."
                                             }
                                         ]
                                     },
 				                    {
                                         "type": "column",
                                         "srcs": [
+                                        
                                             {
-                                                "src": "video of user adding/deleting block to channel"
+                                                "src": "/case_studies/arena-flow/process_3.mp4",
+                                                "caption": "Utilizing OAuth login for block creation."
                                             }
                                         ]
                                     }

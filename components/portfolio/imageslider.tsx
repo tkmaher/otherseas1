@@ -50,7 +50,7 @@ export function ImageSlider({ group }: { group: ImageTypeParent }) {
         <div className="slider" ref={sliderRef} onPointerMove={onPointerMove} onPointerUp={stopDragging} onPointerLeave={stopDragging}>
             <div
                 className="slider-container-handle"
-                style={{ width: `${handlePos}%`, touchAction: "none", cursor: "ew-resize" }}
+                style={{ marginLeft: `${handlePos}%`, touchAction: "none", cursor: "ew-resize"}}
                 onPointerDown={onPointerDown}
             />
             <div className="slider-container">

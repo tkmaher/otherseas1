@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={host_grotesk.className} >
+    <html className={host_grotesk.variable} >
       <body>
         <ReactLenis root options={{lerp: 0.2}}>
           {children}
