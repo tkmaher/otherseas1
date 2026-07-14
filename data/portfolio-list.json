@@ -5,7 +5,7 @@
             "slug": "ubutube",
             "title": "UbuTube",
             "date": "UbuWeb, reimagined as a streaming platform.",
-            "cover": "/case_studies/ubutube/header_for_editing.mp4",
+            "cover": "https://media.otherseas1.com/ubutube/result_2.mp4",
             "link": "https://ubutube.org",
             "stack": [
                 {
@@ -31,13 +31,13 @@
                                         "type": "autocarousel",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/header_1.png"
+                                                "src": "https://media.otherseas1.com/ubutube/header_1.png"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/header_2.png"
+                                                "src": "https://media.otherseas1.com/ubutube/header_2.png"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/header_3.png"
+                                                "src": "https://media.otherseas1.com/ubutube/header_3.png"
                                             }
                                         ]
                                     }
@@ -62,11 +62,11 @@
                                         "type": "slider",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/background_5.png"
+                                                "src": "https://media.otherseas1.com/ubutube/background_5.png"
 
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/background_4.png",
+                                                "src": "https://media.otherseas1.com/ubutube/background_4.png",
                                                 "caption": "Side-by-side comparison of an UbuWeb film page with its corresponding UbuTube page.<a href='#ref-1'><sup>[1]</sup></a>"
                                             }
                                         ]
@@ -82,6 +82,7 @@
                             {
                                 "header": "Data collection and development",
                                 "displayStyle": "row-right",
+                                "subsectionIndex": 1,
                                 "description": [
                                     "In order to isomorphically translate UbuWeb's data to UbuTube, the archive must be archived. The UbuTube crawler scrapes UbuWeb's 3000+ film and artist pages from on a pruned list of URLs. The UbuTube parser takes that content, removes extraneous HTML, and preserves it in a database. Film objects are linked to artist objects based on authorship.",
                                     "The biggest challenge during development came when trying to accurately sanitize the original pages. While many pages on ubu.com share the same format, outliers had to be flagged and manually parsed. This is no issue--as long as the scraper can flag them accurately. I iterated on a few crawling models to cover as many edge cases as possible. If the dataset had been larger, this method would have been unsustainable."
@@ -91,7 +92,7 @@
                                         "type": "column",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_4.mp4"
+                                                "src": "https://media.otherseas1.com/ubutube/process_4.mp4"
                                             }
                                         ]
                                     }
@@ -101,6 +102,7 @@
                             {
 				                "header": "Experience design",
                                 "displayStyle": "row-left",
+                                "subsectionIndex": 2,
                                 "description": [
                                     "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the new design to reflect the original website's ideology in the same manner that its films do. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other expressive modes.",
                                     "The first draft took the form of a disparate arrangement of text boxes vying for space upon an undifferentiated white plane. The reasoning behind this deconstruction was to promote the hegemony of the filmic content over the non-filmic digital container. The negation of the container, however, does not remove the container. Like an inverted glove, negation relegates the content to the container's negative. This difficult loop prompted the exploration of other avenues of escape."
@@ -110,10 +112,10 @@
                                         "type": "slider",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_1.png"
+                                                "src": "https://media.otherseas1.com/ubutube/process_1.png"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/process_5.png",
+                                                "src": "https://media.otherseas1.com/ubutube/process_5.png",
                                                 "caption": "First iteration of an UbuTube film page."
                                             }
                                         ]
@@ -131,10 +133,10 @@
                                         "type": "slider",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_7.png"
+                                                "src": "https://media.otherseas1.com/ubutube/process_7.png"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/process_8.png"
+                                                "src": "https://media.otherseas1.com/ubutube/process_8.png"
                                             }
                                         ]
                                     }
@@ -143,6 +145,7 @@
                             {
                                 "header": "Black Square / Spiral",
                                 "displayStyle": "row-left",
+                                "subsectionIndex": 3,
                                 "description": [
                                     "There are no images on the UbuTube website, save for two. The home page features a large reproduction of Kazimir Malevich's <i>Black Square</i>, while a small spiral--reproduced in the favicon--occupies the top left corner.",
                                     "Malevich intended to separate art from imitation by neglecting artistic content and pursuing a radical supremacy of form. However, this dispossession inadvertently gave rise to a new kind of content synonymous with its own expression. <i>Black Square</i> is replete with content, but it is not symbolicating. Like a black hole collapsing on itself, what the painting <i>is</i> becomes inseparable from what it <i>does</i>.",
@@ -155,11 +158,11 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_2.avif",
+                                                "src": "https://media.otherseas1.com/ubutube/process_2.avif",
                                                 "caption": "<i>Black Square</i> on display at the Tate Modern.<a href='#ref-3'><sup>[3]</sup></a>"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/process_3.jpg",
+                                                "src": "https://media.otherseas1.com/ubutube/process_3.jpg",
                                                 "caption": "Still from <i>Ubu Roi</i> (1965).<a href='#ref-4'><sup>[4]</sup></a>"
                                             }
                                         ]
@@ -168,10 +171,10 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_6.mp4"
+                                                "src": "https://media.otherseas1.com/ubutube/process_6.mp4"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/process_11.png"
+                                                "src": "https://media.otherseas1.com/ubutube/process_11.png"
                                             }
                                         ]
                                     }
@@ -180,6 +183,7 @@
                             {
                                 "header": "Interactivity",
                                 "displayStyle": "row-right",
+                                "subsectionIndex": 4,
                                 "description": [
                                     "Beyond visual changes, UbuTube's most marked divergence from UbuWeb involves its account system. UbuWeb has no user interactivity--but why would it need it? Account creation runs against its rhetoric of anonymity and impermanence. Regardless, the addition of users to UbuTube is a decision rooted more in pragmatics than ideology. UbuTube adds three principal features, each with its own logic:",
                                     "1. Bookmarking: a user may bookmark films and return to them later via their profile. This gives the user motivation to explore the site, building their personal catalogue as they go. An individual film's bookmark count isn't displayed, so bookmarks don't function as 'likes', and bookmarking is not necessarily an indication of endorsement.",
@@ -191,11 +195,11 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/process_9.png",
+                                                "src": "https://media.otherseas1.com/ubutube/process_9.png",
                                                 "caption": "Users are discouraged from making low-quality comments."
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/process_10.png",
+                                                "src": "https://media.otherseas1.com/ubutube/process_10.png",
                                                 "caption": "Bookmarks displayed on a user's page."
                                             }
                                         ]
@@ -218,10 +222,10 @@
                                         "type": "autocarousel",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/ubutube/result_2.mp4"
+                                                "src": "https://media.otherseas1.com/ubutube/result_2.mp4"
                                             },
                                             {
-                                                "src": "/case_studies/ubutube/result_3.mp4"
+                                                "src": "https://media.otherseas1.com/ubutube/result_3.mp4"
                                             }
                                         ]
                                     }
@@ -254,7 +258,7 @@
             "slug": "arena-flow",
             "title": "arena flow",
             "date": "An infinite canvas data visualization program for Are.na.",
-            "cover": "/case_studies/arena-flow/header.mp4",
+            "cover": "https://media.otherseas1.com/arena-flow/header.mp4",
             "link": "https://arena-flow.org",
             "stack": [
                 {
@@ -280,13 +284,13 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/header_0.png"
+                                                "src": "https://media.otherseas1.com/arena-flow/header_0.png"
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/header_1.png"
+                                                "src": "https://media.otherseas1.com/arena-flow/header_1.png"
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/header_2.png"
+                                                "src": "https://media.otherseas1.com/arena-flow/header_2.png"
                                             }
                                         ]
                                     }
@@ -310,7 +314,7 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/background_2.png",
+                                                "src": "https://media.otherseas1.com/arena-flow/background_2.png",
                                                 "caption": "A channel on Are.na."
                                             }
                                         ]
@@ -326,12 +330,13 @@
                         "subsections": [
                             {
                                 "header": "Algorithm",
+                                "subsectionIndex": 1,
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "The crucial insight behind <i>arena flow</i> was that Are.na shares key traits with a <a href='https://en.wikipedia.org/wiki/Directed_graph' target='_blank'>directed graph</a>. When stripped down to its structural essence, the four types of Are.na objects (blocks, channels, users, and groups) are verticies, while the connections between them are edges. For instance, a channel C containing a block B can be represented by a directed edge from vertex C to vertex B. A block B owned by a user U can be represented similarly.",
+                                    "The crucial insight behind <i>arena flow</i> was that Are.na shares key traits with a <a href='https://en.wikipedia.org/wiki/Directed_graph' target='_blank'>directed graph</a>. When stripped down to its structural essence, the four types of Are.na objects (blocks, channels, users, and groups) are verticies, while the connections between them are edges. For instance, a channel C containing a block B can be represented by a directed edge from vertex C to vertex B. A block B owned by a user U can be represented likewise.",
                                     "To algorithmically translate Are.na to a graph, I developed a custom graph engine that maintains <a target='_blank' href='https://en.wikipedia.org/wiki/Adjacency_list'>adjacency lists</a> of Are.na nodes, efficiently tracking and updating new connections as the user creates and removes them. This required two additional layers: a visual layer above for the user to interact with, and a network layer below to sync data with Are.na itself.",
-                                    "For the visual layer, I utilized <a href='https://reactflow.dev/' target='_blank'>React Flow</a>, a React library that transforms the page into a draggable canvas. While the library was easy to set up, I found it didn't support all the operations that my engine required, and I tried to modify it to the best of my ability.",
-                                    "As for the network layer, I made full use of the <a href='https://www.are.na/developers/explore' target='_blank'>Are.na developer API</a> to fetch and process Are.na data. The goal was to allow users of <i>arena flow</i> to do anything there that they'd be able to do on Are.na.",
+                                    "For the visual layer, I utilized <a href='https://reactflow.dev/' target='_blank'>React Flow</a>, a React.js library that transforms the page into a draggable canvas. While the library was easy to set up, I found it didn't support all the operations that my engine required, so I modified it pragmatically as I developed the engine.",
+                                    "For the network layer, I made full use of the <a href='https://www.are.na/developers/explore' target='_blank'>Are.na developer API</a> to fetch and process Are.na data. The goal was to allow users of <i>arena flow</i> to do anything there that they'd be able to do on Are.na.",
                                     "Together, these three layers work hand-over-hand to perform read, write, and update operations on actual Are.na blocks."
                                 ],
                                 "images": [
@@ -339,15 +344,15 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/algorithm_2.png",
+                                                "src": "https://media.otherseas1.com/arena-flow/algorithm_2.png",
                                                 "caption": "Representation of Are.na neighborhood associativity. Users [U] create blocks [B] and channels [C]. Channels may contain blocks and other channels."
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/algorithm_1.png",
+                                                "src": "https://media.otherseas1.com/arena-flow/algorithm_1.png",
                                                 "caption": "The principal layers of the <i>arena flow</i> client."
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/background_3.png",
+                                                "src": "https://media.otherseas1.com/arena-flow/background_3.png",
                                                 "caption": "The Are.na API specification."
                                             }
                                         ]
@@ -357,20 +362,21 @@
                             },
                             {
                                 "header": "Layout",
+                                "subsectionIndex": 2,
                                 "displayStyle": "row-left",
                                 "description": [
                                     "<i>arena flow</i>'s user interface takes strong cues from the original Are.na design. Its gray-on-gray color scheme and emphasis on right angles accentuate and promote its actual content.",
-                                    "As with the original site, media blocks on <i>arena flow</i> are meant to be visually distinct from their backdrop. Unlike Are.na, however, there is no hierachical separation between blocks and channels. Everything is contained within the frame, and the user doesn't need to navigate between multiple pages to traverse connections."
+                                    "As with the original site, media blocks on <i>arena flow</i> are meant to be visually distinct from their backdrop. Unlike Are.na, however, there is no hierachical separation between blocks and channels. Everything is represented as an equal-sized block upon the canvas, and the user doesn't need to navigate between multiple pages to traverse connections."
                                 ],
                                 "images": [
                                     {
                                         "type": "slider",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/design_1.png"
+                                                "src": "https://media.otherseas1.com/arena-flow/design_1.png"
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/design_2.png",
+                                                "src": "https://media.otherseas1.com/arena-flow/design_2.png",
                                                 "caption": "Side-by-side comparison of a <a href='https://www.are.na/jil-g/ba-doku-acfplh7yzsk' target='_blank'>channel</a> on Are.na and its subsequent representation on <i>arena flow</i>."
                                             }
                                         ]
@@ -380,18 +386,18 @@
                             {
                                 "displayStyle": "row-right",
                                 "description": [
-                                    "This level of consistency gave rise to a problem: given the single-page layout and the large amount of data associated with each node, information can easily clutter the interface. To remediate this, I relegated everything to a collapsible pane on the left side of the canvas. The content of the pane is tied to the currently selected node. Crucially, a node's connected nodes can be added to the canvas via the pane. The interaction between the information pane and the canvas constitute <i>arena flow</i>'s primary user loop.",
-                                    "The pane takes on a different layout based on the type of the selected node. Block nodes display that block's content and parent channels, channel nodes display that channel's parent channels and children, and user nodes display that user's followers, following, and children. Another navigation pane occupies the top right of the canvas, displaying the logged-in user and a list of currently rendered nodes."
+                                    "This level of consistency gave rise to a problem: given the single-page layout and the large amount of data associated with each node, information can easily clutter the interface. To remediate this, I relegated everything to a collapsible pane on the left side of the canvas. The content of the pane is tied to the currently selected node. Crucially, a node's connected nodes can be added and removed from the canvas via the pane. The interaction between the information pane and the canvas constitutes <i>arena flow</i>'s primary user loop.",
+                                    "The pane takes on a different layout based on the type of the selected node. Block nodes display block content and parent channels, channel nodes display channel children, and user nodes display a user's followers, following, and children. Another navigation pane occupies the top right of the canvas, displaying the logged-in user and a list of currently rendered nodes."
                                 ],
                                 "images": [
                                     {
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/process_8.png"
+                                                "src": "https://media.otherseas1.com/arena-flow/process_8.png"
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/process_7.png"
+                                                "src": "https://media.otherseas1.com/arena-flow/process_7.png"
                                             }
                                         ]
                                     },
@@ -399,7 +405,7 @@
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/process_6.mp4",
+                                                "src": "https://media.otherseas1.com/arena-flow/process_6.mp4",
                                                 "caption": "Smooth transitions between panel/canvas states ensure an uninterrupted interaction loop."
                                             }
                                         ]
@@ -409,22 +415,23 @@
                             },
                             {
 				                "header": "OAuth integration",
+                                "subsectionIndex": 3,
                                 "displayStyle": "row-right",
                                 "description": [
                                     "During the first stage of its development, <i>arena flow</i> was functionally an Are.na renderer. It only had reading capabilities--changes on Are.na would affect the app, but changes on the app wouldn't write to Are.na. To take it to the next level, I realized that user actions on <i>arena flow</i> would have to be reflected on the parent site--otherwise, it would feel impermanent.",
-                                    "Fortunately, Are.na's API provides OAuth verification for 3rd-party clients. Using this, I set up a secure system where users could log in to create new blocks and channels using the canvas interface. By exploring other channels through the graph, they'd be able to add new blocks to their own, mimicking Are.na's content discovery flow.",
-                                    "The one shortcoming of this OAuth integration is its failure to facilitate block/channel deletion. Unlike block creation/modification, which only requires a parent channel ID, 3rd-party block/channel deletion requires a special connection ID between the parent channel and the child. Because the system I'd built didn't log official connection IDs and instead used a custom relationary schema, implementing deletion would require a total refactor. If I'd known this from the beginning, I would have implemented the <i>arena flow</i> graph on the basis of connection IDs, not node IDs."
+                                    "Fortunately, Are.na's API provides OAuth verification for 3rd-party clients. Using this, I set up a secure system where users could log in to create new blocks and channels using the canvas interface. By exploring the graph, they'd be able to add new blocks to their own channels, mimicking Are.na's content discovery flow.",
+                                    "The one shortcoming of this writing system was its failure to facilitate block/channel deletion. Unlike block creation/modification, which only requires a parent channel ID, Are.na block/channel deletion from third party applications requires knowledge of a special connection ID between the parent channel and the deletion target. Because the system I'd built didn't log official connection IDs and instead used a custom relationary schema, implementing deletion would have required a total refactor. If I'd known this from the beginning, I would have made the <i>arena flow</i> graph engine operate around connection IDs instead of node IDs."
                                 ],
                                 "images": [
                                     {
                                         "type": "scroll-left",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/process_5.png",
+                                                "src": "https://media.otherseas1.com/arena-flow/process_5.png",
                                                 "caption": "Logged-in user blocks (left) vs. non logged-in user blocks (right)."
                                             },
                                             {
-                                                "src": "/case_studies/arena-flow/process_4.mp4",
+                                                "src": "https://media.otherseas1.com/arena-flow/process_4.mp4",
                                                 "caption": "Logging in to an Are.na account through <i>arena flow</i>."
                                             }
                                         ]
@@ -434,7 +441,7 @@
                                         "srcs": [
                                         
                                             {
-                                                "src": "/case_studies/arena-flow/process_3.mp4",
+                                                "src": "https://media.otherseas1.com/arena-flow/process_3.mp4",
                                                 "caption": "Utilizing OAuth login for block creation."
                                             }
                                         ]
@@ -453,7 +460,7 @@
                                         "type": "column",
                                         "srcs": [
                                             {
-                                                "src": "/case_studies/arena-flow/result_1.mp4"
+                                                "src": "https://media.otherseas1.com/arena-flow/result_1.mp4"
                                             }
                                         ]
                                     }

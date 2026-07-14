@@ -63,8 +63,8 @@ a {
   display: flex;
   max-width: calc(50% + 0.4em);
   box-sizing: border-box;
-  border-top: 0.1em solid $foreground; 
-  border-bottom: 0.1em solid $foreground; 
+  border-top: 1px solid $foreground; 
+  border-bottom: 1px solid $foreground; 
   transition: max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media (max-width: 768px) {
@@ -74,7 +74,7 @@ a {
 
 .row-inner-expanded {
   max-width: 100%;
-  border-top: 0.1em solid $foreground; 
+  border-top: 1px solid $foreground; 
 
 }
 
@@ -180,9 +180,9 @@ a {
   width: 100%;
   gap: 1em;
   padding: 0.2em;
-  border-top: 0.1em solid $foreground;
+  border-top: 1px solid $foreground;
   max-width: 100%;
-  border-bottom: 0.1em solid $foreground;
+  border-bottom: 1px solid $foreground;
 
   a {
     text-decoration: underline;
@@ -352,7 +352,7 @@ input[type="checkbox"] {
   appearance: none;
   width: 0.8em;
   height: 0.8em;
-  border: 0.1em solid $foreground;
+  border: 1px solid $foreground;
   background-color: $background;
   cursor: pointer;
   display: inline-grid;

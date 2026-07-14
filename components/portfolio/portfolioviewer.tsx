@@ -22,7 +22,7 @@ function PortfolioSection({ section, index }: { section: SectionType, index: num
                 <div>{index}. {section.header}</div>
             </div>}
             {section.subsections.map((subsection, i) => (
-                <Subsection key={i} subsection={subsection} index={`${index}.${i + 1}.`} />
+                <Subsection key={i} subsection={subsection} index={`${index}.${subsection.subsectionIndex ?? 0}.`} />
             ))}
         </div>
     )

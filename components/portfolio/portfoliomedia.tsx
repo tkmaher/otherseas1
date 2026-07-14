@@ -35,11 +35,18 @@ export function PortfolioMedia({
                     observer.unobserve(entry.target);
                 }
             },
-            { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+            { threshold: 0.01, rootMargin: "0px 0px -5% 0px" }
         );
 
         observer.observe(node);
         return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        const el = mediaRef.current;
+        if (el instanceof HTMLVideoElement && el.readyState >= 2) {
+            setIsLoaded(true);
+        }
     }, []);
 
     const mediaClassName =

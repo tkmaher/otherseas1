@@ -20,6 +20,7 @@ export interface SectionType {
 
 export interface SubsectionType {
     header?: string,
+    subsectionIndex?: number,
     displayStyle: string,
     description?: string[],
     images?: ImageTypeParent[]

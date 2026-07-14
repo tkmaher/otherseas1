@@ -67,10 +67,14 @@
   gap: 0.4em;
   justify-self: flex-end;
   justify-content: space-between;
+  flex-shrink: 0;
   font-family: var(--font-host);
   > a {
     text-align: right;
   }
+  border-bottom: 1px solid $foreground;
+  border-top: 1px solid $foreground ;
+
 }
 
 .portfolio-header-container {
@@ -129,6 +133,9 @@
   padding: 0 0.5em 0.5em 0.5em;
   max-width: 2400px;
 }
+
+
+
 .portfolio-media-flex {
   display: flex;
   flex-direction: column;
@@ -331,8 +338,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.2em;
-  border-top: 1px solid $foreground;
-  border-bottom: 1px solid $foreground;
 
 }
 
@@ -461,8 +466,10 @@
 
 .portfolio-navbar {
   display: flex;
-  margin: 0.4em 0.5em;
   justify-content: space-between;
+  border-top: 1px solid $foreground;
+  border-bottom: 1px solid $foreground;
+
   a {
     min-width: 15em;
     max-width: 15em;
@@ -472,16 +479,21 @@
     display: flex;
     flex-direction: column;
     font-family: var(--font-host);
+    background-color: $foreground;
+    color: $background;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .desc {
+      padding-top: 0;
+    }
   }
-  .next {
-    text-align: right;
-  }
+  
 }
 
 .portfolio-navbar .prev, .portfolio-navbar .next {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .portfolio-navbar .prev img, .portfolio-navbar .next img {
@@ -497,4 +509,34 @@
 .portfolio-navbar .prev span, .portfolio-navbar .next span {
   display: block;
   text-align: center;
+}
+
+.portfolio-mainpage {
+  font-family: var(--font-host);
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  flex-grow: 0;
+  align-self: center;
+  flex-grow: 1;
+}
+
+.portfolio-mainpage-image {
+  height: 40dvh !important;
+  max-height: 40dvh !important;
+  cursor: pointer !important;
+
+}
+
+.portfolio-mainpage-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  gap: 0.2em;
+  font-size: 1.2em;
+  a {
+    text-decoration: none;
+  }
 }
