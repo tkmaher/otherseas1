@@ -52,12 +52,12 @@ export default function PortfolioViewer({ item }: { item: PortfolioItemType }) {
                 <iframe src={item.link} className="portfolio-cover"/>
                 <div className="portfolio-header">
                     <div className="portfolio-header-row">
+                        <a href={item.link} target="_blank">
+                            <img src="/linkout_2.svg" />
+                        </a>
                         <div className="portfolio-title">
                             {item.title}
                         </div>
-                        <a href={item.link} target="_blank">
-                            <img src="/linkout.svg" />
-                        </a>
                     </div>
                     <div className="date" dangerouslySetInnerHTML={{__html: item.date}}/>
                         

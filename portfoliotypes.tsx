@@ -6,6 +6,7 @@ export interface PortfolioItemType {
     slug: string,
     title: string,
     date: string,
+    type: string,
     link: string,
     stack: StackType[],
     sections: SectionType[],

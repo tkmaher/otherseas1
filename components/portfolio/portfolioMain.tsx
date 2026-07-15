@@ -27,16 +27,7 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
             <PortfolioSidebar items={items} current={current}/>
             <div id="portfolio-parent" data-lenis-prevent>
                 <PortfolioViewer item={items[current]}/>
-                <div className="footer">
-                    {colors.map((val, index) =>
-                        <a
-                        className="color-block"
-                        style={{ backgroundColor: val }}
-                        key={index}
-                        onClick={() => setCurrColor(val)}
-                        />
-                        )}
-                </div>
+                
                 <div className="portfolio-navbar">
                     <div className="next">
                         {current > 0 && 
@@ -56,13 +47,23 @@ function PortfolioChild({ items, current }: { items: PortfolioItemType[], curren
                     </div>
                     
                 </div>
+                <div className="footer">
+                    {colors.map((val, index) =>
+                        <a
+                            className="color-block"
+                            style={{ backgroundColor: val }}
+                            key={index}
+                            onClick={() => setCurrColor(val)}
+                        />
+                        )}
+                </div>
             </div>
 
             {currImage != '' && <PortfolioCarousel
                 srcs={allSrcs}
                 type="image"
                 triggered={currColor !== "transparent"}
-                currColor={currColor}
+                color={currColor}
             />}
 
             

@@ -4,6 +4,7 @@
         {
             "slug": "ubutube",
             "title": "UbuTube",
+            "type": "Case study",
             "date": "UbuWeb, reimagined as a streaming platform.",
             "cover": "https://media.otherseas1.com/ubutube/result_2.mp4",
             "link": "https://ubutube.org",
@@ -257,6 +258,7 @@
         {
             "slug": "arena-flow",
             "title": "arena flow",
+            "type": "Case study",
             "date": "An infinite canvas data visualization program for Are.na.",
             "cover": "https://media.otherseas1.com/arena-flow/header.mp4",
             "link": "https://arena-flow.org",

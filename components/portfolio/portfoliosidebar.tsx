@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Fragment } from "react/jsx-runtime";
 import { colors } from "@/types";
+import { usePathname } from "next/navigation";
 
 const stringToIntHash = (str: string) => {
     let hash = 0;
@@ -71,6 +72,7 @@ function ColorLink({
 }
 
 export default function PortfolioSidebar({items, current}: {items: PortfolioItemType[], current?: number}) {
+    const path = usePathname();
     return (
         <div className="portfolio-sidebar">
 
@@ -99,7 +101,11 @@ export default function PortfolioSidebar({items, current}: {items: PortfolioItem
                         </div>
                     </div>
                 ))}
-                <a href="/">Home</a>
+                <div>
+                    <a style={{textDecoration: path.split('/').length > 2 ? 'underline' : 'none'
+                    }} href="/portfolio">Portfolio</a>{', '} 
+                    <a href="/">Home</a>
+                </div>
             </div>
     )
 }

@@ -71,7 +71,7 @@ export default function PortfolioCarousel({
     type,
     triggered,
 }: {
-    srcs: ImageType[];
+    srcs: (undefined | ImageType)[];
     type: string;
     triggered: boolean;
     color: string;
@@ -81,12 +81,14 @@ export default function PortfolioCarousel({
     const scrollRef = useRef<HTMLDivElement>(null);
 
     const nav = (dir: string) => {
-        const currentIndex = srcs.indexOf(srcs.find((s) => s.src === currImage) || srcs[0]);
+        const currentIndex = srcs.indexOf(srcs.find((s: ImageType | undefined) => s && (s.src === currImage)) || srcs[0]);
         const nextIndex = dir === "prev"
             ? (currentIndex - 1 + srcs.length) % srcs.length
             : (currentIndex + 1) % srcs.length;
-        setImage(srcs[nextIndex].src);
-        setCaption(srcs[nextIndex].caption || '');
+        const next = srcs[nextIndex];
+        if (!next) return;
+        setImage(next.src);
+        setCaption(next.caption || '');
     };
 
     useEffect(() => {

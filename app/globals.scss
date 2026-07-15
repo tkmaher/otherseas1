@@ -382,6 +382,7 @@ input[type="checkbox"] {
   padding: 0;
   display: flex;
   height: 1em;
+  flex-shrink: 0;
 
   .color-block {
     flex: 1;

@@ -62,18 +62,19 @@
 
 .portfolio-sidebar {
   overflow-y: auto;
-  padding: 0.4em 0.5em;
+  padding: 0.2em 0.5em;
   display: flex;
   gap: 0.4em;
   justify-self: flex-end;
-  justify-content: space-between;
   flex-shrink: 0;
   font-family: var(--font-host);
+  & > :nth-last-child(2) {
+    flex-grow: 1;
+  }
   > a {
     text-align: right;
   }
-  border-bottom: 1px solid $foreground;
-  border-top: 1px solid $foreground ;
+
 
 }
 
@@ -81,12 +82,13 @@
   overflow-y: visible;
   display: flex;
   flex-direction: column;
-  gap: 0.4em;
-  height: calc(100dvh - 2.8em);
+  height: calc(100dvh - 2.2em + 2px);
   .portfolio-media-flex {
     flex-grow: 1;
     justify-content: center;
 
+  }
+  iframe {
   }
 }
 
@@ -94,16 +96,16 @@
   top: 0;
   z-index: 10;
   position: sticky;
-  justify-content: space-between;
-
+  justify-content: center;
+  align-items: center;
 
   background-color: $background;
 
-
+  flex-grow: 1;
   display: flex;
 
   flex-direction: column;
-
+  padding: 0.4em;
 
   .portfolio-header-row {
     display: flex;
@@ -130,7 +132,6 @@
   flex-direction: column;
   min-width: 0;
   flex: 1 1 auto;
-  padding: 0 0.5em 0.5em 0.5em;
   max-width: 2400px;
 }
 
@@ -139,17 +140,15 @@
 .portfolio-media-flex {
   display: flex;
   flex-direction: column;
-  color: $background;
-  background-color: $foreground;
-  padding: 5px;
+  padding: 0.2em;
   align-items: center;
   gap: 0.2em;
+
   img:hover, video:hover {
     opacity: 0.8;
   }
   img, video {
     cursor: zoom-in;
-    background-color: $background;
     max-height: 70dvh;
 
   }
@@ -227,9 +226,10 @@
 }
 
 .portfolio-media-caption {
-  z-index: 10;
-  font-family: var(--font-host);
+  // z-index: 10;
   font-size: 0.9em;
+  align-self: flex-start;
+  padding-bottom: 1em;
 }
 
 .slider-container {
@@ -290,19 +290,15 @@
   flex-direction: column;
   line-height: 1em;
   justify-content: center;
-  font-family: var(--font-host);
 
 }
 
 
 .date {
-  color: $lighttext;
-  padding: 0 0.1em;
-  margin: 0.2em 0;
   width: fit-content;
   background-color: $background;
-  font-family: var(--font-host);
   margin-bottom: 0.5em;
+  font-style: italic;
 }
 
 .portfolio-header-title {
@@ -318,7 +314,7 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  margin: 1em 0;
+  padding: 1em 0;
 
   > * {
     flex: 1;
@@ -338,7 +334,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.2em;
-
+  max-width: 50%;
 }
 
 .portfolio-stack-title {
@@ -357,7 +353,6 @@
   width: 100%;
   height: auto;
   min-width: 0; 
-  margin-bottom: 5em;
 }
 
 .portfolio-section {
@@ -368,16 +363,15 @@
   position: sticky;
   top: 0;
   z-index: 9;
-  padding: 0.2rem 0.2rem 0.3rem 0;
+  padding: 0.2rem;
   background-color: $background;
   font-size: 1.3em;
-
-  width: fit-content;
+  width: 100%;
 
 }
 
 .portfolio-subsection-header {
-  padding: 0.2em 0.2em 0.2em 0;
+  padding: 0.2em;
   word-break: keep-all;
   text-wrap: nowrap;
   position: sticky;
@@ -403,7 +397,7 @@
 
 .subsection-images {
   min-width: 0;
-  //width: 100%;
+
 }
 
 .subsection-mosaic-row {
@@ -467,29 +461,27 @@
 .portfolio-navbar {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid $foreground;
-  border-bottom: 1px solid $foreground;
 
   a {
-    min-width: 15em;
     max-width: 15em;
     text-decoration: none !important;
   }
   .prev, .next {
     display: flex;
     flex-direction: column;
-    font-family: var(--font-host);
-    background-color: $foreground;
-    color: $background;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     .desc {
       padding-top: 0;
     }
   }
-  
+  .prev {
+    text-align: right;
+  }
+  .next {
+    text-align: left;
+  }
 }
 
 .portfolio-navbar .prev, .portfolio-navbar .next {
@@ -512,31 +504,34 @@
 }
 
 .portfolio-mainpage {
-  font-family: var(--font-host);
-  display: flex;
-  flex-direction: row;
   overflow-x: auto;
-  flex-grow: 0;
-  align-self: center;
-  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  .title {
+    font-size: 1.5em;
+    text-align: left;
+    padding: 0.2em;
+    & > :nth-last-child(1) {
+      font-size: 0.8em;
+      font-style: italic;
+    }
+  }
 }
 
 .portfolio-mainpage-image {
-  height: 40dvh !important;
-  max-height: 40dvh !important;
+  height: 60dvh !important;
+  max-height: 60dvh !important;
   cursor: pointer !important;
-
+  align-self: flex-start;
 }
 
 .portfolio-mainpage-row {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
-  gap: 0.2em;
+  text-decoration: none !important;
+
+  padding: 0.5em;
   font-size: 1.2em;
-  a {
-    text-decoration: none;
-  }
+  
 }
