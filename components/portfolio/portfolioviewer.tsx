@@ -50,11 +50,10 @@ export default function PortfolioViewer({ item }: { item: PortfolioItemType }) {
     return (
         <div className="portfolio">
             <div className="portfolio-header-container" id="header">
+                <PortfolioMedia media={{src: item.cover}} classN="portfolio-header-img"/>
                 <div className="portfolio-header">
                     <div className="portfolio-header-row">
-                        {/* <a href={item.link} target="_blank">
-                            <img src="/linkout_2.svg" />
-                        </a> */}
+
                         <div className="portfolio-title">
                             {item.title}
                         </div>

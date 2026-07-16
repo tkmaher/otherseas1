@@ -1,18 +1,6 @@
 import { SubsectionType } from "@/portfoliotypes";
 import { ImageGroups } from "./imagegroup";
-
-
-function SubsectionDescription({ subsection }: { subsection: SubsectionType }) {
-    if (!subsection.description) return null;
-    
-    return (
-        <div className="desc-right">  
-            {subsection.description.map((desc, i) => 
-                <div key={i} dangerouslySetInnerHTML={{ __html: desc }} />
-            )}
-        </div>
-    );
-}
+import SubsectionDescription from "./subsectiondescription";
 
 export function Subsection({ subsection, index }: { subsection: SubsectionType, index: string }) {
     const isRowLayout = subsection.displayStyle === "row-right" || subsection.displayStyle === "row-left";

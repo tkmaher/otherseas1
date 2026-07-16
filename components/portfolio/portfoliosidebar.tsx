@@ -129,8 +129,11 @@ export default function PortfolioSidebar({
                     }
                     {link && title &&
                         <>{', '} 
-                            <a href={link} target='_blank'>
-                                visit {title}
+                            <a href={link} target='_blank' className="visit-link">
+                                {title}
+                                <img 
+                                    src="/linkout.svg"
+                                />
                             </a>
                         </>
                     }
