@@ -8,6 +8,7 @@ import PortfolioCarousel from "./portfoliocarousel";
 import PortfolioSidebar from "./portfoliosidebar";
 import { useState } from "react";
 import ReactLenis from "lenis/react";
+import Link from "next/link";
 
 export default function PortfolioMain({ items, current }: { items: PortfolioItemType[], current: number }) {
 
@@ -52,18 +53,18 @@ export default function PortfolioMain({ items, current }: { items: PortfolioItem
                         <div className="portfolio-navbar">
                             <div className="next">
                                 {current > 0 && 
-                                    <a href={`/portfolio/${items[current - 1].slug}`}>
+                                    <Link href={`/portfolio/${items[current - 1].slug}`}>
                                         <PortfolioMedia media={{src: items[current - 1].cover}} classN="portfolio-navbar-img"/>
 
-                                        <div className="desc">Next : {items[current - 1].title}</div>
-                                    </a>}
+                                        <div className="desc">{items[current - 1].title}</div>
+                                    </Link>}
                             </div>
                             <div className="prev">
                                 {current < items.length - 1 && 
-                                    <a href={`/portfolio/${items[current + 1].slug}`}>
+                                    <Link href={`/portfolio/${items[current + 1].slug}`}>
                                         <PortfolioMedia media={{src: items[current + 1].cover}} classN="portfolio-navbar-img"/>
-                                        <div className="desc">Previous : {items[current + 1].title}</div>
-                                    </a>
+                                        <div className="desc">{items[current + 1].title}</div>
+                                    </Link>
                                 }
                             </div>
                             

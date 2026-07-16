@@ -347,7 +347,7 @@
 
 .portfolio-stack-title {
   font-size: 0.8em;
-  color: $lighttext;
+  opacity: 0.6;
 }
 
 .portfolio-ref-tool {
@@ -507,7 +507,7 @@
 .portfolio-mainpage {
   overflow-x: auto;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-direction: row;
   .title {
     font-size: 1.5em;
