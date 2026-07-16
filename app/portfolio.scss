@@ -122,7 +122,8 @@
 }
 
 .portfolio-header-container {
-  overflow-y: visible;
+  position: relative;
+  overflow: hidden;              // ← was overflow-y: visible
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 2.2em + 2px);
@@ -132,6 +133,7 @@
     align-self: center;
     position: absolute;
     top: 2em;
+    z-index: 1;
     img, video {
       max-height: unset !important;
     }
