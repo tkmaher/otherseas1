@@ -1,6 +1,7 @@
 import { SubsectionType } from "@/portfoliotypes";
 import { ImageGroups } from "./imagegroup";
 
+
 function SubsectionDescription({ subsection }: { subsection: SubsectionType }) {
     if (!subsection.description) return null;
     
