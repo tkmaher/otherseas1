@@ -5,7 +5,7 @@
   height: 100dvh;
   overflow: hidden;
   display: flex;
-  font-family: serif;
+  font-family: ui-serif;
   flex-direction: column;
   a {
     text-decoration: underline;
@@ -91,7 +91,9 @@
 }
 
 @keyframes collapse {
-  from { height: calc(100dvh - 2.2em + 2px); }
+  from { 
+    height: calc(100dvh - 2.2em + 2px);
+   }
   to { height: 10dvh; }
 }
 
