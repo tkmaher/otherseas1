@@ -6,6 +6,7 @@ import { Table } from "./table";
 import { AnimatePresence, motion } from "motion/react";
 import { useSelectionContext } from "@/contexts/selectionContext";
 import Lander from "./lander";
+import Link from "next/link";
 
 export default function Main({ data }: { data: ItemType[] }) {
 
@@ -41,7 +42,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                             <div className="header">
                                 <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
                                 Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
-                                <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <a href="/portfolio">Portfolio</a>
+                                <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/portfolio">Portfolio</Link>
                             </div>
                             <div className="table-scroll">
                                 {order.map((name) =>

@@ -71,7 +71,21 @@ function ColorLink({
     )
 }
 
-export default function PortfolioSidebar({items, current}: {items: PortfolioItemType[], current?: number}) {
+export default function PortfolioSidebar({
+    items, 
+    iframeExpanded,
+    expandIframe,
+    current,
+    title,
+    link
+}: {
+    items: PortfolioItemType[], 
+    link?: string,
+    title?: string,
+    iframeExpanded?: boolean,
+    expandIframe?: () => void,
+    current?: number,
+}) {
     const path = usePathname();
     return (
         <div className="portfolio-sidebar">
@@ -102,9 +116,24 @@ export default function PortfolioSidebar({items, current}: {items: PortfolioItem
                     </div>
                 ))}
                 <div>
-                    <a style={{textDecoration: path.split('/').length > 2 ? 'underline' : 'none'
-                    }} href="/portfolio">Portfolio</a>{', '} 
-                    <a href="/">Home</a>
+                    <Link style={{textDecoration: path.split('/').length > 2 ? 'underline' : 'none'
+                    }} href="/portfolio">Portfolio</Link>{', '} 
+                    <Link href="/">Home</Link>
+                    {expandIframe != null && 
+                        <>{', '} 
+                    
+                            <a onClick={expandIframe}>
+                                {iframeExpanded ? "hide preview" : "show preview"}
+                            </a>
+                        </>
+                    }
+                    {link && title &&
+                        <>{', '} 
+                            <a href={link} target='_blank'>
+                                visit {title}
+                            </a>
+                        </>
+                    }
                 </div>
             </div>
     )

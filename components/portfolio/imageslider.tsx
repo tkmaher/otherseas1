@@ -52,7 +52,9 @@ export function ImageSlider({ group }: { group: ImageTypeParent }) {
                 className="slider-container-handle"
                 style={{ marginLeft: `${handlePos}%`, touchAction: "none", cursor: "ew-resize"}}
                 onPointerDown={onPointerDown}
-            />
+            >
+                <div className="slider-handle" />
+            </div>
             <div className="slider-container">
                 <PortfolioMedia media={image2} classN="slider-image" />
             </div>

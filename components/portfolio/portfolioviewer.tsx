@@ -1,6 +1,7 @@
 import { Citation, PortfolioItemType, SectionType, StackType } from "@/portfoliotypes";
 import { PortfolioMedia } from "./portfoliomedia";
 import { Subsection } from "./subsectionlayout";
+import { useSelectionContext } from "@/contexts/selectionContext";
 
 function PortfolioStack({ stack }: { stack: StackType }) {
     return (
@@ -16,9 +17,10 @@ function PortfolioStack({ stack }: { stack: StackType }) {
 }
 
 function PortfolioSection({ section, index }: { section: SectionType, index: number }) {
+    const { currColor } = useSelectionContext();
     return (
         <div className="portfolio-section" id={`${section.header ?? "sec"}-${index}`}>
-            {section.header && <div className="portfolio-section-header">
+            {section.header && <div className="portfolio-section-header" style={{backgroundColor: currColor}}>
                 <div>{index}. {section.header}</div>
             </div>}
             {section.subsections.map((subsection, i) => (
@@ -48,13 +50,11 @@ export default function PortfolioViewer({ item }: { item: PortfolioItemType }) {
     return (
         <div className="portfolio">
             <div className="portfolio-header-container" id="header">
-                {/* <PortfolioMedia media={{ src: item.cover }} classN="portfolio-cover" /> */}
-                <iframe src={item.link} className="portfolio-cover"/>
                 <div className="portfolio-header">
                     <div className="portfolio-header-row">
-                        <a href={item.link} target="_blank">
+                        {/* <a href={item.link} target="_blank">
                             <img src="/linkout_2.svg" />
-                        </a>
+                        </a> */}
                         <div className="portfolio-title">
                             {item.title}
                         </div>

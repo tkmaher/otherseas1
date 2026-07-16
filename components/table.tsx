@@ -1,6 +1,5 @@
 import { ItemType } from "@/types";
 import { ListItem } from "./listItem";
-import { useState } from "react";
 
 export function Table({ data, title }: {
     data: ItemType[];

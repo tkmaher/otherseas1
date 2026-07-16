@@ -13,9 +13,21 @@
   a:has(> sup) {
     text-decoration: none !important;
   }
-  background-color: $background;
 
 
+}
+
+.portfolio-accordion {
+  display: flex;
+  overflow-y: auto;
+  iframe {
+    border: 0;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    max-width: 0;
+    min-width: 0;
+    width: auto;
+  }
 }
 
 #portfolio-parent {
@@ -78,18 +90,23 @@
 
 }
 
+@keyframes collapse {
+  from { height: calc(100dvh - 2.2em + 2px); }
+  to { height: 10dvh; }
+}
+
 .portfolio-header-container {
   overflow-y: visible;
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 2.2em + 2px);
+  
   .portfolio-media-flex {
     flex-grow: 1;
     justify-content: center;
 
   }
-  iframe {
-  }
+  animation: collapse 1s ease-in-out 1s forwards;
 }
 
 .portfolio-header {
@@ -98,8 +115,6 @@
   position: sticky;
   justify-content: center;
   align-items: center;
-
-  background-color: $background;
 
   flex-grow: 1;
   display: flex;
@@ -185,17 +200,6 @@
   padding: 0;
 }
 
-
-
-.portfolio-cover {
-  height: 85dvh;
-  object-fit: contain;
-  display: flex;
-  width: 100%;
-  background-color: transparent !important;
-  border: none;
-}
-
 .portfolio-normal {
   object-fit: contain;
   display: flex;
@@ -226,7 +230,7 @@
 }
 
 .portfolio-media-caption {
-  // z-index: 10;
+  z-index: 8;
   font-size: 0.9em;
   align-self: flex-start;
   padding-bottom: 1em;
@@ -244,11 +248,17 @@
 
 .slider-container-handle {
   height: 100%;
-  border-right: 5px solid $foreground;
-  grid-row: 1;    
+  grid-row: 1;   
   grid-column: 1;
-  z-index: 10;
+  z-index: 7;
   width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .slider-handle {
+    border-right: 2em solid $foreground;
+    height: 2em;
+  }
 }
 
 .slider-image {
@@ -296,7 +306,6 @@
 
 .date {
   width: fit-content;
-  background-color: $background;
   margin-bottom: 0.5em;
   font-style: italic;
 }
@@ -325,12 +334,11 @@
 }
 
 .portfolio-stack {
-  background-color: $background;
   height: fit-content;
 }
 
 .portfolio-ref-stack {
-  padding: 0.2em;
+  padding: 5em;
   display: flex;
   flex-direction: column;
   gap: 0.2em;
@@ -364,7 +372,6 @@
   top: 0;
   z-index: 9;
   padding: 0.2rem;
-  background-color: $background;
   font-size: 1.3em;
   width: 100%;
 
@@ -378,7 +385,6 @@
   align-self: flex-start;
   top: calc($sectionHeaderHeight + 0.4rem);
   z-index: 8;                    
-  background-color: $background; 
 }
 
 .subsection-rowstack {
@@ -419,7 +425,6 @@
   
   max-width: 20em;
   div {
-    background-color: $background; 
     text-indent: 1.5em;
 
   }
@@ -484,10 +489,6 @@
   }
 }
 
-.portfolio-navbar .prev, .portfolio-navbar .next {
-
-}
-
 .portfolio-navbar .prev img, .portfolio-navbar .next img {
   height: 6em;
   width: auto;
@@ -533,5 +534,7 @@
 
   padding: 0.5em;
   font-size: 1.2em;
-  
+  .portfolio-mainpage-image {
+    pointer-events: none;
+  }
 }

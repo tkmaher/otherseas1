@@ -22,5 +22,5 @@ export const colors: string[] = [
     "#816746",
     "#a9aeaf",
     "#171717",
-    "#ffffff",
+    "#fafafa",
 ]

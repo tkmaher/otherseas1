@@ -3,6 +3,7 @@ import { Host_Grotesk } from 'next/font/google';
 import { ReactLenis } from 'lenis/react';
 
 import "./globals.scss";
+import ContextSpoofer from "@/contexts/contextSpoofer";
 
 export const metadata: Metadata = {
   title: "Tom Maher",
@@ -22,8 +23,8 @@ export default function RootLayout({
   return (
     <html className={host_grotesk.variable} >
       <body>
-        <ReactLenis root options={{lerp: 0.2}}>
-          {children}
+        <ReactLenis root options={{lerp: 0.5}}>
+          <ContextSpoofer data={children} />
         </ReactLenis>
       </body>
     </html>

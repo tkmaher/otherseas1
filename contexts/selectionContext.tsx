@@ -16,7 +16,7 @@ const SelectionContext = createContext<{
     currCaption: '',
     setCaption: () => {},
     setImage: () => {},
-    currColor: '#ffffff',
+    currColor: '#fafafa',
     setCurrColor: () => {}
 });
 
