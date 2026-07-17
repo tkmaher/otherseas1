@@ -123,7 +123,7 @@
 
 .portfolio-header-container {
   position: relative;
-  overflow: hidden;              // ← was overflow-y: visible
+  overflow: hidden;              
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 2.2em + 2px);
@@ -135,6 +135,7 @@
     top: 2em;
     z-index: 1;
     img, video {
+      width: 100%;
       max-height: unset !important;
     }
     pointer-events: none;
@@ -193,8 +194,10 @@
   align-items: center;
   gap: 0.2em;
 
-  img:hover, video:hover {
-    opacity: 0.8;
+  @media (hover: hover) {
+    img:hover, video:hover {
+      opacity: 0.8;
+    }
   }
   img, video {
     cursor: zoom-in;
@@ -573,5 +576,68 @@
   font-size: 1.2em;
   .portfolio-mainpage-image {
     pointer-events: none;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .subsection-row {
+    flex-direction: column !important;
+  }
+  .portfolio-subsection-header {
+    position: relative;
+    top: 0;
+  }
+  .desc, .desc-right {
+    max-width: unset;
+  }
+  .portfolio-sidebar {
+    flex-direction: column;
+    padding: 0.2em;
+    .preview {
+      display: none;
+    }
+  }
+  .portfolio-node-parent {
+    display: none;
+  }
+  .portfolio-section-header {
+    width: unset;
+    top: -2px;
+  }
+  .subsection-scrollleft .portfolio-cover-small {
+    height: 40dvh;
+  }
+  .portfolio-subsection-header {
+    font-size: 1.1em;
+  }
+
+  .portfolio-mainpage {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100dvw;
+    .portfolio-mainpage-row {
+      max-width: 100%;
+    }
+  }
+
+  .portfolio-ref-stack {
+    padding: 0.2em;
+    padding-top: 2em;
+    max-width: 100%;
+  }
+
+  .portfolio-media-flex {
+    img:active, video:active {
+      opacity: 1;
+    }
+  }
+
+  .portfolio-mainpage-image {
+    max-height: 60dvh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
   }
 }

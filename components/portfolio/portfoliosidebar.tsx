@@ -120,12 +120,12 @@ export default function PortfolioSidebar({
                     }} href="/portfolio">Portfolio</Link>{', '} 
                     <Link href="/">Home</Link>
                     {expandIframe != null && 
-                        <>{', '} 
+                        <span className="preview">{', '} 
                     
                             <a onClick={expandIframe}>
                                 {iframeExpanded ? "hide preview" : "show preview"}
                             </a>
-                        </>
+                        </span>
                     }
                     {link && title &&
                         <>{', '} 

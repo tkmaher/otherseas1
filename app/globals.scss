@@ -275,7 +275,8 @@ a {
     max-height: 100%;
     flex-shrink: 0;
 
-
+    display: flex;
+    justify-content: center;
     &:hover {
       opacity: 1;
       transition: none;
@@ -481,7 +482,7 @@ input[type="checkbox"] {
   }
 
   .mosaic-carousel {
-    height: 100dvh;
+    height: 100vh;
   }
 
 
@@ -520,4 +521,6 @@ input[type="checkbox"] {
     overflow-x: hidden;
     touch-action: pan-y;
   }
+
+
 }
