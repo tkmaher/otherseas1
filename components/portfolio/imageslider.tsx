@@ -28,29 +28,46 @@ export function ImageSlider({ group }: { group: ImageTypeParent }) {
         setHandlePos(Math.min(100, Math.max(0, pct)));
     }, []);
 
-    const onPointerDown = useCallback((e: React.PointerEvent) => {
-        draggingRef.current = true;
-        e.currentTarget.setPointerCapture?.(e.pointerId);
-        updateFromClientX(e.clientX);
-    }, [updateFromClientX]);
-
-    const onPointerMove = useCallback((e: React.PointerEvent) => {
+    const onPointerMove = useCallback((e: PointerEvent) => {
         if (!draggingRef.current) return;
+        e.preventDefault();
         updateFromClientX(e.clientX);
     }, [updateFromClientX]);
 
     const stopDragging = useCallback(() => {
+        if (!draggingRef.current) return;
         draggingRef.current = false;
-    }, []);
+        window.removeEventListener("pointermove", onPointerMove);
+        window.removeEventListener("pointerup", stopDragging);
+        window.removeEventListener("pointercancel", stopDragging);
+    }, [onPointerMove]);
+
+    const onPointerDown = useCallback((e: React.PointerEvent) => {
+        e.preventDefault();
+        draggingRef.current = true;
+        updateFromClientX(e.clientX);
+        window.addEventListener("pointermove", onPointerMove, { passive: false });
+        window.addEventListener("pointerup", stopDragging);
+        window.addEventListener("pointercancel", stopDragging);
+    }, [updateFromClientX, onPointerMove, stopDragging]);
+
+    // Safety net: clean up listeners if the component unmounts mid-drag.
+    useEffect(() => {
+        return () => {
+            window.removeEventListener("pointermove", onPointerMove);
+            window.removeEventListener("pointerup", stopDragging);
+            window.removeEventListener("pointercancel", stopDragging);
+        };
+    }, [onPointerMove, stopDragging]);
 
     if (!group.srcs || group.srcs.length < 2) return null;
     const [image1, image2] = group.srcs;
 
     return (
-        <div className="slider" ref={sliderRef} onPointerMove={onPointerMove} onPointerUp={stopDragging} onPointerLeave={stopDragging}>
+        <div className="slider" ref={sliderRef} style={{ touchAction: "none" }}>
             <div
                 className="slider-container-handle"
-                style={{ marginLeft: `${handlePos}%`, touchAction: "none", cursor: "ew-resize"}}
+                style={{ marginLeft: `${handlePos}%`, touchAction: "none", cursor: "ew-resize" }}
                 onPointerDown={onPointerDown}
             >
                 <div className="slider-handle" />
