@@ -42,7 +42,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                             <div className="header">
                                 <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
                                 Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
-                                <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/portfolio">Portfolio</Link>
+                                <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/case-studies">Case studies</Link>
                             </div>
                             <div className="table-scroll">
                                 {order.map((name) =>

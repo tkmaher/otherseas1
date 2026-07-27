@@ -53,7 +53,7 @@ export default function PortfolioMain({ items, current }: { items: PortfolioItem
                         <div className="portfolio-navbar">
                             <div className="next">
                                 {current > 0 && 
-                                    <Link href={`/portfolio/${items[current - 1].slug}`}>
+                                    <Link href={`/case-studies/${items[current - 1].slug}`}>
                                         <PortfolioMedia media={{src: items[current - 1].cover}} classN="portfolio-navbar-img"/>
 
                                         <div className="desc">{items[current - 1].title}</div>
@@ -61,7 +61,7 @@ export default function PortfolioMain({ items, current }: { items: PortfolioItem
                             </div>
                             <div className="prev">
                                 {current < items.length - 1 && 
-                                    <Link href={`/portfolio/${items[current + 1].slug}`}>
+                                    <Link href={`/case-studies/${items[current + 1].slug}`}>
                                         <PortfolioMedia media={{src: items[current + 1].cover}} classN="portfolio-navbar-img"/>
                                         <div className="desc">{items[current + 1].title}</div>
                                     </Link>

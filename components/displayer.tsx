@@ -98,31 +98,7 @@ export default function Displayer({
         };
     }, [isCarousel, lenis]);
 
-    useEffect(() => {
-        const el = scrollRef.current;
-        if (!el || isCarousel) return;
-
-        const handleWheel = (e: WheelEvent) => {
-            const { scrollLeft, scrollWidth, clientWidth } = el;
-            const maxScroll = scrollWidth - clientWidth;
-            if (maxScroll <= 0) return;
-
-            const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-
-            const atStart = scrollLeft <= 0;
-            const atEnd = scrollLeft >= maxScroll - 1;
-
-            if (delta > 0 && atEnd) return;
-            if (delta < 0 && atStart) return;
-
-            e.preventDefault();
-            e.stopPropagation();
-            el.scrollLeft = Math.min(maxScroll, Math.max(0, scrollLeft + delta));
-        };
-
-        el.addEventListener("wheel", handleWheel, { passive: false });
-        return () => el.removeEventListener("wheel", handleWheel);
-    }, [isCarousel]);
+    
 
     const nav = (dir: string) => {
         const currentIndex = srcs.indexOf(currImage);

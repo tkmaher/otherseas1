@@ -66,7 +66,7 @@ function ColorLink({
                 ] : "transparent"
             }}
             className="portfolio-subnode" 
-            href={`/portfolio/${sectionPath}`}
+            href={`/case-studies/${sectionPath}`}
         />
     )
 }
@@ -99,7 +99,7 @@ export default function PortfolioSidebar({
                                     colors[stringToIntHash(item.slug) % colors.length] 
                                     : "transparent"
                             }}
-                            href={`/portfolio/${item.slug}/#header`}
+                            href={`/case-studies/${item.slug}/#header`}
                         />
                         <div className="portfolio-subnode-row">
                             {item.sections.map((section, s) => (
@@ -117,7 +117,7 @@ export default function PortfolioSidebar({
                 ))}
                 <div>
                     <Link style={{textDecoration: path.split('/').length > 2 ? 'underline' : 'none'
-                    }} href="/portfolio">Portfolio</Link>{', '} 
+                    }} href="/case-studies">Case studies</Link>{', '} 
                     <Link href="/">Home</Link>
                     {expandIframe != null && 
                         <span className="preview">{', '} 

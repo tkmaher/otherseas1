@@ -11,7 +11,7 @@ export async function generateMetadata(
     const jsonData = data as PortfolioType;
     console.log(jsonData)
     return {
-        title: `Portfolio | ${jsonData.items.find((item) => item.slug === portfolioSlug)?.title}` || "Portfolio",
+        title: `Case studies | ${jsonData.items.find((item) => item.slug === portfolioSlug)?.title}` || "Case studies",
     };
 }
 

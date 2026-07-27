@@ -133,9 +133,9 @@ export default function PortfolioCarousel({
             <MosaicImage src={currImage} caption={currCaption} alt={type} index={0} triggered={triggered}/>
 
             <div className="buttons">
-                <button onClick={() => nav('prev')} style={{flexGrow: 1, textAlign: "left"}}>Previous</button>
+                <button onClick={() => nav('prev')} style={{flexGrow: 1}}>Previous</button>
                 <button onClick={() => setImage('')}>Close</button>
-                <button onClick={() => nav('next')} style={{flexGrow: 1, textAlign: "right"}}>Next</button>
+                <button onClick={() => nav('next')} style={{flexGrow: 1}}>Next</button>
             </div>
         </div>
     );

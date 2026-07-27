@@ -125,6 +125,8 @@ a {
   overflow: hidden;
   transition: grid-template-rows 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
               opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+              border-bottom: 1px solid $foreground;
+
 }
 
 .body-collapsed .body-grid {
@@ -150,8 +152,7 @@ a {
   visibility: hidden;
   display: flex;
   box-sizing: border-box;
-  flex-direction: column-reverse;
-  gap: 0.2em;
+  flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -161,10 +162,11 @@ a {
 }
 
 .body-expanded .body-inner {
-  height: calc(100vh - 2em);
+  height: fit-content;
   max-width: 100%;
   opacity: 1;
   visibility: visible;
+  
 }
 
 .body-description {
@@ -182,7 +184,6 @@ a {
   padding: 0.2em;
   border-top: 1px solid $foreground;
   max-width: 100%;
-  border-bottom: 1px solid $foreground;
 
   a {
     text-decoration: underline;
@@ -211,6 +212,7 @@ a {
   max-width: 100%;
   min-width: 0;      
   padding: 0.2em;
+  
 }
 
 .body-expanded + .row {
@@ -224,7 +226,7 @@ a {
 .mosaic-displayer {
   height: 60vh;
   display: flex;
-  gap: 0.4em;
+  gap: 0.2em;
   transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow: scroll hidden;
 

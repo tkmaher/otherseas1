@@ -102,7 +102,7 @@
                             },
                             {
 				                "header": "Experience design",
-                                "displayStyle": "row-left",
+                                "displayStyle": "row-right",
                                 "subsectionIndex": 2,
                                 "description": [
                                     "UbuWeb's emphasis on fluidity and transience prompted me to experiment with UbuTube's aesthetic structuration. I wanted the new design to reflect the original website's ideology in the same manner that its films do. The ideal, I thought, would be a website that rejects all conventions of web design and radically escapes towards other expressive modes.",
@@ -145,7 +145,7 @@
                             },
                             {
                                 "header": "Black Square / Spiral",
-                                "displayStyle": "row-left",
+                                "displayStyle": "row-right",
                                 "subsectionIndex": 3,
                                 "description": [
                                     "There are no images on the UbuTube website, save for two. The home page features a large reproduction of Kazimir Malevich's <i>Black Square</i>, while a small spiral--reproduced in the favicon--occupies the top left corner.",
@@ -365,7 +365,7 @@
                             {
                                 "header": "Layout",
                                 "subsectionIndex": 2,
-                                "displayStyle": "row-left",
+                                "displayStyle": "row-right",
                                 "description": [
                                     "<i>arena flow</i>'s user interface takes strong cues from the original Are.na design. Its gray-on-gray color scheme and emphasis on right angles accentuate and promote its actual content.",
                                     "As with the original site, media blocks on <i>arena flow</i> are meant to be visually distinct from their backdrop. Unlike Are.na, however, there is no hierachical separation between blocks and channels. Everything is represented as an equal-sized block upon the canvas, and the user doesn't need to navigate between multiple pages to traverse connections."
