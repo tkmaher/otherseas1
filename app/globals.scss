@@ -60,7 +60,6 @@ a {
 }
 
 .row-inner {
-  margin-left: auto;
   display: flex;
   max-width: calc(50% + 0.4em);
   box-sizing: border-box;
@@ -368,7 +367,7 @@ input[type="checkbox"] {
 
 
 .header {
-  width: 50%;
+  width: 100%;
   font-size: 20px;
   padding-bottom: 2em;
 
@@ -460,10 +459,7 @@ input[type="checkbox"] {
 
 @media (max-width: 800px) {
 
-  .header {
-    width: 100%;
-  }
-  
+
   .body-expanded .body-inner {
    
     .body-description {

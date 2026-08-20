@@ -558,6 +558,7 @@
 }
 
 .portfolio-mainpage {
+  padding-top: 5em;
   overflow-x: auto;
   .title {
     font-size: 1.5em;
@@ -583,7 +584,7 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none !important;
-  padding-bottom: 2em;
+  padding-bottom: 5em;
   font-size: 1.2em;
   .portfolio-mainpage-image {
     pointer-events: none;

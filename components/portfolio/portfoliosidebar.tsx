@@ -118,10 +118,9 @@ export default function PortfolioSidebar({
                 <div className="portfolio-sidebar-links">
                     <Link style={{textDecoration: path.split('/').length > 2 ? 'underline' : 'none'
                     }} href="/case-studies">Case studies{', '} </Link>
-                    <Link href="/">Home{', '} </Link>
+                    <Link href="/">Home{link && title && ', '} </Link>
                     {expandIframe != null && 
                         <span className="preview">
-                    
                             <a onClick={expandIframe}>
                                 {iframeExpanded ? "Hide" : "Preview"}
                             </a>{', '} 
