@@ -100,7 +100,7 @@ export default function Lander({
             resumeTimeout = setTimeout(() => {
                 position = carousel.scrollLeft;
                 userActive = false;
-            }, 800);
+            }, 200);
         };
     
         carousel.addEventListener("pointerdown", pause);

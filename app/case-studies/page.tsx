@@ -18,6 +18,7 @@ export default function Page() {
     return (
         <div className="portfolio-screen" style={{backgroundColor: currColor}}
         >
+                        <PortfolioSidebar items={jsonData.items} />
             <div id="portfolio-parent">
                 <div 
                     className="portfolio portfolio-mainpage" 
@@ -36,20 +37,20 @@ export default function Page() {
                             </Fragment>
                         ))}
                     </ReactLenis>
+                    <div className="footer">
+                        {colors.map((val, index) =>
+                        <a
+                            className="color-block"
+                            style={{ backgroundColor: val }}
+                            key={index}
+                            onClick={() => setCurrColor(val)}
+                        />
+                        )}
+                    </div> 
                 </div>
             </div>
-            <PortfolioSidebar items={jsonData.items} />
 
-            {/* <div className="footer">
-                {colors.map((val, index) =>
-                    <a
-                        className="color-block"
-                        style={{ backgroundColor: val }}
-                        key={index}
-                        onClick={() => setCurrColor(val)}
-                    />
-                    )}
-            </div> */}
+            
         </div>
     );
 }

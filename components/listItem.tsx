@@ -28,6 +28,7 @@ export function ListItem({
     const isToggled = currExpanded === id;
 
     const [isFullyOpen, setIsFullyOpen] = useState(false);
+    const [shouldRenderBody, setShouldRenderBody] = useState(isToggled);
 
     const rowRef = useRef<HTMLTableRowElement>(null);
     const lenis = useLenis();
@@ -35,6 +36,8 @@ export function ListItem({
     useEffect(() => {
         if (!isToggled) {
             setIsFullyOpen(false);
+        } else {
+            setShouldRenderBody(true);
         }
     }, [isToggled]);
 
@@ -47,7 +50,6 @@ export function ListItem({
             toggleTheme(id);
             setTimeout(() => {
                 setIsFullyOpen(true);
-                // Skip lenis smooth-scroll on mobile — it's noticeably laggy there.
                 if (!isMobileViewport()) {
                     lenis?.resize();
                     lenis?.scrollTo(`#${id}`, { duration: 0.6 });
@@ -58,11 +60,14 @@ export function ListItem({
 
     const handleTransitionEnd = useCallback(
         (e: React.TransitionEvent<HTMLTableRowElement>) => {
-            if (e.propertyName !== "height") return;
+            if (e.propertyName !== "grid-template-rows") return;
+            if (!isToggled) {
+                setShouldRenderBody(false);
+            }
             if (isMobileViewport()) return;
             lenis?.resize();
         },
-        [lenis]
+        [lenis, isToggled]
     );
 
     const handleLinkClick = (e: React.MouseEvent) => e.stopPropagation();
@@ -138,7 +143,6 @@ export function ListItem({
                     <div className="body-grid">
                         <div className="body-inner">
                             <div className="body-description">
-
                                 {item.description ? <div
                                     dangerouslySetInnerHTML={{ __html: item.description }}
                                 /> : <div></div>}
@@ -150,7 +154,7 @@ export function ListItem({
                                 }
                             </div>
                             <div className="body-displayer">
-                                {(currExpanded && item.src && item.type) &&  <Displayer
+                                {(shouldRenderBody && item.src && item.type) && <Displayer
                                     srcs={item.src}
                                     type={item.type}
                                     triggered={isFullyOpen}

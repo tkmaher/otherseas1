@@ -60,6 +60,7 @@ a {
 }
 
 .row-inner {
+  margin: auto;
   display: flex;
   max-width: calc(50% + 0.4em);
   box-sizing: border-box;
@@ -131,12 +132,12 @@ a {
 }
 
 .body-collapsed .body-grid {
-  grid-template-rows: 0fr;
+  grid-template-rows: minmax(0, 0fr);
   opacity: 0;
 }
 
 .body-expanded .body-grid {
-  grid-template-rows: 1fr;
+  grid-template-rows: minmax(0, 1fr);
   opacity: 1;
 }
 
@@ -146,7 +147,6 @@ a {
 
 
 .body-inner {
-  height: 0;
   min-height: 0; 
   max-width: 50%;
   opacity: 0;
@@ -156,18 +156,15 @@ a {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  transition: height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
-              opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
               max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
               visibility 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .body-expanded .body-inner {
-  height: fit-content;
   max-width: 100%;
   opacity: 1;
   visibility: visible;
-  
 }
 
 .body-description {
@@ -373,11 +370,14 @@ input[type="checkbox"] {
 .header {
   width: 100%;
   font-size: 20px;
-  margin-bottom: 1em;
-  text-align: justify;
+  padding-bottom: 2em;
 
   a {
     text-decoration: underline;
+  }
+
+  a:last-of-type {
+    font-family: ui-serif;
   }
 }
 
@@ -450,6 +450,7 @@ input[type="checkbox"] {
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
+    padding: 0.2em 0.4em;
   }
 
   a {
@@ -459,7 +460,6 @@ input[type="checkbox"] {
 
 @media (max-width: 800px) {
   .body-expanded .body-inner {
-    height: fit-content;
    
     .body-description {
       gap: 1em;
