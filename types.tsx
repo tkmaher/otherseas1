@@ -8,7 +8,6 @@ export interface ItemType {
     client?: string,
     clientLink?: string,
     color: string,
-    type?: string,
     src?: string[]
 }
 

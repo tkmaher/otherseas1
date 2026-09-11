@@ -9,6 +9,7 @@ import Lander from "./lander";
 import Link from "next/link";
 import ReactLenis from "lenis/react";
 import ImageGrid from "./imagegrid";
+import ItemPage from "./itempage";
 
 export default function Main({ data }: { data: ItemType[] }) {
 
@@ -19,7 +20,7 @@ export default function Main({ data }: { data: ItemType[] }) {
         return acc;
     }, {});
 
-    const images = Object.values(categorized).flat().filter(item => item.type === "image").map(item => item.src && item.src[0]) as string[];
+    const images = Object.values(categorized).flat();
 
     Object.values(categorized).forEach(arr => arr.sort((a, b) => b.date.localeCompare(a.date)));
 
@@ -29,7 +30,7 @@ export default function Main({ data }: { data: ItemType[] }) {
 
     return (
         <AnimatePresence mode="wait">
-            <Lander srcs={images}>
+            <Lander srcs={images.map(item => item.src && item.src[0]) as string[]}>
                 <motion.div
                     key="table"
                     initial={{ opacity: 0 }}
@@ -42,37 +43,39 @@ export default function Main({ data }: { data: ItemType[] }) {
                         flexDirection: 'column'
                     }}
                 >
-                    <div className="header">
-                        <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
-                        Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
-                        <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/case-studies">Case studies</Link>
-                    </div>
-                    <div className="body-splitter">
-                        
-                        <div className="content-left" style={{ 
-                            backgroundColor: currColor,
-                        }}>
+                    {true ? <ItemPage item={categorized["CV"][0]}/> :
+                        <>
+                        <div className="header">
+                            <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
+                            Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
+                            <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/case-studies">Case studies</Link>
+                        </div>
+                        <div className="body-splitter">
+                            <div className="content-left" style={{ 
+                                backgroundColor: currColor,
+                            }}>
 
-                            <div className="table-scroll" data-lenis-prevent>
-                                <ReactLenis root options={{lerp: 0.5}}>
-                                    
-                                    {order.map((name) =>
-                                        <div key={name}>
-                                            {categorized[name] && (
-                                                <Table
-                                                    data={categorized[name]}
-                                                    title={name}
-                                                />
-                                            )}
-                                        </div>
-                                    )}
-                                </ReactLenis>
+                                <div className="table-scroll" data-lenis-prevent>
+                                    <ReactLenis root options={{lerp: 0.5}}>
+                                        
+                                        {order.map((name) =>
+                                            <div key={name}>
+                                                {categorized[name] && (
+                                                    <Table
+                                                        data={categorized[name]}
+                                                        title={name}
+                                                    />
+                                                )}
+                                            </div>
+                                        )}
+                                    </ReactLenis>
+                                </div>
+                            </div>
+                            <div className="content-right">
+                                <ImageGrid srcs={images}/>
                             </div>
                         </div>
-                        <div className="content-right">
-                            <ImageGrid srcs={images}/>
-                        </div>
-                    </div>
+                    </>}
                     <div className="footer">
                         {colors.map((val, index) =>
                             <a

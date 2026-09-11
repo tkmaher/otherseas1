@@ -97,6 +97,11 @@ a {
   }
 }
 
+.tooltip {
+  position: absolute;
+  z-index: 5;
+}
+
 
 .table-scroll {
   overflow-y:scroll;
@@ -122,6 +127,10 @@ a {
   padding: 0.4em;
 }
 
+table {
+  border-spacing: 0px !important;
+}
+
 /* ── Row: half-width via inner wrapper ───────────────────── */
 
 .row {
@@ -133,12 +142,11 @@ a {
 .row-inner {
   display: flex;
   width: 100%;
-  padding: 0.1em 0;
 }
+
 
 .row-title {
   flex: 0 1 auto;
-  //backdrop-filter: blur(10px);
   pointer-events: all;
 
 }
@@ -151,9 +159,8 @@ a {
 .row-date {
   flex: 0 0;
   text-align: right;
-  //backdrop-filter: blur(10px);
   pointer-events: all;
-
+  cursor: pointer;
 }
 
 .client {
@@ -317,6 +324,11 @@ input[type="checkbox"] {
   a:last-of-type {
     font-family: ui-serif;
   }
+
+  b {
+    font-family: var(--font-host);
+    font-weight: 500;
+  }
 }
 
 .footer {
@@ -394,6 +406,35 @@ input[type="checkbox"] {
     text-decoration: underline;
   }
 }
+
+/* ── ItemPage ────────────────────────────────────────────────── */
+
+
+.itempage-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4em;
+  & > :first-child {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: var(--font-host);
+  }
+}
+
+.itempage-mainrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.itempage-date, .itempage-desc, .itempage-tags {
+  flex-basis: 33.33%;
+}
+
+/* ── Mobile ────────────────────────────────────────────────── */
+
 
 @media (max-width: 800px) {
 
