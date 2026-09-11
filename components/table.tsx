@@ -13,8 +13,6 @@ export function Table({ data, title }: {
                     <td colSpan={3}>
                         <div className="row-inner">
                             <div className="row-cell row-title">{title}</div>
-                            <div className="row-cell row-date" />
-                            <div className="row-cell row-tags" />
                         </div>
                     </td>
                 </tr>

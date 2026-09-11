@@ -7,6 +7,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useSelectionContext } from "@/contexts/selectionContext";
 import Lander from "./lander";
 import Link from "next/link";
+import ReactLenis from "lenis/react";
+import ImageGrid from "./imagegrid";
 
 export default function Main({ data }: { data: ItemType[] }) {
 
@@ -17,7 +19,7 @@ export default function Main({ data }: { data: ItemType[] }) {
         return acc;
     }, {});
 
-    const images = Object.values(categorized).flat().filter(item => item.type === "image").map(item => item.src?.map(src => src)).flat() as string[];
+    const images = Object.values(categorized).flat().filter(item => item.type === "image").map(item => item.src && item.src[0]) as string[];
 
     Object.values(categorized).forEach(arr => arr.sort((a, b) => b.date.localeCompare(a.date)));
 
@@ -34,40 +36,53 @@ export default function Main({ data }: { data: ItemType[] }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
-                    style={{ width: "100%", height: "100%" }}
+                    style={{ 
+                        height: '100dvh',
+                        display: 'flex',
+                        flexDirection: 'column'
+                    }}
                 >
-                    <div className="content-left" style={{ 
-                        backgroundColor: currColor,
-                    }}>
-                            <div className="header">
-                                <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
-                                Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
-                                <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/case-studies">Case studies</Link>
-                            </div>
-                            <div className="table-scroll">
-                                {order.map((name) =>
-                                    <div key={name}>
-                                        {categorized[name] && (
-                                            <Table
-                                                data={categorized[name]}
-                                                title={name}
-                                            />
-                                        )}
-                                        <br />
-                                    </div>
-                                )}
+                    <div className="header">
+                        <b>Tom Maher</b> is a freelance web developer and sound artist based in Chicago,
+                        Illinois. His research concerns history, noise, and signification. He operates the web development studio{" "}
+                        <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>. <Link href="/case-studies">Case studies</Link>
+                    </div>
+                    <div className="body-splitter">
+                        
+                        <div className="content-left" style={{ 
+                            backgroundColor: currColor,
+                        }}>
+
+                            <div className="table-scroll" data-lenis-prevent>
+                                <ReactLenis root options={{lerp: 0.5}}>
+                                    
+                                    {order.map((name) =>
+                                        <div key={name}>
+                                            {categorized[name] && (
+                                                <Table
+                                                    data={categorized[name]}
+                                                    title={name}
+                                                />
+                                            )}
+                                        </div>
+                                    )}
+                                </ReactLenis>
                             </div>
                         </div>
-                        <div className="footer">
-                            {colors.map((val, index) =>
-                                <a
-                                    className="color-block"
-                                    style={{ backgroundColor: val }}
-                                    key={index}
-                                    onClick={() => setCurrColor(val)}
-                                />
-                            )}
+                        <div className="content-right">
+                            <ImageGrid srcs={images}/>
                         </div>
+                    </div>
+                    <div className="footer">
+                        {colors.map((val, index) =>
+                            <a
+                                className="color-block"
+                                style={{ backgroundColor: val }}
+                                key={index}
+                                onClick={() => setCurrColor(val)}
+                            />
+                        )}
+                    </div>
                 </motion.div>
             </Lander>
         </AnimatePresence>

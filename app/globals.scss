@@ -18,10 +18,10 @@ body {
   background: $background;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   margin: 0;
-  font-family: var(--font-host);
+  font-family:'Times New Roman', Times, serif; // var(--font-host);
 }
 
 a {
@@ -29,11 +29,89 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+.body-splitter {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow: hidden;
+}
 
 .content-left {
   position: relative;
-  padding: 0.5em;
-  padding-bottom: 2em;
+  display: flex;
+  min-width: 250px;
+  width: 100%;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.content-right {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+
+  .item-billboard {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    pointer-events: none;
+        
+  }
+
+  .img-billboard {
+    position: relative;
+    width: 80%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  .grid-parent {
+    flex-grow: 1;
+    display:  grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
+    padding: 20px;
+    transform-style: preserve-3d,
+  }
+
+  .grid-canvas {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+    perspective: 1200px;
+  }
+}
+
+
+.table-scroll {
+  overflow-y:scroll;
+  max-height: 100%;
+  height: 100%;
+  z-index: 5;
+
+  .line {
+    width: calc(100% - 0.4em);
+    height: 0.8em;
+    align-self: center;
+    justify-self: center;
+    border-top: 0.5px dashed $foreground;
+    margin-top: 0.8em;
+  }
 }
 
 /* ── Table shell ─────────────────────────────────────────── */
@@ -41,14 +119,7 @@ a {
 #list {
   width: 100%;
   table-layout: fixed;   /* stop the table from sizing off cell content */
-  padding: 0.8em;
-  border-collapse: collapse;
-  border-spacing: 0px;
-  .row:first-child {
-    .row-inner {
-      border-top: none !important;
-    }
-  }
+  padding: 0.4em;
 }
 
 /* ── Row: half-width via inner wrapper ───────────────────── */
@@ -61,162 +132,34 @@ a {
 
 .row-inner {
   display: flex;
-  max-width: calc(50% + 0.4em);
-  box-sizing: border-box;
-  border-top: 1px solid $foreground; 
-  border-bottom: 1px solid $foreground; 
-  transition: max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-}
-
-.row-inner-expanded {
-  max-width: 100%;
-  border-top: 1px solid $foreground; 
-  border-bottom: none !important;
-}
-
-
-.row:has(+ * + * td .row-inner), .row:has(+ * td .row-inner) {
-  .row-inner {
-    border-bottom: none !important;
-  }
-}
-
-.row-cell {
-  padding: 0.2em;
+  width: 100%;
+  padding: 0.1em 0;
 }
 
 .row-title {
-  flex: 1 1 50%;
+  flex: 0 1 auto;
+  //backdrop-filter: blur(10px);
+  pointer-events: all;
+
+}
+
+.row-spacer {
+  flex: 1 0 auto;
+  pointer-events: none;
 }
 
 .row-date {
-  flex: 0 0 10%;
-  text-align: center;
-}
-
-.row-tags {
-  flex: 0 0 40%;
+  flex: 0 0;
   text-align: right;
+  //backdrop-filter: blur(10px);
+  pointer-events: all;
+
 }
 
 .client {
   opacity: 50%;
-  font-size: 14px;
+  font-size: 10px;
   display: inline-block;
-}
-
-/* ── Expanded / collapsed body rows ─────────────────────── */
-
-.body-collapsed,
-.body-expanded {
-  vertical-align: top;
-}
-.body-collapsed td,
-.body-expanded td {
-  padding: 0;
-}
-
-.body-collapsed .body-grid,
-.body-expanded .body-grid {
-  display: grid;
-  overflow: hidden;
-  transition: grid-template-rows 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
-              opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-              border-bottom: 1px solid $foreground;
-
-}
-
-.body-collapsed .body-grid {
-  grid-template-rows: minmax(0, 0fr);
-  opacity: 0;
-}
-
-.body-expanded .body-grid {
-  grid-template-rows: minmax(0, 1fr);
-  opacity: 1;
-}
-
-.body-collapsed {
-  height: 0;
-}
-
-
-.body-inner {
-  min-height: 0; 
-  max-width: 50%;
-  opacity: 0;
-  visibility: hidden;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
-              max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
-              visibility 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.body-expanded .body-inner {
-  max-width: 100%;
-  opacity: 1;
-  visibility: visible;
-}
-
-.body-description {
-  
-  box-sizing: border-box;
-  overflow-y: visible;
-  text-align: justify;
-  opacity: 1;
-  transition: opacity 0.15s cubic-bezier(0.075, 0.82, 0.165, 1), max-width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 1em;
-  padding: 0.2em;
-  border-top: 1px solid $foreground;
-  max-width: 100%;
-
-  a {
-    text-decoration: underline;
-  }
-
-  .linkout {
-    max-height: 1em;
-    display: flex;
-    img {
-      max-height: 2em;
-
-    }
-  }
-}
-
-.body-collapsed .body-description {
-  opacity: 0;
-}
-
-.body-displayer {
-  box-sizing: border-box;
-  display: flex;
-  align-items: flex-end;
-  width: calc(100% + 1em);    
-  flex-grow: 1;        
-  max-width: 100%;
-  min-width: 0;      
-  padding: 0.2em;
-  
-}
-
-.body-expanded + .row {
-  .row-inner {
-    border-top: none;
-  }
-  
 }
 
 
@@ -315,7 +258,6 @@ a {
     button {
       background-color: transparent;
       color: $foreground;
-      border: none;
       padding: 0.5em 1em;
       cursor: pointer;
       font-size: 16px;
@@ -352,7 +294,6 @@ input[type="checkbox"] {
   appearance: none;
   width: 0.8em;
   height: 0.8em;
-  border: 1px solid $foreground;
   background-color: $background;
   cursor: pointer;
   display: inline-grid;
@@ -364,12 +305,10 @@ input[type="checkbox"] {
 
 /* ── Misc ────────────────────────────────────────────────── */
 
-
-
 .header {
-  width: 100%;
-  font-size: 20px;
-  padding-bottom: 2em;
+  padding: 0.4em;
+   text-align: justify;
+  font-size: 14px;
 
   a {
     text-decoration: underline;
@@ -381,10 +320,9 @@ input[type="checkbox"] {
 }
 
 .footer {
-  width: 100dvw;
   padding: 0;
   display: flex;
-  height: 1em;
+  height: 5px;
   flex-shrink: 0;
 
   .color-block {
@@ -459,28 +397,6 @@ input[type="checkbox"] {
 
 @media (max-width: 800px) {
 
-
-  .body-expanded .body-inner {
-   
-    .body-description {
-      gap: 1em;
-      div {
-        flex-basis: auto;
-      }
-      border-top: none;
-    }
-
-    .body-displayer {
-      border-top: none;
-    }
-    
-  }
-
-  .body-inner {
-    max-width: 100% !important;
-  }
-
-
   .mosaic-displayer {
     height: 30vh;
   }
@@ -488,7 +404,9 @@ input[type="checkbox"] {
   .mosaic-carousel {
     height: 100vh;
   }
-
+  .content-right {
+    max-width: 80dvw;
+  }
 
   .mosaic-carousel .mosaic-image img {
     padding: 1em;
@@ -498,10 +416,6 @@ input[type="checkbox"] {
     max-height: calc(100dvh - 10em);     
   }
 
-  .row-inner {
-    max-width: 100%;
-  }
-  
   .lander-top div img {
     max-width: 50dvw !important;
   }
@@ -513,9 +427,6 @@ input[type="checkbox"] {
     }
   }
 
-  .row-tags {
-    display: none;
-  }
 
   .lander {
     font-size: 22px;
