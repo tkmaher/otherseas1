@@ -14,6 +14,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden; 
   color: $foreground;
   background: $background;
   -webkit-font-smoothing: antialiased;
@@ -30,12 +31,11 @@ a {
   cursor: pointer;
 }
 .body-splitter {
-  position: relative;
-  display: flex;
-  flex-direction: row;
   flex-grow: 1;
-  overflow: hidden;
+  min-height: 0;
 }
+
+
 
 .content-left {
   position: relative;
@@ -80,10 +80,10 @@ a {
   .grid-parent {
     flex-grow: 1;
     display:  grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(500px, 1fr));
     gap: 100px;
     padding: 20px;
-    transform-style: preserve-3d,
+    transform-style: preserve-3d;
   }
 
   .grid-canvas {
@@ -100,6 +100,8 @@ a {
 .tooltip {
   position: absolute;
   z-index: 5;
+  pointer-events: none;
+  transform: translate(10px, 10px);
 }
 
 
@@ -119,11 +121,47 @@ a {
   }
 }
 
+
+.main-viewport {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.main-slider {
+  display: flex;
+  width: 200%;
+  height: 100%;
+}
+
+.main-panel {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.home-scroll {
+  height: 100%;
+  overflow: hidden; 
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh; 
+}
+
+
+
+
 /* ── Table shell ─────────────────────────────────────────── */
 
 #list {
   width: 100%;
-  table-layout: fixed;   /* stop the table from sizing off cell content */
+  table-layout: fixed;   
   padding: 0.4em;
 }
 
@@ -171,32 +209,31 @@ table {
 
 
 .mosaic-displayer {
-  height: 60vh;
   display: flex;
-  gap: 0.2em;
-  transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  overflow: scroll hidden;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
 
-  .mosaic-image   {
-    height: 100%;     
-    flex-shrink: 0;
-    min-width: 0;      
-    cursor: zoom-in;
+  .mosaic-col {
+    flex: 0 0 calc(33.3333% - 2em);
+    max-width: calc(33.3333% - 2em);
     display: flex;
     flex-direction: column;
-  
-    img {
+    gap: 2em;
+  }
+
+  .mosaic-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    img, video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
       height: 100%;
-      width: auto;
-      display: block;
-      align-self: flex-end;
-      transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-      @media (hover: hover) {
-    
-        &:hover {
-          opacity: 0.5 !important;
-        }
-      }
+      object-fit: cover;
     }
   }
 
@@ -206,11 +243,11 @@ table {
 }
 
 .mosaic-carousel {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  height: 100dvh;
-  width: 100dvw;
+  height: 100%;
+  width: 100%;
   z-index: 999;
   display: flex !important;
   flex-direction: column;
@@ -327,7 +364,7 @@ input[type="checkbox"] {
 
   b {
     font-family: var(--font-host);
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 
@@ -352,11 +389,11 @@ input[type="checkbox"] {
 }
 
 .lander {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100svh;
+  height: 100%;
   z-index: 50;
 
   font-size: 28px;
@@ -409,28 +446,49 @@ input[type="checkbox"] {
 
 /* ── ItemPage ────────────────────────────────────────────────── */
 
-
 .itempage-col {
   height: 100%;
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
   padding: 0.4em;
-  & > :first-child {
-    font-size: 20px;
-    font-weight: 600;
-    font-family: var(--font-host);
-  }
 }
 
-.itempage-mainrow {
+.itempage-title {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: var(--font-host);
+}
+
+.itempage-home-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 1em;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.itempage-date, .itempage-tags {
+  flex-basis: 25%;
+}
+
+.itempage-desc {
+  flex-basis: 50%;
+}
+
+.itempage-iframe-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 2em;
-}
-
-.itempage-date, .itempage-desc, .itempage-tags {
-  flex-basis: 33.33%;
+  gap: 0.4em;
+  width: 100%;
+  iframe {
+    flex-grow: 1;
+    aspect-ratio: 16/9;
+  }
 }
 
 /* ── Mobile ────────────────────────────────────────────────── */

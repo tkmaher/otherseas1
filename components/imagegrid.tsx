@@ -3,7 +3,7 @@ import { useSelectionContext } from '@/contexts/selectionContext';
 import { ItemType } from '@/types';
 import { useState, useRef, useEffect } from 'react';
 
-export default function ImageGrid({ srcs }: { srcs: ItemType[] }) {
+export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], onSelectItem: (item: ItemType) => void; }) {
     const { currHover, setCurrHover } = useSelectionContext();
 
     const ROTATION_DRIFT = 0.01; // magnitude of per-tick idle rotation drift
@@ -17,13 +17,12 @@ export default function ImageGrid({ srcs }: { srcs: ItemType[] }) {
     const [tooltipText, setTooltipText] = useState<null | string>(null);
     
     const dragStart = useRef({ x: 0, y: 0 });
-    const dragStartRotation = useRef({ x: 0, z: -180 }); // baseline captured at mousedown, used only for this drag's delta math
-    const currentRotation = useRef({ x: 45, z: 90 });   // always-live rotation; source of truth for drift + next drag's baseline
+    const dragStartRotation = useRef({ x: 0, z: -180 }); 
+    const currentRotation = useRef({ x: 45, z: 90 });
     const currentPan = useRef({ x: 100, y: -100 });
     const currentZoom = useRef(-2500);
     const dragMode = useRef<'rotate' | 'pan'>('rotate');
     
-    // Decided once, on first mount: does drift add to or subtract from rotation?
     const driftSign = useRef<number>(Math.random() < 0.5 ? 1 : -1);
     
     const handleMouseDown = (e) => {
@@ -69,16 +68,20 @@ export default function ImageGrid({ srcs }: { srcs: ItemType[] }) {
         };
       }
     
-      const intervalRot = setInterval(() => {
+      
+      let rafId: number;
+      const tick = () => {
         const newRot = {
           x: currentRotation.current.x + driftSign.current * ROTATION_DRIFT,
           z: currentRotation.current.z + driftSign.current * ROTATION_DRIFT
         };
         setRotation(newRot);
         currentRotation.current = newRot;
-      }, 1);
-    
-      return () => clearInterval(intervalRot);
+        rafId = requestAnimationFrame(tick);
+      };
+      rafId = requestAnimationFrame(tick);
+
+      return () => cancelAnimationFrame(rafId);
     }, [isDragging]);
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -152,6 +155,7 @@ export default function ImageGrid({ srcs }: { srcs: ItemType[] }) {
                 setCurrHover('');
                 setTooltipText(null);
               }}
+              onClick={() => onSelectItem(url)}
             >
               <img
                 src={url.src[0]}

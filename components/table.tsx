@@ -1,9 +1,10 @@
 import { ItemType } from "@/types";
 import { ListItem } from "./listItem";
 
-export function Table({ data, title }: {
+export function Table({ data, title, onSelectItem }: {
     data: ItemType[];
     title: string;
+    onSelectItem: (item: ItemType) => void;
 }) {
 
     return (
@@ -17,7 +18,7 @@ export function Table({ data, title }: {
                     </td>
                 </tr>
                 {data.map((item, i) =>
-                    <ListItem item={item} key={i}/>
+                    <ListItem item={item} key={i} onSelectItem={onSelectItem}/>
                 )}
             </tbody>
         </table>

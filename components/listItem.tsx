@@ -11,8 +11,10 @@ function isMobileViewport() {
 
 export function ListItem({
     item,
+    onSelectItem
 }: {
     item: ItemType;
+    onSelectItem: (item: ItemType) => void;
 }) {
     const makeId = useCallback(
         (title: string, category: string) =>
@@ -39,31 +41,23 @@ export function ListItem({
                             style={{
                                 textDecoration: item.title == currHover ? 'underline' : undefined
                             }}
+                            onClick={() => onSelectItem(item)}
                         >
                             
                             {item.client ? (
                                 <>
-                                    <a
-                                        href={item.link}
-                                        target="_blank"
-                                        
-                                    >
+                                    <a>
                                         {item.title}{" "}
                                     </a>
                                     <div className="client">
-                                        <a
-                                            href={item.clientLink ?? undefined}
-                                            target="_blank"
-                                        >
+                                        <a>
                                             {item.client}
                                         </a>
                                     </div>
                                 </>
                             ) : (
                                 <a
-                                    href={item.link}
-                                    target="_blank"
-                                    
+                                    onClick={() => onSelectItem(item)}
                                 >
                                     {item.title}
                                 </a>
@@ -77,6 +71,7 @@ export function ListItem({
                             style={{
                                 textDecoration: item.title == currHover ? 'underline' : undefined
                             }}
+                            onClick={() => onSelectItem(item)}
                         >
                             {item.date.slice(0, 4)}
                         </div>
