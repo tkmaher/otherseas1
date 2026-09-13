@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react';
 export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], onSelectItem: (item: ItemType) => void; }) {
     const { currHover, setCurrHover } = useSelectionContext();
 
-    const ROTATION_DRIFT = 0.01; // magnitude of per-tick idle rotation drift
+    const ROTATION_DRIFT = 0.05;
 
     const [rotation, setRotation] = useState({ x: 45, z: 90 });
     const [pan, setPan] = useState({ x: 100, y: -100 });
@@ -146,33 +146,34 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
                 transform: billboardTransform,  
                 opacity: (currHover == url.title) ? '0.5' : 1         
               }}
-              className='img-billboard'
-              onMouseEnter={() => {
-                setCurrHover(url.title);
-                setTooltipText(`${url.title} | ${url.date}`)
-              }}
-              onMouseLeave={() => {
-                setCurrHover('');
-                setTooltipText(null);
-              }}
-              onClick={() => onSelectItem(url)}
+              
             >
               <img
                 src={url.src[0]}
                 alt={`Grid Item ${index + 1}`}
                 className='item-billboard'
+                onMouseEnter={() => {
+                  setCurrHover(url.title);
+                  setTooltipText(`${url.title} | ${url.date}`)
+                }}
+                onMouseLeave={() => {
+                  setCurrHover('');
+                  setTooltipText(null);
+                }}
+                onClick={() => onSelectItem(url)}
               />
             </div>
           );
         })}
-        <div
-            style={{
-                fontSize: '12px',
-                transform: `rotateZ(${-rotation.z}deg) rotateX(${-rotation.x}deg))`,
-                height: 'fit-content'     
-            }}
-            className='img-billboard'
-        >
+      <div
+          style={{
+              fontSize: '12px',
+              transform: `rotateZ(${-rotation.z}deg) rotateX(${-rotation.x}deg)`,
+              height: 'fit-content',
+              pointerEvents: 'none'
+          }}
+          className='img-billboard'
+      >
             <div className='item-billboard'>
                 rotX:{rotation.x.toFixed(2)}°rotY:{rotation.z.toFixed(2)}°
                 <br/>

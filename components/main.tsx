@@ -64,6 +64,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                     duration: skipAnimation.current ? 0 : 0.8,
                     ease: [0.76, 0, 0.24, 1],
                 }}
+                style={{ backgroundColor: currColor }}
             >
                 <div className="main-panel">
                     <ReactLenis root={false} className="home-scroll" options={{ lerp: 0.5 }}>
@@ -77,7 +78,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                                     <Link href="/case-studies">Case studies</Link>
                                 </div>
                                 <div className="body-splitter">
-                                    <div className="content-left" style={{ backgroundColor: currColor }}>
+                                    <div className="content-left">
                                         <div className="table-scroll" data-lenis-prevent>
                                             <ReactLenis root={false} options={{ lerp: 0.5 }}>
                                                 {ORDER.map((name) => (

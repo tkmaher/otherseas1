@@ -28,7 +28,7 @@ function MosaicImage({
         return () => clearTimeout(timer);
     }, [triggered, index]);
 
-
+    const coolTransition = "opacity 0.5s cubic-bezier(0.76, 0, 0.24, 1), transform 0.5s cubic-bezier(0.76, 0, 0.24, 1)";
 
     return (
         <div className="mosaic-image">
@@ -44,7 +44,7 @@ function MosaicImage({
                     style={{
                         opacity: visible ? 1 : 0,
                         transform: visible ? "translateY(0)" : "translateY(20px)",
-                        transition: "opacity 0.5s ease, transform 0.5s ease",
+                        transition: coolTransition,
                     }}
                 />
             ) : (
@@ -54,7 +54,7 @@ function MosaicImage({
                     style={{
                         opacity: visible ? 1 : 0,
                         transform: visible ? "translateY(0)" : "translateY(20px)",
-                        transition: "opacity 0.5s ease, transform 0.5s ease",
+                        transition: coolTransition,
                     }}
                 />
             )}

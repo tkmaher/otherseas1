@@ -64,8 +64,10 @@ a {
     height: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
-    pointer-events: none;
-        
+    cursor: pointer;
+    pointer-events: all;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   .img-billboard {
@@ -74,7 +76,7 @@ a {
     aspect-ratio: 1;
     overflow: hidden;
     transform-style: preserve-3d;
-    cursor: pointer;
+    pointer-events: none;
   }
 
   .grid-parent {
@@ -141,6 +143,8 @@ a {
   height: 100%;
   flex-shrink: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-scroll {
@@ -211,7 +215,7 @@ table {
 .mosaic-displayer {
   display: flex;
   gap: 2em;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   .mosaic-col {
@@ -227,6 +231,8 @@ table {
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    cursor: pointer;
+
 
     img, video {
       position: absolute;
@@ -263,6 +269,7 @@ table {
 
     display: flex;
     justify-content: center;
+
     &:hover {
       opacity: 1;
       transition: none;
@@ -279,7 +286,7 @@ table {
       &:hover {
         opacity: 1 !important;
       }
-      align-self: center;
+      justify-self: center;
     }
   }
 
@@ -287,6 +294,7 @@ table {
     flex-shrink: 0;
     text-align: center;
     padding: 0.5em 1em;
+    align-self: flex-end;
   }
 
   .buttons {
@@ -295,12 +303,11 @@ table {
     width: 100dvw;
     display: flex;
     justify-content: space-between;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 1;
 
     button {
       background-color: transparent;
+      border: none;
       color: $foreground;
       padding: 0.5em 1em;
       cursor: pointer;
@@ -353,6 +360,7 @@ input[type="checkbox"] {
   padding: 0.4em;
    text-align: justify;
   font-size: 14px;
+  z-index: 2;
 
   a {
     text-decoration: underline;
@@ -373,7 +381,7 @@ input[type="checkbox"] {
   display: flex;
   height: 5px;
   flex-shrink: 0;
-
+  z-index: 2;
   .color-block {
     flex: 1;
   }
@@ -446,19 +454,63 @@ input[type="checkbox"] {
 
 /* ── ItemPage ────────────────────────────────────────────────── */
 
-.itempage-col {
-  height: 100%;
-  overflow: hidden; 
+.itempage-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   padding: 0.4em;
+  padding-bottom: 0;
+  height: 1em;
+}
+
+.itempage-col {
+  flex-grow: 1;
+  overflow-y: auto;     
+  @media (hover: hover) {
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  padding: 2em 4em;
+
+}
+
+.itempage-mainrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2em;
 }
 
 .itempage-title {
   font-size: 20px;
   font-weight: 400;
   font-family: var(--font-host);
+  margin-bottom: 0.5em;
 }
+
+.itempage-date {
+  flex-basis: 18%;
+  position: sticky;
+  top: 0;
+  align-self: start;    
+}
+
+.itempage-desc {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  iframe {
+    aspect-ratio: 16/14;
+    max-height: 80vh;
+    max-width: 80vw;
+    flex-basis: 75% !important;
+    flex-grow: 1;
+    border: none;
+    justify-self: flex-end;
+    margin-bottom: 2em;
+  }
+}
+
 
 .itempage-home-btn {
   align-self: flex-start;
@@ -468,29 +520,13 @@ input[type="checkbox"] {
   margin-bottom: 1em;
   font: inherit;
   color: inherit;
-  text-decoration: underline;
   cursor: pointer;
-}
-
-.itempage-date, .itempage-tags {
-  flex-basis: 25%;
-}
-
-.itempage-desc {
-  flex-basis: 50%;
-}
-
-.itempage-iframe-container {
-  display: flex;
-  flex-direction: row;
-  gap: 0.4em;
-  width: 100%;
-  iframe {
-    flex-grow: 1;
-    aspect-ratio: 16/9;
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
-
 /* ── Mobile ────────────────────────────────────────────────── */
 
 

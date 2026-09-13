@@ -1,29 +1,47 @@
-import { ItemType } from "@/types";
+import { ItemType, colors } from "@/types";
 import Displayer from "./displayer";
 import ReactLenis from "lenis/react";
+import { useSelectionContext } from "@/contexts/selectionContext";
 
 export default function ItemPage({ item, onHome }: { item: ItemType; onHome: () => void }) {
+    const { currColor, setCurrColor } = useSelectionContext();
     return (
-        <ReactLenis root={false} className="itempage-col" options={{ lerp: 0.5 }}>
-            <button className="itempage-home-btn" onClick={onHome}>← Home</button>
-            <div className="itempage-title">{item.title}</div>
-            <div className="itempage-mainrow">
-                <div className="itempage-date">{item.date.slice(0, -2)}</div>
-                <div className="itempage-desc">
-                    {item.description && <div dangerouslySetInnerHTML={{ __html: item.description }} />}
-                </div>
-                <div className="itempage-tags">
-                    {item.tags && <div>Categories: {item.tags}</div>}
-                    From: {item.category}
-                </div>
+        <>
+            <div className="itempage-header">
+                <button className="itempage-home-btn" onClick={onHome}>← Home</button>
+                <a className="itempage-home-btn" href="/case-studies">Case studies</a>
             </div>
-            {item.link &&
-                <div className="itempage-iframe-container">
-                    Desktop
-                    <iframe src={item.link} className="itempage-iframe" />
+
+            <ReactLenis root={false} className="itempage-col" options={{ lerp: 0.5 }}>
+                <div className="itempage-mainrow">
+                    <div className="itempage-date">
+                        <div className="itempage-title">{item.title}</div>
+                        {item.date.slice(0, -2)}
+                        {item.tags && <div>Categories: {item.tags}</div>}
+                        From: {item.category}
+                        {item.description && <div dangerouslySetInnerHTML={{ __html: item.description }} />}
+                    </div>
+
+                    <div className="itempage-desc">
+                        {item.src && (item.src[0].includes('iframe') ? 
+                            <div className="itempage-iframe" dangerouslySetInnerHTML={{__html: item.src[0]}}/>
+                            : <iframe src={item.link} className="itempage-iframe" />)
+                        }
+                    </div>
+
                 </div>
-            }
-            <Displayer srcs={item.src ?? []} type="image" />
-        </ReactLenis>
+                <Displayer srcs={item.src ?? []} type="image" />
+            </ReactLenis>
+            <div className="footer">
+                {colors.map((val, index) => (
+                    <div
+                        className="color-block"
+                        style={{ backgroundColor: val }}
+                        key={index}
+                        onClick={() => setCurrColor(val)}
+                    />
+                ))}
+            </div>
+        </>
     );
 }

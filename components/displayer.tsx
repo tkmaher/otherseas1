@@ -83,7 +83,6 @@ export default function Displayer({
 
     const isCarousel = !!srcs && srcs.length > 0 && currImage !== '' && srcs.includes(currImage);
 
-    // Lock background scroll and pause Lenis while the carousel is open.
     useEffect(() => {
         if (!isCarousel) return;
 
@@ -150,7 +149,9 @@ export default function Displayer({
             onTouchEnd={isCarousel ? handleTouchEnd : undefined}
             ref={scrollRef}
         >
-            {[0, 1, 2].map((col) => (
+            {isCarousel ? 
+            (<MosaicImage src={currImage} alt={type} index={0} type={type} />)
+            : [0, 1, 2].map((col) => (
                 <div className="mosaic-col" key={col}>
                     {srcs.map((src, i) => {
                         if (i % 3 !== col) return null;
@@ -160,6 +161,8 @@ export default function Displayer({
                     })}
                 </div>
             ))}
+
+
 
             {isCarousel &&
                 <div className="buttons">
