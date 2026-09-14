@@ -80,7 +80,6 @@ export default function Main({ data }: { data: ItemType[] }) {
                 style={{ backgroundColor: currColor }}
             >
                 <div className="main-panel">
-                    <ReactLenis root={false} className="home-scroll" options={{ lerp: 0.5 }}>
                         <Lander srcs={images.map(item => item.src?.[0].includes('iframe') ? item.src[1] : item.src?.[0] ) as string[]} skip={activeItem != null}>
                             <div className="home-page">
                                 <div className="header">
@@ -92,8 +91,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                                 </div>
                                 <div className="body-splitter">
                                     <div className="content-left">
-                                        <div className="table-scroll" data-lenis-prevent>
-                                            <ReactLenis root={false} options={{ lerp: 0.5 }}>
+                                            <ReactLenis className="table-scroll" root={false} options={{ lerp: 0.5 }}>
                                                 {ORDER.map((name) => (
                                                     <div key={name}>
                                                         {categorized[name] && (
@@ -106,7 +104,6 @@ export default function Main({ data }: { data: ItemType[] }) {
                                                     </div>
                                                 ))}
                                             </ReactLenis>
-                                        </div>
                                     </div>
                                     <div className="content-right">
                                         <ImageGrid srcs={images} onSelectItem={goToItem} />
@@ -124,7 +121,6 @@ export default function Main({ data }: { data: ItemType[] }) {
                                 </div>
                             </div>
                         </Lander>
-                    </ReactLenis>
                 </div>
 
                 <div className="main-panel">
