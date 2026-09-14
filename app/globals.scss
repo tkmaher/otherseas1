@@ -549,7 +549,11 @@ input[type="checkbox"] {
   }
 
   .mosaic-carousel {
-    height: 100vh;
+    height: 100dvh;
+
+    .mosaic-image {
+      height: 100vh;
+    }
   }
   .content-right {
     max-width: 80dvw;
@@ -558,7 +562,6 @@ input[type="checkbox"] {
   .mosaic-carousel .mosaic-image img {
     padding: 1em;
     width: calc(100dvw - 2em);
-    height: auto;                       
     max-width: 100dvw;
     max-height: calc(100dvh - 10em);  
   }
@@ -584,5 +587,27 @@ input[type="checkbox"] {
     touch-action: pan-y;
   }
 
+  .itempage-mainrow {
+    flex-direction: column;
+    gap: 4em;
+    min-height: auto;
+    max-height: none;
+    .itempage-date {
+      position: relative;
+    }
 
+    
+  }
+
+  .mosaic-displayer {
+    flex-direction: column;
+    height: auto;
+    .mosaic-col {
+      max-width: none;
+    }
+  }
+
+  .footer {
+    height: 18px;
+  }
 }

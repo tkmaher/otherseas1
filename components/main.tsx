@@ -81,7 +81,7 @@ export default function Main({ data }: { data: ItemType[] }) {
             >
                 <div className="main-panel">
                     <ReactLenis root={false} className="home-scroll" options={{ lerp: 0.5 }}>
-                        <Lander srcs={images.map(item => item.src?.[0]) as string[]} skip={activeItem != null}>
+                        <Lander srcs={images.map(item => item.src?.[0].includes('iframe') ? item.src[1] : item.src?.[0] ) as string[]} skip={activeItem != null}>
                             <div className="home-page">
                                 <div className="header">
                                     <b>Tom Maher</b> is a freelance web developer and sound artist based in
