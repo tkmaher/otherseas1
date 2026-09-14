@@ -1,9 +1,10 @@
 import { ItemType } from "@/types";
 import { ListItem } from "./listItem";
 
-export function Table({ data, title }: {
+export function Table({ data, title, onSelectItem }: {
     data: ItemType[];
     title: string;
+    onSelectItem: (item: ItemType) => void;
 }) {
 
     return (
@@ -13,13 +14,11 @@ export function Table({ data, title }: {
                     <td colSpan={3}>
                         <div className="row-inner">
                             <div className="row-cell row-title">{title}</div>
-                            <div className="row-cell row-date" />
-                            <div className="row-cell row-tags" />
                         </div>
                     </td>
                 </tr>
                 {data.map((item, i) =>
-                    <ListItem item={item} key={i}/>
+                    <ListItem item={item} key={i} onSelectItem={onSelectItem}/>
                 )}
             </tbody>
         </table>

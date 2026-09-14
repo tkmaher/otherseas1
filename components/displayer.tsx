@@ -1,58 +1,66 @@
 "use client";
 import { useSelectionContext } from "@/contexts/selectionContext";
 import { useLenis } from "lenis/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+const STAGGER_MS = 60;
 
 function MosaicImage({
     src,
     alt,
     index,
-    triggered,
-    type
+    type,
 }: {
     src: string;
     alt: string;
     index: number;
-    triggered: boolean;
     type: string;
 }) {
+    const { currImage, setImage } = useSelectionContext();
     const [visible, setVisible] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!triggered) {
-            setVisible(false);
-            return;
-        }
-        const timer = setTimeout(() => setVisible(true), (index - 1) * 220);
-        return () => clearTimeout(timer);
-    }, [triggered, index]);
+        const el = ref.current;
+        if (!el) return;
 
-    const { currImage, setImage } = useSelectionContext();
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.unobserve(el);
+                }
+            },
+            { threshold: 0.05 }
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
 
     if (currImage !== '' && currImage !== src) return null;
 
     return (
-        <div className={type === "iframe" ? undefined : "mosaic-image"}>
+        <div
+            className="mosaic-image"
+            ref={ref}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                opacity: visible ? (hovered ? 0.5 : 1) : 0,
+                transform: visible ? "translateY(0)" : "translateY(20px)",
+                transition: visible
+                    ? "opacity 0.2s ease, transform 0.5s ease"
+                    : `opacity 0.5s ease ${index * STAGGER_MS}ms, transform 0.5s ease ${index * STAGGER_MS}ms`,
+            }}
+        >
             {type === "image" ? (
-                <img
-                    src={src}
-                    alt={alt}
-                    style={{
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(20px)",
-                        transition: "opacity 0.3s ease, transform 0.3s ease",
-                    }}
-                    onClick={() => setImage(src)}
-                />
+                <img src={src} alt={alt} onClick={() => setImage(src)} />
             ) : (
                 <div
                     dangerouslySetInnerHTML={{ __html: src }}
-                    style={{
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(20px)",
-                        transition: "opacity 0.3s ease, transform 0.3s ease",
-                        height: '100%'
-                    }}
+                    style={{ width: '100%', height: '100%' }}
                 />
             )}
         </div>
@@ -64,21 +72,18 @@ const SWIPE_THRESHOLD = 50; // px
 export default function Displayer({
     srcs,
     type,
-    triggered,
 }: {
     srcs: string[];
     type: string;
-    triggered: boolean;
-    color: string;
 }) {
+    const filteredSrcs: string[] = useMemo(() => srcs.filter(s => !s.includes('iframe')), srcs);
     const { currImage, setImage, currColor } = useSelectionContext();
     const touchStartX = useRef<number | null>(null);
     const scrollRef = useRef<HTMLDivElement>(null);
     const lenis = useLenis();
 
-    const isCarousel = !!srcs && srcs.length > 0 && currImage !== '' && srcs.includes(currImage);
+    const isCarousel = !!filteredSrcs && filteredSrcs.length > 0 && currImage !== '' && filteredSrcs.includes(currImage);
 
-    // Lock background scroll and pause Lenis while the carousel is open.
     useEffect(() => {
         if (!isCarousel) return;
 
@@ -98,19 +103,17 @@ export default function Displayer({
         };
     }, [isCarousel, lenis]);
 
-    
-
     const nav = (dir: string) => {
-        const currentIndex = srcs.indexOf(currImage);
+        const currentIndex = filteredSrcs.indexOf(currImage);
         const nextIndex = dir === "prev"
-            ? (currentIndex - 1 + srcs.length) % srcs.length
-            : (currentIndex + 1) % srcs.length;
-        setImage(srcs[nextIndex]);
+            ? (currentIndex - 1 + filteredSrcs.length) % filteredSrcs.length
+            : (currentIndex + 1) % filteredSrcs.length;
+        setImage(filteredSrcs[nextIndex]);
     };
 
     useEffect(() => {
         const keyDown = (e: KeyboardEvent) => {
-            if (!srcs.includes(currImage)) return;
+            if (!filteredSrcs.includes(currImage)) return;
             if (e.key === 'Escape') setImage('');
             if (e.key === 'ArrowLeft') nav('prev');
             if (e.key === 'ArrowRight') nav('next');
@@ -118,7 +121,7 @@ export default function Displayer({
 
         window.addEventListener('keydown', keyDown);
         return () => window.removeEventListener('keydown', keyDown);
-    }, [currImage, srcs]);
+    }, [currImage, filteredSrcs]);
 
     const handleTouchStart = (e: React.TouchEvent) => {
         touchStartX.current = e.touches[0].clientX;
@@ -134,34 +137,12 @@ export default function Displayer({
         nav(deltaX > 0 ? 'prev' : 'next');
     };
 
-    useEffect(() => {
-        const displayer = scrollRef.current;
-        if (!displayer) return;
-
-        let frameId: number;
-        const SPEED = 0.4; // px per frame
-        let position = displayer.scrollLeft;
-
-        const tick = () => {
-            const maxScroll = displayer.scrollWidth - displayer.clientWidth;
-            if (maxScroll > 0) {
-                position = Math.min(maxScroll, position + SPEED);
-                displayer.scrollLeft = position;
-            }
-            frameId = requestAnimationFrame(tick);
-        };
-
-        //frameId = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(frameId);
-    }, []);
-
-    if (!srcs || srcs.length === 0) return null;
+    if (!filteredSrcs || filteredSrcs.length === 0) return null;
 
     return (
         <div
             className={`mosaic-displayer ${isCarousel ? 'mosaic-carousel' : ''}`}
             style={{
-                opacity: triggered ? 1 : 0,
                 backgroundColor: isCarousel ? currColor : undefined,
                 touchAction: isCarousel ? 'none' : undefined,
             }}
@@ -169,15 +150,26 @@ export default function Displayer({
             onTouchEnd={isCarousel ? handleTouchEnd : undefined}
             ref={scrollRef}
         >
-            {srcs.map((src, i) => (
-                <MosaicImage key={`${src}-${i}`} src={src} alt={type} index={i} triggered={triggered} type={type} />
+            
+            {isCarousel && <MosaicImage src={currImage} alt={type} index={1} type={type} />}
+            {[0, 1, 2].map((col) => (
+                <div className="mosaic-col" key={col}>
+                    {filteredSrcs.map((src, i) => {
+                        if (i % 3 !== col || src.includes('iframe')) return null;
+                        return (
+                            <MosaicImage key={`${src}-${i}`} src={src} alt={type} index={i} type={type} />
+                        );
+                    })}
+                </div>
             ))}
+
+
 
             {isCarousel &&
                 <div className="buttons">
-                    <button onClick={() => nav('prev')} style={{flexGrow: 1}}>Previous</button>
+                    <button onClick={() => nav('prev')} style={{ flexGrow: 1 }}>Previous</button>
                     <button onClick={() => setImage('')}>Close</button>
-                    <button onClick={() => nav('next')} style={{flexGrow: 1}}>Next</button>
+                    <button onClick={() => nav('next')} style={{ flexGrow: 1 }}>Next</button>
                 </div>
             }
         </div>

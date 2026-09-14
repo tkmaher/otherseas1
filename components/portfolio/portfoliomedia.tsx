@@ -8,11 +8,11 @@ import { useEffect, useRef, useState } from "react";
 export function PortfolioMedia({
     media,
     classN,
-    removeBackground
+    removeBackground,
 }: {
-    media: ImageType,
+    media: ImageType, 
     classN?: string,
-    removeBackground?: boolean
+    removeBackground?: boolean,
 }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mediaRef = useRef<HTMLImageElement | HTMLVideoElement | null>(null);
@@ -61,6 +61,16 @@ export function PortfolioMedia({
             setCaption("");
         }
     };
+
+    if (media.src.includes('iframe')) return (
+        <div
+            ref={containerRef}
+            className={removeBackground ? "portfolio-media-flex no-bg" : "portfolio-media-flex"}
+            dangerouslySetInnerHTML={{__html: media.src}}
+        >
+            {media.caption && <div className="portfolio-media-caption" dangerouslySetInnerHTML={{__html: media.caption}}/>}
+        </div>
+    )
 
     return (
         <div

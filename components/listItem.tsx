@@ -1,8 +1,6 @@
 "use client";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useCallback } from "react";
 import { ItemType } from "@/types";
-import Displayer from "./displayer";
-import { useLenis } from "lenis/react";
 import { useSelectionContext } from "@/contexts/selectionContext";
 
 const MOBILE_QUERY = "(max-width: 800px)";
@@ -13,8 +11,10 @@ function isMobileViewport() {
 
 export function ListItem({
     item,
+    onSelectItem
 }: {
     item: ItemType;
+    onSelectItem: (item: ItemType) => void;
 }) {
     const makeId = useCallback(
         (title: string, category: string) =>
@@ -22,149 +22,88 @@ export function ListItem({
         []
     );
 
-    const { currExpanded, toggleTheme } = useSelectionContext();
-
     const id = makeId(item.title, item.category);
-    const isToggled = currExpanded === id;
 
-    const [isFullyOpen, setIsFullyOpen] = useState(false);
-    const [shouldRenderBody, setShouldRenderBody] = useState(isToggled);
+    const { currHover, setCurrHover } = useSelectionContext();
 
-    const rowRef = useRef<HTMLTableRowElement>(null);
-    const lenis = useLenis();
+    const hoverAction = (toSet: string) => {
+        if (item.link)
+            setCurrHover(toSet);
+    }
 
-    useEffect(() => {
-        if (!isToggled) {
-            setIsFullyOpen(false);
-        } else {
-            setShouldRenderBody(true);
+    const selectAction = () => {
+        if ((item.src == null || item.src.length == 0) && item.link) {
+            window.open(item.link, '_blank');
+            return;
         }
-    }, [isToggled]);
-
-    const handleToggle = () => {
-        if (!item.src) return;
-        if (isToggled) {
-            setIsFullyOpen(false);
-            toggleTheme("");
-        } else {
-            toggleTheme(id);
-            setTimeout(() => {
-                setIsFullyOpen(true);
-                if (!isMobileViewport()) {
-                    lenis?.resize();
-                    lenis?.scrollTo(`#${id}`, { duration: 0.6 });
-                }
-            }, 320);
+        if (item.link) {
+            onSelectItem(item);
+            return;
         }
-    };
+    }
 
-    const handleTransitionEnd = useCallback(
-        (e: React.TransitionEvent<HTMLTableRowElement>) => {
-            if (e.propertyName !== "grid-template-rows") return;
-            if (!isToggled) {
-                setShouldRenderBody(false);
-            }
-            if (isMobileViewport()) return;
-            lenis?.resize();
-        },
-        [lenis, isToggled]
-    );
-
-    const handleLinkClick = (e: React.MouseEvent) => e.stopPropagation();
+    const hoverStyle = {
+        textDecoration: item.title == currHover ? 'underline' : undefined,
+        cursor: item.link ? 'pointer' : "text"
+    }
 
     return (
         <>
             <tr
                 className="row"
                 id={id}
-                ref={rowRef}
-                onClick={handleToggle}
             >
                 <td colSpan={3}>
-                    <div className={isToggled ? "row-inner row-inner-expanded" : "row-inner"}>
-                        <div className="row-cell row-title">
-                            {item.src && <label>
-                                <input
-                                    type="checkbox"
-                                    checked={isToggled}
-                                    readOnly
-                                    style={{
-                                        backgroundColor: isToggled
-                                            ? item.color
-                                            : "inherit",
-                                    }}
-                                />
-                            </label>
-                            }
+                    <div className="row-inner">
+                        <div 
+                            className="row-title"
+                            onMouseEnter={() => hoverAction(item.title)}
+                            onMouseLeave={() => hoverAction('')}
+                            style={hoverStyle}
+                            onClick={selectAction}
+                        >
+                            
                             {item.client ? (
                                 <>
-                                    <a
-                                        href={item.link}
-                                        target="_blank"
-                                        onClick={handleLinkClick}
-                                    >
-                                        {item.title}{" "}
+                                    <a style={{marginRight: '3px'}}>
+                                        {item.title}
                                     </a>
                                     <div className="client">
-                                        <a
-                                            href={item.clientLink ?? undefined}
-                                            onClick={handleLinkClick}
-                                            target="_blank"
-                                        >
+                                        <a>
                                             {item.client}
                                         </a>
                                     </div>
                                 </>
                             ) : (
                                 <a
-                                    href={item.link}
-                                    onClick={handleLinkClick}
-                                    target="_blank"
+                                    onClick={selectAction}
                                 >
                                     {item.title}
                                 </a>
                             )}
+                            {(item.src == null && item.link) && 
+                                <img 
+                                    src="linkout.svg"
+                                    style={{maxHeight: '1em'}}
+                                />
+                            }
                         </div>
-                        <div className="row-cell row-date">
+                        <div className="row-cell row-spacer"/>
+                        <div 
+                            className="row-cell row-date"
+                            onMouseEnter={() => hoverAction(item.title)}
+                            onMouseLeave={() => hoverAction('')}
+                            style={hoverStyle}
+                            onClick={selectAction}
+                        >
                             {item.date.slice(0, 4)}
                         </div>
-                        <div className="row-cell row-tags">
-                            {item.tags?.join(", ")}
-                        </div>
+                        
                     </div>
                 </td>
             </tr>
 
-            <tr
-                className={isToggled ? "body-expanded" : "body-collapsed"}
-                onTransitionEnd={handleTransitionEnd}
-            >
-                <td colSpan={3}>
-                    <div className="body-grid">
-                        <div className="body-inner">
-                            <div className="body-description">
-                                {item.description ? <div
-                                    dangerouslySetInnerHTML={{ __html: item.description }}
-                                /> : <div></div>}
-                                {item.link && <>
-                                        {' '}<a className="linkout" href={item.link} target="_blank">
-                                            <img src="linkout.svg"/>
-                                        </a>
-                                    </>
-                                }
-                            </div>
-                            <div className="body-displayer">
-                                {(shouldRenderBody && item.src && item.type) && <Displayer
-                                    srcs={item.src}
-                                    type={item.type}
-                                    triggered={isFullyOpen}
-                                    color={item.color}
-                                />}
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            
         </>
     );
 }

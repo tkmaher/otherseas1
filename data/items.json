@@ -1,14 +1,13 @@
 [
     {
         "title": "Twist",
-        "client": "for Spinbeat",
+        "client": "Spinbeat",
 
         "date": "202607",
-        "type": "iframe",
         "color": "",
         "src": [
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/bCK_ixSKa3w?si=qHN2HaSnnWDRDcFL'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
-
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/bCK_ixSKa3w?si=qHN2HaSnnWDRDcFL'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50395998/original_e401d28d2b7eb90555fc6f53ac9b676e.png?1789336797?bc=0"
         ],
         "link": "https://www.youtube.com/watch?v=bCK_ixSKa3w",
         "tags": [ "Video"],
@@ -18,7 +17,6 @@
     {
         "title": "UbuTube",
         "date": "202606",
-        "type": "image",
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47052906/original_47af7246ec3bb3cfcdbf763eaddf7ed0.png?1781548707?bc=0",
@@ -28,12 +26,11 @@
         "link": "https://ubutube.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "UbuTube is an extension of <a href='https://ubu.com' target='_blank'>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube."
+        "description": "UbuTube is an extension of <a href='https://ubu.com' target='_blank'>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube.<br/><br/><a href='/case-studies/ubutube'>Case Study</a>"
     },
     {
         "title": "arena flow",
         "date": "202604",
-        "type": "image",
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47024579/original_3f5560138c89b8f37bc5249daaa0258c.png?1781460169?bc=0",
@@ -43,15 +40,15 @@
         "link": "https://arena-flow.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href='https://are.na' target='_blank'>are.na</a>. "
+        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href='https://are.na' target='_blank'>are.na</a>.<br/><br/><a href='/case-studies/arena-flow'>Case Study</a>"
     },
     {
         "title": "Siris",
         "date": "202509",
-        "type": "iframe",
         "color": "",
         "src": [
-            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/1117929744?h=f0762262cf' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
+            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/1117929744?h=f0762262cf' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50396006/original_a94f0889da5bbe91271867a6437b00fc.png?1789336799?bc=0"
         ],
         "link": "https://vimeo.com/1117929744",
         "tags": [ "Video" ],
@@ -62,7 +59,6 @@
     {
         "title": "Games",
         "date": "",
-        "type": "image",
         "color": "",
         "src": [
             "https://img.itch.zone/aW1nLzM5MjIwNjYuZ2lm/original/QHKXOy.gif",
@@ -76,9 +72,8 @@
 
     {
         "title": "view-3.com",
-        "client": "for View 3",
+        "client": "View 3",
         "date": "202602",
-        "type": "image",
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47361779/original_f3c35c12c8790924cf7825e9571ae2b2.png?1782595283?bc=0",
@@ -92,9 +87,8 @@
 
     {
         "title": "reduxrad.io",
-        "client": "for Redux Radio",
+        "client": "Redux Radio",
         "date": "202503",
-        "type": "image",
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47041699/original_827c37d39d228990bc96190f8890f757.png?1781531729?bc=0",
@@ -109,9 +103,8 @@
 
     {
         "title": "blippp.org",
-        "client": "for blip",
+        "client": "blip",
         "date": "202512",
-        "type": "image",
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/45542545/original_c670017bf1f98480fb78766e9a377977.png?1776966782?bc=0",
@@ -124,13 +117,13 @@
     },
     {
         "title": "Everything",
-        "client": "for Redux Radio",
+        "client": "Redux Radio",
         "clientLink": "https://reduxrad.io",
         "date": "202508",
-        "type": "iframe",
         "color": "",
         "src": [
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/jUIKmnem-7Y?si=eD1RR3Qzm4X5d4K2'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/jUIKmnem-7Y?si=eD1RR3Qzm4X5d4K2'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50396000/original_783e59387499336f9fe0b3c171835872.png?1789336798?bc=0"
         ],
         "link": "https://www.youtube.com/watch?v=jUIKmnem-7Y",
         "tags": [ "Sound", "Video" ],
@@ -140,10 +133,10 @@
     {
         "title": "Tree-notation I",
         "date": "202212",
-        "type": "iframe",
         "color": "",
         "src": [
-            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/983323044?h=0eb7227c66' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
+            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/983323044?h=0eb7227c66' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50395999/original_18a7ada0cd84e5b130705791fc5b5dd4.png?1789336797?bc=0"
         ],   
         "link": "https://vimeo.com/983323044",
         "tags": [ "Sound", "Video" ],
@@ -153,9 +146,8 @@
     {
         "title": "loisirs distribués",
         "date": "202505",
-        "client": "for Redux Radio",
+        "client": "Redux Radio",
         "clientLink": "https://reduxrad.io",
-        "type": "image",
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/45546384/original_783445c454c87097dcd9a8a27d170c91.png?1776975886?bc=0"
@@ -168,8 +160,8 @@
     {
         "title": "Folded Mirrors",
         "date": "202409",
-        "client": "for MEMCO",
-        "type": "iframe",
+        "client": "MEMCO",
+        
         "color": "",
         "src": [
             "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/track=1291105860/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/track/folded-mirrors'>Folded Mirrors by otherseas</a></iframe>"
@@ -182,8 +174,8 @@
     {
         "title": "Paper",
         "date": "202602",
-        "client": "for View 3",
-        "type": "image",
+        "client": "View 3",
+        
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/47053288/original_ad1ca6d1bf8ef29429eaab6bae167832.jpeg?1781549393?bc=0",
@@ -199,7 +191,7 @@
     {
         "title": "Goodbye Seas",
         "date": "202510",
-        "type": "image",
+        
         "color": "",
         "src": [
             "https://f4.bcbits.com/img/a4080945538_10.jpg",
@@ -215,7 +207,7 @@
     {
         "title": "Travel",
         "date": "202408",
-        "type": "iframe",
+        
         "color": "",
         "src": [
             "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/album=1057144630/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/album/travel'>Travel by otherseas</a></iframe>"
@@ -255,12 +247,12 @@
     },
     {
         "title": "Mud story",
-        "client": "for View 3",
+        "client": "View 3",
         "link": "https://www.are.na/block/45549422",
         "date": "202603",
         "category": "Writing",
         "tags": [ "Text", "Publication" ],
-        "type": "iframe",
+        
         "color": ""
 
             
@@ -271,7 +263,7 @@
         "date": "202510",
         "category": "Writing",
         "tags": [ "Text", "Publication" ],
-        "type": "iframe",
+        
         "color": ""
 
             
@@ -282,7 +274,7 @@
         "date": "202409",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
+        
         "color": ""
 
             
@@ -293,9 +285,9 @@
         "date": "202606",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
+        
         "color": "",
-        "client": "for Loser",
+        "client": "Loser",
         "clientLink": "https://www.lulu.com/search?contributor=Conor+Hultman"
 
             
@@ -306,7 +298,7 @@
         "date": "202506",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
+        
         "color": ""
 
     },
@@ -316,7 +308,7 @@
         "date": "202505",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
+        
         "color": ""
             
     },
@@ -326,7 +318,7 @@
         "date": "202504",
         "category": "Writing",
         "tags": [ "Text" ],
-        "type": "iframe",
+        
         "color": ""
             
     },
@@ -336,7 +328,7 @@
         "date": "",
         "category": "Appendix",
         "tags": [ ],
-        "type": "image",
+        
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/44806921/original_3c9c202d0fa796e1f06c79dce0b82942.png?1774636672?bc=0",
@@ -352,7 +344,7 @@
         "date": "",
         "category": "Appendix",
         "tags": [ ],
-        "type": "image",
+        
         "color": "",
         "src": [
             "https://d2w9rnfcy7mm78.cloudfront.net/31691043/original_bc933d675d861e1c5293f20f4ce51c25.png?1729808475?bc=0",
@@ -386,6 +378,5 @@
         "tags": [ ],
         "color": ""
     }
-
     
 ]
