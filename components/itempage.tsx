@@ -11,16 +11,17 @@ function ItempageIframe({src, mobile}: {src: string, mobile: boolean}) {
         transform: isLoaded ? "translateY(0)" : "translateY(20px)",
         transition: "opacity 0.2s ease, transform 0.5s ease",
         aspectRatio: mobile ? '9/19.5' : 'auto',
-        width: mobile ? 'auto' : '100%',
+        width: !isLoaded ? 0 : mobile ? 'auto' : '100%',
         height: mobile ? 'auto' : '75vh'
     };
     return (
-        <div style={{display: 'flex', alignItems: "center"}}>
-            
-            {!isLoaded ? <div style={{width: '100%', height: '75vh'}}> 
-                loading...
-            </div>
-            : <iframe src={src} onLoad={() => setIsLoaded(true)} style={style}/>}
+        <div >
+            <iframe src={src} onLoad={() => setIsLoaded(true)} style={style}/>
+            {!isLoaded && 
+                <div className="loader-loading"> 
+                    loading...
+                </div>
+            }
         </div>
     )
 }

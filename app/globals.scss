@@ -31,8 +31,10 @@ a {
 }
 
 .body-splitter {
-  //flex-grow: 1;
-  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;   
+  min-height: 0;   
 }
 
 
@@ -42,9 +44,13 @@ a {
   display: flex;
   min-width: 250px;
   width: 100%;
+  flex: 1 1 auto;    // fill body-splitter's height
+  min-height: 0;
   flex-direction: column;
   pointer-events: none;
 }
+
+
 
 .content-right {
   position: absolute;
@@ -124,9 +130,12 @@ a {
 
 
 .table-scroll {
-  overflow-y:scroll;
-  max-height: 100%;
-  height: 90dvh;
+  flex: 1 1 auto;    
+  min-height: 0;    
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  pointer-events: auto;
   z-index: 2;
 
   .line {
@@ -540,6 +549,13 @@ input[type="checkbox"] {
     }
   }
 }
+.loader-loading {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+}
+
 /* ── Mobile ────────────────────────────────────────────────── */
 
 
