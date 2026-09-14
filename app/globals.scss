@@ -617,4 +617,8 @@ input[type="checkbox"] {
   .footer {
     height: 18px;
   }
+
+  .table-scroll {
+    pointer-events: auto;
+  }
 }
