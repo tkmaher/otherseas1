@@ -26,6 +26,27 @@ export function ListItem({
 
     const { currHover, setCurrHover } = useSelectionContext();
 
+    const hoverAction = (toSet: string) => {
+        if (item.link)
+            setCurrHover(toSet);
+    }
+
+    const selectAction = () => {
+        if ((item.src == null || item.src.length == 0) && item.link) {
+            window.open(item.link, '_blank');
+            return;
+        }
+        if (item.link) {
+            onSelectItem(item);
+            return;
+        }
+    }
+
+    const hoverStyle = {
+        textDecoration: item.title == currHover ? 'underline' : undefined,
+        cursor: item.link ? 'pointer' : "text"
+    }
+
     return (
         <>
             <tr
@@ -35,19 +56,17 @@ export function ListItem({
                 <td colSpan={3}>
                     <div className="row-inner">
                         <div 
-                            className="row-cell row-title row-title-item"
-                            onMouseEnter={() => setCurrHover(item.title)}
-                            onMouseLeave={() => setCurrHover('')}
-                            style={{
-                                textDecoration: item.title == currHover ? 'underline' : undefined
-                            }}
-                            onClick={() => onSelectItem(item)}
+                            className="row-title"
+                            onMouseEnter={() => hoverAction(item.title)}
+                            onMouseLeave={() => hoverAction('')}
+                            style={hoverStyle}
+                            onClick={selectAction}
                         >
                             
                             {item.client ? (
                                 <>
-                                    <a>
-                                        {item.title}{" "}
+                                    <a style={{marginRight: '3px'}}>
+                                        {item.title}
                                     </a>
                                     <div className="client">
                                         <a>
@@ -57,21 +76,25 @@ export function ListItem({
                                 </>
                             ) : (
                                 <a
-                                    onClick={() => onSelectItem(item)}
+                                    onClick={selectAction}
                                 >
                                     {item.title}
                                 </a>
                             )}
+                            {(item.src == null && item.link) && 
+                                <img 
+                                    src="linkout.svg"
+                                    style={{maxHeight: '1em'}}
+                                />
+                            }
                         </div>
                         <div className="row-cell row-spacer"/>
                         <div 
                             className="row-cell row-date"
-                            onMouseEnter={() => setCurrHover(item.title)}
-                            onMouseLeave={() => setCurrHover('')}
-                            style={{
-                                textDecoration: item.title == currHover ? 'underline' : undefined
-                            }}
-                            onClick={() => onSelectItem(item)}
+                            onMouseEnter={() => hoverAction(item.title)}
+                            onMouseLeave={() => hoverAction('')}
+                            style={hoverStyle}
+                            onClick={selectAction}
                         >
                             {item.date.slice(0, 4)}
                         </div>

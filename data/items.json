@@ -1,13 +1,13 @@
 [
     {
         "title": "Twist",
-        "client": "for Spinbeat",
+        "client": "Spinbeat",
 
         "date": "202607",
         "color": "",
         "src": [
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/bCK_ixSKa3w?si=qHN2HaSnnWDRDcFL'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
-
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/bCK_ixSKa3w?si=qHN2HaSnnWDRDcFL'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50395998/original_e401d28d2b7eb90555fc6f53ac9b676e.png?1789336797?bc=0"
         ],
         "link": "https://www.youtube.com/watch?v=bCK_ixSKa3w",
         "tags": [ "Video"],
@@ -26,7 +26,7 @@
         "link": "https://ubutube.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "UbuTube is an extension of <a href='https://ubu.com' target='_blank'>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube."
+        "description": "UbuTube is an extension of <a href='https://ubu.com' target='_blank'>UbuWeb</a>, an archive site for avant-garde art. UbuTube is designed to function like a print newspaper and works similarly to YouTube.<br/><br/><a href='/case-studies/ubutube'>Case Study</a>"
     },
     {
         "title": "arena flow",
@@ -40,14 +40,15 @@
         "link": "https://arena-flow.org/",
         "tags": [ "Web", "Programming", "UI/UX"],
         "category": "CV",
-        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href='https://are.na' target='_blank'>are.na</a>. "
+        "description": "arena flow is an infinite canvas extension for the content aggregation website <a href='https://are.na' target='_blank'>are.na</a>.<br/><br/><a href='/case-studies/arena-flow'>Case Study</a>"
     },
     {
         "title": "Siris",
         "date": "202509",
         "color": "",
         "src": [
-            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/1117929744?h=f0762262cf' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
+            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/1117929744?h=f0762262cf' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50396006/original_a94f0889da5bbe91271867a6437b00fc.png?1789336799?bc=0"
         ],
         "link": "https://vimeo.com/1117929744",
         "tags": [ "Video" ],
@@ -71,7 +72,7 @@
 
     {
         "title": "view-3.com",
-        "client": "for View 3",
+        "client": "View 3",
         "date": "202602",
         "color": "",
         "src": [
@@ -86,7 +87,7 @@
 
     {
         "title": "reduxrad.io",
-        "client": "for Redux Radio",
+        "client": "Redux Radio",
         "date": "202503",
         "color": "",
         "src": [
@@ -102,7 +103,7 @@
 
     {
         "title": "blippp.org",
-        "client": "for blip",
+        "client": "blip",
         "date": "202512",
         "color": "",
         "src": [
@@ -116,12 +117,13 @@
     },
     {
         "title": "Everything",
-        "client": "for Redux Radio",
+        "client": "Redux Radio",
         "clientLink": "https://reduxrad.io",
         "date": "202508",
         "color": "",
         "src": [
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/jUIKmnem-7Y?si=eD1RR3Qzm4X5d4K2'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/jUIKmnem-7Y?si=eD1RR3Qzm4X5d4K2'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50396000/original_783e59387499336f9fe0b3c171835872.png?1789336798?bc=0"
         ],
         "link": "https://www.youtube.com/watch?v=jUIKmnem-7Y",
         "tags": [ "Sound", "Video" ],
@@ -133,7 +135,8 @@
         "date": "202212",
         "color": "",
         "src": [
-            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/983323044?h=0eb7227c66' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>"
+            "<iframe title='vimeo-player' src='https://player.vimeo.com/video/983323044?h=0eb7227c66' width='640' height='360' frameborder='0' referrerpolicy='strict-origin-when-cross-origin' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'   allowfullscreen></iframe>",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50395999/original_18a7ada0cd84e5b130705791fc5b5dd4.png?1789336797?bc=0"
         ],   
         "link": "https://vimeo.com/983323044",
         "tags": [ "Sound", "Video" ],
@@ -143,7 +146,7 @@
     {
         "title": "loisirs distribués",
         "date": "202505",
-        "client": "for Redux Radio",
+        "client": "Redux Radio",
         "clientLink": "https://reduxrad.io",
         "color": "",
         "src": [
@@ -157,7 +160,7 @@
     {
         "title": "Folded Mirrors",
         "date": "202409",
-        "client": "for MEMCO",
+        "client": "MEMCO",
         
         "color": "",
         "src": [
@@ -171,7 +174,7 @@
     {
         "title": "Paper",
         "date": "202602",
-        "client": "for View 3",
+        "client": "View 3",
         
         "color": "",
         "src": [
@@ -244,7 +247,7 @@
     },
     {
         "title": "Mud story",
-        "client": "for View 3",
+        "client": "View 3",
         "link": "https://www.are.na/block/45549422",
         "date": "202603",
         "category": "Writing",
@@ -284,7 +287,7 @@
         "tags": [ "Text" ],
         
         "color": "",
-        "client": "for Loser",
+        "client": "Loser",
         "clientLink": "https://www.lulu.com/search?contributor=Conor+Hultman"
 
             

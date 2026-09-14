@@ -1,7 +1,7 @@
 "use client";
 
 import { useSelectionContext } from "@/contexts/selectionContext";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 function LanderImage({ src, index }: { src: string; index: number }) {
@@ -39,12 +39,14 @@ function LanderImage({ src, index }: { src: string; index: number }) {
 
 export default function Lander({
     srcs,
-    children,
+    skip,
+    children
 }: {
     srcs: string[];
+    skip: boolean;
     children?: React.ReactNode;
 }) {
-    const [collapsePx, setCollapsePx] = useState(0);
+    const [collapsePx, setCollapsePx] = useState(skip ? window.innerHeight : 0);
     const carouselRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -100,13 +102,11 @@ export default function Lander({
             carousel.removeEventListener("wheel", pause);
             carousel.removeEventListener("wheel", resume);
         };
-       
-      }, []);
+    }, []);
 
     const handleLanderClick = () => {
         setCollapsePx(window.innerHeight);
     };
-
 
     const { currColor } = useSelectionContext();
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { ItemType, colors } from "@/types";
 import { Table } from "@/components/table";
@@ -9,8 +9,8 @@ import { useSelectionContext } from "@/contexts/selectionContext";
 import Lander from "@/components/lander";
 import Link from "next/link";
 import ReactLenis from "lenis/react";
-import ImageGrid from "./imagegrid";
-import ItemPage from "./itempage";
+import ImageGrid from "@/components/imagegrid";
+import ItemPage from "@/components/itempage";
 
 const ORDER = ["CV", "Education", "Music", "Writing", "Links", "Appendix"];
 
@@ -38,6 +38,14 @@ export default function Main({ data }: { data: ItemType[] }) {
 
     const activeItem = itemName ? itemsByName[itemName] ?? null : null;
 
+    const [renderedItem, setRenderedItem] = useState<ItemType | null>(activeItem);
+
+    useEffect(() => {
+        if (activeItem) {
+            setRenderedItem(activeItem);
+        }
+    }, [activeItem]);
+
     // Direct URL loads (including refresh on an item page) shouldn't animate.
     // Client-side param changes (clicking an item, hitting Home, browser back) should.
     const skipAnimation = useRef(true);
@@ -64,11 +72,16 @@ export default function Main({ data }: { data: ItemType[] }) {
                     duration: skipAnimation.current ? 0 : 0.8,
                     ease: [0.76, 0, 0.24, 1],
                 }}
+                onAnimationComplete={() => {
+                    if (!activeItem) {
+                        setRenderedItem(null);
+                    }
+                }}
                 style={{ backgroundColor: currColor }}
             >
                 <div className="main-panel">
                     <ReactLenis root={false} className="home-scroll" options={{ lerp: 0.5 }}>
-                        <Lander srcs={images.map(item => item.src?.[0]) as string[]}>
+                        <Lander srcs={images.map(item => item.src?.[0]) as string[]} skip={activeItem != null}>
                             <div className="home-page">
                                 <div className="header">
                                     <b>Tom Maher</b> is a freelance web developer and sound artist based in
@@ -115,7 +128,7 @@ export default function Main({ data }: { data: ItemType[] }) {
                 </div>
 
                 <div className="main-panel">
-                    {activeItem && <ItemPage item={activeItem} onHome={goHome} />}
+                    {renderedItem && <ItemPage item={renderedItem} onHome={goHome} />}
                 </div>
             </motion.div>
         </div>

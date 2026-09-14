@@ -1,7 +1,7 @@
 "use client";
 import { useSelectionContext } from "@/contexts/selectionContext";
 import { useLenis } from "lenis/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const STAGGER_MS = 60;
 
@@ -32,7 +32,7 @@ function MosaicImage({
                     observer.unobserve(el);
                 }
             },
-            { threshold: 0.15 }
+            { threshold: 0.05 }
         );
 
         observer.observe(el);
@@ -76,12 +76,13 @@ export default function Displayer({
     srcs: string[];
     type: string;
 }) {
+    const filteredSrcs: string[] = useMemo(() => srcs.filter(s => !s.includes('iframe')), srcs);
     const { currImage, setImage, currColor } = useSelectionContext();
     const touchStartX = useRef<number | null>(null);
     const scrollRef = useRef<HTMLDivElement>(null);
     const lenis = useLenis();
 
-    const isCarousel = !!srcs && srcs.length > 0 && currImage !== '' && srcs.includes(currImage);
+    const isCarousel = !!filteredSrcs && filteredSrcs.length > 0 && currImage !== '' && filteredSrcs.includes(currImage);
 
     useEffect(() => {
         if (!isCarousel) return;
@@ -103,16 +104,16 @@ export default function Displayer({
     }, [isCarousel, lenis]);
 
     const nav = (dir: string) => {
-        const currentIndex = srcs.indexOf(currImage);
+        const currentIndex = filteredSrcs.indexOf(currImage);
         const nextIndex = dir === "prev"
-            ? (currentIndex - 1 + srcs.length) % srcs.length
-            : (currentIndex + 1) % srcs.length;
-        setImage(srcs[nextIndex]);
+            ? (currentIndex - 1 + filteredSrcs.length) % filteredSrcs.length
+            : (currentIndex + 1) % filteredSrcs.length;
+        setImage(filteredSrcs[nextIndex]);
     };
 
     useEffect(() => {
         const keyDown = (e: KeyboardEvent) => {
-            if (!srcs.includes(currImage)) return;
+            if (!filteredSrcs.includes(currImage)) return;
             if (e.key === 'Escape') setImage('');
             if (e.key === 'ArrowLeft') nav('prev');
             if (e.key === 'ArrowRight') nav('next');
@@ -120,7 +121,7 @@ export default function Displayer({
 
         window.addEventListener('keydown', keyDown);
         return () => window.removeEventListener('keydown', keyDown);
-    }, [currImage, srcs]);
+    }, [currImage, filteredSrcs]);
 
     const handleTouchStart = (e: React.TouchEvent) => {
         touchStartX.current = e.touches[0].clientX;
@@ -136,7 +137,7 @@ export default function Displayer({
         nav(deltaX > 0 ? 'prev' : 'next');
     };
 
-    if (!srcs || srcs.length === 0) return null;
+    if (!filteredSrcs || filteredSrcs.length === 0) return null;
 
     return (
         <div
@@ -149,12 +150,12 @@ export default function Displayer({
             onTouchEnd={isCarousel ? handleTouchEnd : undefined}
             ref={scrollRef}
         >
-            {isCarousel ? 
-            (<MosaicImage src={currImage} alt={type} index={0} type={type} />)
-            : [0, 1, 2].map((col) => (
+            
+            {isCarousel && <MosaicImage src={currImage} alt={type} index={1} type={type} />}
+            {[0, 1, 2].map((col) => (
                 <div className="mosaic-col" key={col}>
-                    {srcs.map((src, i) => {
-                        if (i % 3 !== col) return null;
+                    {filteredSrcs.map((src, i) => {
+                        if (i % 3 !== col || src.includes('iframe')) return null;
                         return (
                             <MosaicImage key={`${src}-${i}`} src={src} alt={type} index={i} type={type} />
                         );

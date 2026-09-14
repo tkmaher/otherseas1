@@ -25,7 +25,7 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
     
     const driftSign = useRef<number>(Math.random() < 0.5 ? 1 : -1);
     
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: any) => {
       setIsDragging(true);
       dragMode.current = e.shiftKey ? 'pan' : 'rotate';
       dragStart.current = { x: e.clientX, y: e.clientY };
@@ -86,6 +86,12 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
 
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const alterZoom = (i: number) => {
+      const next = Math.min(Math.max(currentZoom.current - i, -5000), 1200);
+      currentZoom.current = next;
+      setZoom(next);
+    }
+
     useEffect(() => {
         const el = containerRef.current;
         if (!el) return;
@@ -131,6 +137,7 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
       <div
         className='grid-parent'
         style={{
+          pointerEvents: 'none',
           transform: `translate3d(${pan.x}px, ${pan.y}px, ${zoom}px) rotateX(${rotation.x}deg) rotateZ(${rotation.z}deg)`,
         }}
       >
@@ -139,22 +146,25 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
           const billboardTransform =
             `rotateZ(${-rotation.z}deg) rotateX(${-rotation.x}deg)`;
 
+          const correctDate = url.date.slice(0, -2);
+
           return (
-            url.src && <div
+            (url.src && url.category == "CV") && <div
               key={index}
               style={{
                 transform: billboardTransform,  
-                opacity: (currHover == url.title) ? '0.5' : 1         
+                opacity: (currHover == url.title) ? '0.5' : 1,
+                pointerEvents: "none"      
               }}
               
             >
               <img
-                src={url.src[0]}
+                src={url.src[0].includes('iframe') ? url.src[1] : url.src[0]}
                 alt={`Grid Item ${index + 1}`}
                 className='item-billboard'
                 onMouseEnter={() => {
                   setCurrHover(url.title);
-                  setTooltipText(`${url.title} | ${url.date}`)
+                  setTooltipText(`${url.title} ${url.date && '| ' + correctDate}`)
                 }}
                 onMouseLeave={() => {
                   setCurrHover('');
@@ -167,7 +177,7 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
         })}
       <div
           style={{
-              fontSize: '12px',
+              fontSize: '30px',
               transform: `rotateZ(${-rotation.z}deg) rotateX(${-rotation.x}deg)`,
               height: 'fit-content',
               pointerEvents: 'none'
@@ -179,9 +189,14 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
                 <br/>
                 panX:{pan.x}panY:{pan.y}
                 <br/>
-                zoom:{zoom / 100}
+                zoom:{((zoom / 100) + 20).toFixed(2)}
             </div>
         </div>
+      </div>
+      <div className='plus-minus'>
+        <a onClick={() => alterZoom(-1000)}>+</a>
+        {` / `}
+        <a onClick={() => alterZoom(1000)}>-</a>
       </div>
     </div>
   );
