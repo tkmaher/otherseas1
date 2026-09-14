@@ -69,18 +69,18 @@ export default function PortfolioMain({ items, current }: { items: PortfolioItem
                             </div>
                             
                         </div>
-                        <div className="footer">
-                            {colors.map((val, index) =>
-                                <a
-                                    className="color-block"
-                                    style={{ backgroundColor: val }}
-                                    key={index}
-                                    onClick={() => setCurrColor(val)}
-                                />
-                                )}
-                        </div>
                     </ReactLenis>
                 </div>
+            </div>
+            <div className="footer">
+                {colors.map((val, index) =>
+                    <a
+                        className="color-block"
+                        style={{ backgroundColor: val }}
+                        key={index}
+                        onClick={() => setCurrColor(val)}
+                    />
+                    )}
             </div>
 
             {currImage != '' && <PortfolioCarousel

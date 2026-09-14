@@ -16,10 +16,11 @@ function ItempageIframe({src, mobile}: {src: string, mobile: boolean}) {
     };
     return (
         <div style={{display: 'flex', alignItems: "center"}}>
-            <iframe src={src} onLoad={() => setIsLoaded(true)} style={style}/>
-            {!isLoaded && <div style={{width: '100%'}}>
-                Loading...
-            </div>}
+            
+            {!isLoaded ? <div style={{width: '100%', height: '75vh'}}> 
+                loading...
+            </div>
+            : <iframe src={src} onLoad={() => setIsLoaded(true)} style={style}/>}
         </div>
     )
 }
