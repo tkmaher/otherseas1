@@ -46,7 +46,7 @@ export default function Lander({
     skip: boolean;
     children?: React.ReactNode;
 }) {
-    const [collapsePx, setCollapsePx] = useState(skip ? window.innerHeight : 0);
+    const [collapsePx, setCollapsePx] = useState(skip ? 100 : 0);
     const carouselRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -105,14 +105,14 @@ export default function Lander({
     }, []);
 
     const handleLanderClick = () => {
-        setCollapsePx(window.innerHeight);
+        setCollapsePx(100);
     };
 
     const { currColor } = useSelectionContext();
 
     const landerStyle: React.CSSProperties = {
         transformOrigin: "top",
-        translate: `0 -${collapsePx}px`,
+        translate: `0 -${collapsePx}dvh`,
         backgroundColor: currColor,
         transition: 'translate 1s cubic-bezier(0.76, 0, 0.24, 1)'
     };

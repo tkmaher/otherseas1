@@ -61,6 +61,7 @@
         "date": "",
         "color": "",
         "src": [
+            "<iframe src='archipelago_casanova/index.html'/>",
             "https://img.itch.zone/aW1nLzM5MjIwNjYuZ2lm/original/QHKXOy.gif",
             "https://d2w9rnfcy7mm78.cloudfront.net/29416565/original_a397037211b53d4c9fe0d67e087895a4.gif?1721010499?bc=0",
             "https://img.itch.zone/aW1nLzM1NzIzNTMuZ2lm/original/7iEDUZ.gif"
@@ -178,6 +179,7 @@
         
         "color": "",
         "src": [
+            "<iframe style='border: 0; width: 500px; height: 620px;' src='https://bandcamp.com/EmbeddedPlayer/album=2774788724/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/transparent=true/' seamless><a href='https://view3.bandcamp.com/album/paper'>Paper by View 3</a></iframe>",
             "https://d2w9rnfcy7mm78.cloudfront.net/47053288/original_ad1ca6d1bf8ef29429eaab6bae167832.jpeg?1781549393?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/45549582/original_3141be5d68796c5670b55ac8148f4aa2.jpeg?1776986042?bc=0",
             "https://d2w9rnfcy7mm78.cloudfront.net/47053262/original_0f389b36b6c805d89ee1065357bac983.jpeg?1781549356?bc=0"
@@ -194,6 +196,7 @@
         
         "color": "",
         "src": [
+            "<iframe style='border: 0; width: 500px; height: 620px;' src='https://bandcamp.com/EmbeddedPlayer/album=2642355146/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/album/goodbye-seas'>Goodbye Seas by otherseas</a></iframe>",
             "https://f4.bcbits.com/img/a4080945538_10.jpg",
             "https://f4.bcbits.com/img/0041485542_10.jpg",
             "https://d2w9rnfcy7mm78.cloudfront.net/45549581/original_877ddb4ca97b9f31f9f1530b59c45b39.jpeg?1776986042?bc=0"
@@ -210,7 +213,7 @@
         
         "color": "",
         "src": [
-            "<iframe style='border: 0; width: 350px; height: 350px;' src='https://bandcamp.com/EmbeddedPlayer/album=1057144630/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/album/travel'>Travel by otherseas</a></iframe>"
+            "<iframe style='border: 0; width: 500px; height: 592px;' src='https://bandcamp.com/EmbeddedPlayer/track=1291105860/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/transparent=true/' seamless><a href='https://otherseas.bandcamp.com/track/folded-mirrors'>Folded Mirrors by otherseas</a></iframe>"
         ],
         "link": "https://otherseas.bandcamp.com/album/travel",
         "tags": [ "Sound" ],
