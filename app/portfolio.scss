@@ -89,6 +89,15 @@
   .portfolio-sidebar-links {
     display: flex;
     gap: 0.5em;
+    @media (hover: hover) {
+      a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .visit-link {
@@ -562,11 +571,10 @@
   padding-top: 5em;
   overflow-x: auto;
   .title {
-    font-size: 1.5em;
-    text-align: center;
+    text-align: left;
     padding: 0.4em;
     & > :nth-last-child(1) {
-      font-size: 0.6em;
+      font-size: 0.8em;
       font-style: italic;
       opacity: 0.8;
     }
@@ -574,18 +582,18 @@
 }
 
 .portfolio-mainpage-image {
-  height: 60dvh !important;
-  max-height: 60dvh !important;
+  height: 40vh !important;
+  max-height: 40vh !important;
   cursor: pointer !important;
   align-self: flex-start;
 }
 
 .portfolio-mainpage-row {
   display: flex;
+  width: fit-content;
   flex-direction: column;
-  align-items: center;
   text-decoration: none !important;
-  padding-bottom: 5em;
+  padding-bottom: 2em;
   font-size: 1.2em;
   .portfolio-mainpage-image {
     pointer-events: none;

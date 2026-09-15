@@ -86,7 +86,6 @@ export default function PortfolioSidebar({
     expandIframe?: () => void,
     current?: number,
 }) {
-    const path = usePathname();
     return (
         <div className="portfolio-sidebar">
 
@@ -116,8 +115,7 @@ export default function PortfolioSidebar({
                     </div>
                 ))}
                 <div className="portfolio-sidebar-links">
-                    <Link style={{textDecoration: path.split('/').length > 2 ? 'underline' : 'none'
-                    }} href="/case-studies">Case studies{', '} </Link>
+                    <Link href="/case-studies">Case studies{', '} </Link>
                     <Link href="/">Home{link && title && ', '} </Link>
                     {expandIframe != null && 
                         <span className="preview">
