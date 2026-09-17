@@ -43,6 +43,19 @@
         "description": "arena flow is an infinite canvas extension for the content aggregation website <a href='https://are.na' target='_blank'>are.na</a>.<br/><br/><a href='/case-studies/arena-flow'>Case Study</a>"
     },
     {
+        "title": "fonts index",
+        "date": "202609",
+        "color": "",
+        "src": [
+            "https://d2w9rnfcy7mm78.cloudfront.net/50521372/original_305fa0c9ed0544a6bc26e6e6f0153f4e.png?1789657551?bc=0",
+            "https://d2w9rnfcy7mm78.cloudfront.net/50521374/original_93fc866ea4c0eed69d852e5f93c3129e.png?1789657555?bc=0"
+        ],            
+        "link": "https://tkmaher.github.io/fonts-index/",
+        "tags": [ "Web", "Programming" ],
+        "category": "CV",
+        "description": "fonts index represents an effort to catalogue the fonts used by the world's most visited websites. fonts index has scraped 3202 fonts across 7896 sites."
+    },
+    {
         "title": "Siris",
         "date": "202509",
         "color": "",
