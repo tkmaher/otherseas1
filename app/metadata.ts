@@ -7,7 +7,7 @@ export const staticMetadata: Metadata = {
       template: 'Tom Maher | %s',
       default: 'Tom Maher', 
     },
-    description: "otherseas1.com is the website of developer Tom Maher.",
+    description: "otherseas1.com",
     keywords: ["media", "web design", "sound", "music", "portfolio"],
     robots: {
       index: true,
