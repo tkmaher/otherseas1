@@ -4,11 +4,10 @@ import { ReactLenis } from 'lenis/react';
 
 import "./globals.scss";
 import ContextSpoofer from "@/contexts/contextSpoofer";
+import { staticMetadata } from "./metadata";
 
-export const metadata: Metadata = {
-  title: "Tom Maher",
-  description: "The web design portfolio of Tom Maher.",
-};
+export const metadata: Metadata = staticMetadata;
+
 
 const host_grotesk = Host_Grotesk({
   subsets: ['latin'],
