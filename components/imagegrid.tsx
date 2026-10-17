@@ -11,7 +11,7 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
     const [rotation, setRotation] = useState({ x: 45, z: 90 });
     const [pan, setPan] = useState({ x: 100, y: -100 });
     const [isDragging, setIsDragging] = useState(false);
-    const [zoom, setZoom] = useState(-2500);
+    const [zoom, setZoom] = useState(-3000);
 
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [tooltipText, setTooltipText] = useState<null | string>(null);
@@ -20,7 +20,7 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
     const dragStartRotation = useRef({ x: 0, z: -180 }); 
     const currentRotation = useRef({ x: 45, z: 90 });
     const currentPan = useRef({ x: 100, y: -100 });
-    const currentZoom = useRef(-2500);
+    const currentZoom = useRef(-3000);
     const dragMode = useRef<'rotate' | 'pan'>('rotate');
     
     const driftSign = useRef<number>(Math.random() < 0.5 ? 1 : -1);
@@ -189,7 +189,7 @@ export default function ImageGrid({ srcs, onSelectItem }: { srcs: ItemType[], on
                 <br/>
                 panX:{pan.x}panY:{pan.y}
                 <br/>
-                zoom:{((zoom / 100) + 20).toFixed(2)}
+                zoom:{((zoom / 100) - 20).toFixed(2)}
             </div>
         </div>
       </div>
