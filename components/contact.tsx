@@ -4,11 +4,13 @@ import { useActionState } from "react";
 export default function ContactForm() {
     const [state, formAction, isPending] = useActionState(
         async (prevState: any, formData: FormData) => {
-          return await sendEmail(formData);
+            const res = await sendEmail(formData);
+            // alert(res.success ? "Message sent successfully!" : `Error: ${res.error}`);
+            return res.success ? { ...prevState, messageSent: true } : { ...prevState, messageSent: false };
         },
         null
     );
-    
+
     return (
         <form className="contact-form" action={formAction}>
             <input type="text" name="name" id="name" required placeholder="name"/>

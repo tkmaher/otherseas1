@@ -10,12 +10,14 @@ export async function sendEmail(formData: FormData) {
 
   // Basic server-side validation
   if (!name || !email || !message) {
+    // console.error('Validation failed: Missing fields', { name, email, message });
     return { success: false, error: 'All fields are required.' };
   }
 
   try {
+    console.log('Received form data:', { name, email, message });
     const { data, error } = await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>', 
+      from: 'Contact Form <os@otherseas1.com>', 
       to: 'os@otherseas1.com',        
       subject: `New Message from ${name}`,
       html: `
@@ -31,6 +33,7 @@ export async function sendEmail(formData: FormData) {
 
     return { success: true };
   } catch (err) {
+    console.error('Error sending email:', err);
     return { success: false, error: 'Failed to send email.' };
   }
 }
