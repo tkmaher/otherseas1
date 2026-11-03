@@ -556,6 +556,38 @@ input[type="checkbox"] {
   justify-content: center;
 }
 
+/* ── Contact ────────────────────────────────────────────────── */
+
+.contact-form {
+  padding-top: 0.2em;
+  display: flex;
+  flex-direction: row;
+  input, textarea, button {
+    margin-right: 0.2em;
+    border-radius: 0px;
+    border: none;
+    height: 1.2em;
+
+    font-family: serif;
+    padding: 0 0.2em;
+  }
+  @media (hover: hover) {
+    button:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  @media (hover: active) {
+    button:active {
+      opacity: 0.5;
+    }
+  }
+  textarea {
+    resize: none;
+    width: 10em;
+  }
+}
+
 /* ── Mobile ────────────────────────────────────────────────── */
 
 

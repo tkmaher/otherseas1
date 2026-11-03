@@ -11,6 +11,7 @@ import Link from "next/link";
 import ReactLenis from "lenis/react";
 import ImageGrid from "@/components/imagegrid";
 import ItemPage from "@/components/itempage";
+import ContactForm from "./contact";
 
 const ORDER = ["CV", "Education", "Music", "Writing", "Links", "Appendix"];
 
@@ -39,6 +40,7 @@ export default function Main({ data }: { data: ItemType[] }) {
     const activeItem = itemName ? itemsByName[itemName] ?? null : null;
 
     const [renderedItem, setRenderedItem] = useState<ItemType | null>(activeItem);
+    const [showContactForm, setShowContactForm] = useState(false);
 
     useEffect(() => {
         if (activeItem) {
@@ -87,7 +89,9 @@ export default function Main({ data }: { data: ItemType[] }) {
                                     Chicago, Illinois. His research concerns history, noise, and signification.
                                     He operates the web development studio{" "}
                                     <a href="https://health-and-recreation.com" target="_blank">Health+Recreation</a>.{" "}
-                                    <Link href="/case-studies">Case studies</Link>
+                                    <Link href="/case-studies">Case studies</Link>,{" "}
+                                    <a onClick={() => setShowContactForm(!showContactForm)} style={{cursor: 'pointer'}}>Contact</a>
+                                    {showContactForm && <ContactForm/>}
                                 </div>
                                 <div className="body-splitter">
                                     <div className="content-left">
